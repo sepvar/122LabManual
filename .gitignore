@@ -1,32 +1,18 @@
-# Prerequisites
-*.d
-
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
+# Ignore the HTML files; they will be created from the XML source.
+*.html
+# Ignore the spring-lab-manual files as output from XML
+spring-lab-manual.aux
+spring-lab-manual.bbl
+spring-lab-manual.blg
+spring-lab-manual.html
+spring-lab-manual.log
+spring-lab-manual.out
+spring-lab-manual.pdf
+spring-lab-manual.synctex
+spring-lab-manual.synctex(busy)
+spring-lab-manual.tex
+spring-lab-manual.toc
+# Ignore the PASCO lesson files as they are for CAPSTONE
+PASCO-lesson.pdf
+PASCO-lesson.pptx
+# Ignore creation of modified file
