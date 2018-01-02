@@ -7,7 +7,6 @@ spring-lab-manual.blg
 spring-lab-manual.html
 spring-lab-manual.log
 spring-lab-manual.out
-spring-lab-manual.pdf
 spring-lab-manual.synctex
 spring-lab-manual.synctex(busy)
 spring-lab-manual.tex
@@ -16,3 +15,8 @@ spring-lab-manual.toc
 PASCO-lesson.pdf
 PASCO-lesson.pptx
 # Ignore creation of modified file
+122-Lab-Manual*
+*_big.pdf
+Manual122*prj*
+# Ignore non-specified scripts
+scripts/*

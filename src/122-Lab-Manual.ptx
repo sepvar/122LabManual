@@ -1,0 +1,2360 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- USE XINCLUDE SWITCH ON XSLTPROC -->
+
+<!-- Use XSL stylesheets to create subsets          -->
+<!--    Important: Always process all of the source -->
+<!--    to preserve numbering and cross-references! -->
+<!--    So it is never advisable to edit this file  -->
+
+<!-- Note the use of the "xinclude" namespace in order to use multiple files -->
+<!-- Each included file must contain exactly one top-level element: such as a chapter or section -->
+
+<mathbook xmlns:xi="http://www.w3.org/2001/XInclude" xml:lang="en-US">
+
+<!-- ********************************************************************************************** -->
+<!--
+    <xi:include href="../src/docinfo122.ptx" />
+-->
+    <!-- macros, scripts, included files, renamed elements -->
+    <docinfo>
+
+        <brandlogo url="http://physics.thomasmore.edu/labs/122/spring-lab-manual.html" source="images/i-caliper-small.jpg" />
+
+	<macros>
+        \newcommand{\JC}[1]{}
+        \newcommand{\unit}[1]{\,{\rm #1}}
+        \newcommand{\unitfrac}[2]{\mbox{$\phantom{1\!}^{{\rm #1}\!\!}/_{\!\!{\rm #2}}$}}
+        \newcommand{\txtfrac}[2]{\phantom{1\!}^{#1\!\!}/_{\!\!#2}}
+        \newcommand{\sig}[3]{\underline{#1}{#2}\unit{#3}}
+        \newcommand{\sigfrac}[4]{\underline{#1}{#2}\unitfrac{#3}{#4}}
+        \newcommand{\ten}[1]{\times 10^{#1}}
+
+        \newcommand{\deq}{\displaystyle}
+
+
+<!-- specific Heat -->
+\newcommand{\relunc}[1]{\displaystyle \frac{\delta #1}{#1}}
+<!--  NO ANSWER -->
+\newcommand{\ans}[2]{#2}
+<!--  PRINT ANSWER -->
+<!-- \newcommand{\ans}[2]{{\color{blue}{#1}}} -->
+
+<!-- Ohm's Law -->
+\newcommand{\txtcirc}{\setlength{\unitlength}{.5cm}
+\begin{picture}(.4,.5)
+\put(.2,.2){\circle{.4}}
+\end{picture}}
+\newcommand{\txtgalv}[1]{\setlength{\unitlength}{.5cm}
+\begin{picture}(1,1)
+\put(0,0){#1}
+\put(.3,.2){\circle{1}}
+\end{picture}}
+
+
+        \setlength{\evensidemargin}{0in}
+        \setlength{\oddsidemargin}{-.15in}
+        \setlength{\textwidth}{6.6in}
+        \setlength{\marginparwidth}{.6in}
+        \setlength{\marginparsep}{.15in}
+
+        \setlength{\topmargin}{-0.75in}
+        \setlength{\headheight}{0.1in}
+        \setlength{\headsep}{0.25in}
+        \setlength{\textheight}{9.2in}
+        \setlength{\footskip}{0.5in}
+
+% must fix by hand/sed for LaTeX Mathbook sets it to 1, if you change mathbook-common to 0, then it removes the TOC. -->
+        \setcounter{tocdepth}{1}
+
+        </macros>
+
+
+        <latex-image-preamble>
+        \usepackage{color}
+        \usepackage{graphicx}
+        \usepackage{cancel}
+        </latex-image-preamble>
+
+<!--
+                <package>html</package>
+                <package>color</package>
+                <package>graphicx</package>
+                <package>xpicture</package>
+                <package>xcolor</package>
+                <package>coordsys</package>
+                <package>hmwk</package>
+        -->
+
+        <latex-preamble>
+                <package>cancel</package>
+        </latex-preamble>
+
+
+        <cross-references text="global" />
+
+        <rename element="chapter" lang="en-US">Lab</rename>
+        <rename element="objectives" lang="en-US">Experimental Objectives</rename>
+
+    </docinfo>
+<!-- ********************************************************************************************** -->
+
+    <book xml:id="spring-lab-manual" xmlns:xi="http://physics.thomasmore.edu/labs/122/">
+        <title>PHY 122 Lab Manual</title>
+        <subtitle>Thomas More College, Algebra-based Introductory Physics</subtitle>
+
+<!-- ********************************************************************************************** -->
+
+<!-- ********************************************************************************************** -->
+<!--
+    <xi:include href="../src/frontmatter122.ptx" />
+-->
+    <!-- titlepage, colophon (license), acknowledgements, preface -->
+<frontmatter xml:id="index"> <!-- xmlns:xi="http://www.w3.org/2001/XInclude" -->
+
+    <titlepage xml:id="elements-spring-title">
+
+        <author>
+            <personname>Joe Christensen</personname>
+            <department>Department of Physics and Mathematics</department>
+            <institution>Thomas More College</institution>
+            <email>ChristJ@ThomasMore.edu</email>
+        </author>
+        <author>
+            <personname>Jack Wells</personname>
+            <department>Department of Physics and Mathematics</department>
+            <institution>Thomas More College</institution>
+            <email>WellsJ@ThomasMore.edu</email>
+        </author>
+        <author>
+            <personname>Wes Ryle</personname>
+            <department>Department of Physics and Mathematics</department>
+            <institution>Thomas More College</institution>
+            <email>RyleW@ThomasMore.edu</email>
+        </author>
+
+        <date>Latest update: <today /></date>
+
+    </titlepage>
+
+    <colophon xml:id="elements-spring-colophon">
+
+        <edition>Annual Edition 2017-2018</edition>
+
+        <website>
+            <name><c>TMC Physics</c></name>
+            <address>http://www.thomasmore.edu/physics/</address>
+        </website>
+
+        <copyright>
+            <year>2017<ndash />2018</year>
+            <holder>J. Christensen, J. Wells, W. Ryle</holder>
+            <shortlicense>
+                <!-- Keep all of this on a single line to ignore the known tag abuse 1 --> <p><url rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><image alt="Creative Commons License" style="border-width:0" source="images/creativecommons-by-sa-4-0-88x31.png" width="15%" /></url>  <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">PHY122 Lab Manual: Thomas More College</span> by <url xmlns:cc="http://creativecommons.org/ns#" href="http://www.thomasmore.edu/physics/faculty.cfm" property="cc:attributionName" rel="cc:attributionURL">Joe Christensen, Jack Wells, and Wes Ryle</url> is licensed under a <url rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</url>.</p> <p>Permissions beyond the scope of this license may be available by contacting one of the authors listed at <url xmlns:cc="http://creativecommons.org/ns#" href="http://www.thomasmore.edu/physics/faculty.cfm" rel="cc:morePermissions">http://www.thomasmore.edu/physics/faculty.cfm</url>.</p>
+            </shortlicense>
+        </copyright>
+
+    </colophon>
+
+    <!-- A section of its own in HTML, migrates to copyright-page in LaTeX -->
+    <!-- Titles are optional, presumably none for single author,           -->
+    <!-- or for every author, even if we test a mix here                   -->
+    <biography xml:id="elements-spring-bio">
+    <!-- I've done this as a single section, but we can have a biography for each person -->
+        <title>About the Authors</title>
+
+        <sidebyside>
+            <tabular>
+            <col width="1%" />
+            <col width="90%" />
+                <row><cell colspan="2">Joe Christensen: </cell></row>
+                <row><cell />
+                    <cell><line>B.S. Mathematics and Physics, Bradley University, IL (1990)</line>
+                          <line>Ph.D. Physics, University of Kentucky, KY (1997)</line>
+                          <line>first came to Thomas More College in 2007</line></cell></row>
+                <row><cell /><cell /></row>
+                <row><cell colspan="2">Wes Ryle: </cell></row>
+                <row><cell />
+                    <cell><line>B.S. Mathematics and Physics, Western Kentucky University, KY (2003)</line>
+                          <line>M.S. Physics, Georgia State University, GA (2006)</line>
+                          <line>Ph.D. Astronomy, Georgia State University, GA (2008)</line>
+                          <line>first came to Thomas More College in 2008</line></cell></row>
+                <row><cell /><cell /></row>
+                <row><cell colspan="2">Jack Wells: </cell></row>
+                <row><cell />
+                    <cell><line>B.S. Physics, State University of New York at Oneonta, Oneonta, NY (1975) </line>
+                          <line>M.S. Physics, University of Toledo, Toledo, OH (1978)</line>
+                          <line>first came to Thomas More College in 1980</line></cell></row>
+            </tabular>
+        </sidebyside>
+
+    </biography>
+
+
+    <!-- The following items must be placed in the desired/required order -->
+    <!-- This will be checked by a Document Type Definition eventually -->
+    <!-- Order: dedication, acknowledgements, forewords, prefaces -->
+
+    <!-- Each paragraph gets centered and has some vertical separatation -->
+    <!-- A line element may be used here with a single paragraph   -->
+<!--
+    <dedication xml:id="elements-spring-dedication">
+        <p>
+            <line>To students of physics everywhere</line>
+            <line>they are the reason</line>
+        </p>
+        <p>And to those who teach them</p>
+    </dedication>
+-->
+
+    <acknowledgement xml:id="elements-spring-ack">
+
+        <p>We would like to acknowledge the following reviewers and users for their helpful comments and suggestions.
+        <ul>
+            <li><p>Tom Neal, Physics Adjunct</p></li>
+            <li><p>Dr. Jeremy Huber, Physics Sabbatical Replacement</p></li>
+        </ul></p>
+
+        <p>I would also like to thank Robert A. Beezer and David Farmer for their hard work and guidance with the MathBookXML / <pretext /> format.</p>
+
+    </acknowledgement>
+
+    <preface xml:id="elements-spring-preface">
+
+        <p>This text is intended for a one or two-semester undergraduate course in introductory algebra-based physics.
+        </p>
+
+    </preface>
+
+    <preface xml:id="elements-spring-PDF"><title>Download the PDF here</title>
+    <p>A full PDF version of this document can be found at <url href="http://physics.thomasmore.edu/labs/122/spring-lab-manual.pdf">spring-lab-manual.pdf (638 kB)</url>.</p>
+    </preface>
+
+</frontmatter>
+<!-- ********************************************************************************************** -->
+
+
+<chapter xml:id="c-skills"><title>Review the Skills of PHY 121 Lab</title>
+
+<p>In this lab, you will be provided a worksheet of some straightforward exercises that require you to use the following skills that you should have learned in the first term (PHY 121).
+<ul>
+	<li><p> measurement uncertainty </p></li>
+	<li><p> propagation of uncertainty </p></li>
+	<li><p> accuracy versus precision </p></li>
+	<li><p> <percent />-error and <percent />-difference </p></li>
+	<li><p> Using DataStudio and the Capstone software </p></li>
+	<li><p> Tabulate data in excel </p></li>
+	<li><p> Graph data in excel </p></li>
+	<li><p> Linear Regression </p></li>
+	<li><p> How to write a Lab Report </p></li>
+</ul>
+The point of this to provide you with an opportunity to ask questions and develop any skills you may have lost track of between then and now.
+</p>
+
+</chapter>
+
+<!-- ********************************************************************************************** -->
+<!-- ********************************************************************************************** -->
+<!--
+    <xi:include href="../src/c-Archimedes.ptx" />
+-->
+<!-- ********************************************************************************************** -->
+<!-- ********************************************************************************************** -->
+
+<chapter xml:id="c-Archimedes"><title>Archimedes' Principle</title>
+
+<objectives>
+<ul><li><p>After verifying some properties of the buoyant force using Archimedes' principle, each group will predict the maximum amount of cargo (the number of pennies) that a ship (glass beaker) will hold without sinking.</p></li></ul>
+</objectives>
+
+<introduction>
+
+<p>Archimedes was a Greek scientist who lived from 287-212 BCE.  As the story goes, the king thought that his crown was not pure gold and asked Archimedes to determine if this was true.   Archimedes had previously observed that a totally submerged object displaces a volume of fluid which is equal to the volume of the object, and deduced what is now called Archimedes' principle: that the buoyant force on the submerged object is equal to the weight of the displaced fluid.
+Knowing the weight and density of gold, Archimedes measured the weight of the crown and the weight and volume of the water displaced by the crown, enabling him to determine that the crown was not pure gold.</p>
+
+<p>As any swimmer who has had their head more than about 8 feet deep can tell you, the pressure exerted on the diver by the water increases as the diver swims deeper into the water.  We can express this as: the pressure within a fluid is dependent on the depth at which the object sits <m>(h)</m>, the gravitational acceleration of the earth <m>(g)</m>, and the density of the fluid <m>(\rho_f)</m>: <m>P=\rho_f gh</m>.  Because of this, the bottom surface of any object in a fluid will have more pressure on it than the top surface.  This <m>\Delta P</m> gives rise to a net upward force acting on the submerged object: the buoyant force <m>(F_B)</m>.  The magnitude of the upward force depends on the density of the fluid and the size of the object: <m>F_B=\rho_f g V_o</m>, where <m>V_o</m> is <em>the submerged portion</em> of the volume of the object.  A partially submerged object has a smaller buoyant force than a completely submerged object.  Interestingly, unless the fluid density depends on the depth of the fluid, the <m>F_B</m> is independent of the depth of the object.</p>
+
+<p>Knowing the buoyant force will help you determine if an object will float or sink.  To determine whether an object will sink or float one should use Newton's second law to determine the direction of the net force.  Assuming the simplest case of a submerged object feeling only its weight <m>(F_g=m_og = \rho_o g V_o)</m> and the buoyant force <m>(F_B=\rho_f g V_o)</m>, if the weight of the object is greater than <m>F_B</m> then the net force on the object is down and it will sink.  If <m>F_B</m> is larger than the weight then the net force on the object is up and then it will accelerate up.  However, when an object is floating, it is in equilibrium and the object's weight is equal to <m>F_B</m>, which depends on the submerged volume.  While floating, not all of the object is submerged.</p>
+
+</introduction>
+
+<section><title>Pre-Lab Work</title>
+
+<p><ul>
+	<li><p> Using the definitions of force as pressure times area, <m>F=PA</m>, and pressure, <m>P=\rho_f g h</m>, derive the equations for the buoyant force <m>F_B=\rho_fgV_o</m> (if totally submerged) and for the object's weight <m>F_g=\rho_o gV_o</m>, where <m>\rho_o</m>  is the object's density. </p></li>
+	<li><p> Show that although the pressure on an object does depend on depth within the fluid, the <m>\Delta P = P_\text{bottom}-P_{\rm top}</m> (and therefore <m>F_B</m>) is independent of the depth within the fluid. </p></li>
+	<li><p> Draw a force diagram for a completely submerged object:
+    <dl>
+	<li><title>case 1</title><p> object's density is greater than that of the fluid's, </p></li>
+	<li><title>case 2</title><p> object's density is less than that of the fluid's. </p></li>
+</dl> </p></li>
+	<li><p> Using Newton's Second Law show that the object in case 1 will sink, and  that the object in case 2  will accelerate up. </p></li>
+	<li><p> Draw a force diagram for a partially submerged object which is floating. </p></li>
+	<li><p> Using Newton's Second Law show that if an object has a density <m>\rho_o=.5\rho_f</m>  that only 0.5 of the object's volume is submerged. </p></li>
+	<li><p> Look up the density of water. </p></li>
+</ul>
+</p>
+
+</section>
+
+<section><title>Procedure</title>
+
+<subsection><title>Develop Your Understanding</title>
+
+<p><ul>
+	<li><p> Select an object for which you can easily measure the volume using a caliper. </p></li>
+	<li><p> Measure the dimensions and calculate the volume. </p></li>
+	<li><p> Measure the mass using the triple beam balance at your table. </p></li>
+	<li><p> Calculate the density with uncertainty. </p></li>
+	<li><p> Predict (with uncertainty) what buoyant force this object would have if it were completely submerged. </p></li>
+	<li><p> Predict (with uncertainty) what a scale would read if this object were completely submerged. </p></li>
+</ul>
+</p>
+
+</subsection>
+<subsection><title>Verify Your Understanding</title>
+
+<p><ul>
+	<li><p> Place a balance on top of a support rod so that the side with the string dangling can drop into a container of water. </p></li>
+	<li><p> Find the mass of your catch beaker <mdash /> this should be a graduated cylinder because you will be using this beaker to measure both the volume and the mass of the fluid that overflows from the overflow container. </p></li>
+	<li><p> Place an overflow container under the scale so that the string can dip into the container if the lab jack is raised or lowered. </p></li>
+	<li><p> Place a catch beaker next to the overflow container and slowly fill the overflow container until it just starts dripping.  Gently tap the overflow container once.  Be very careful not to bump your table after this. </p></li>
+	<li><p> As thoroughly as possible, dry off your catch beaker and put it back in place.  If you cannot dry it off completely, you will not be able to accurately complete all of the necessary steps. </p></li>
+	<li><p> Attach your object to the string, measure the mass of the object, <m>m_o</m>, in air while the object dangles. </p></li>
+	<li><p> Raise the lab jack until the object is completely submerged.  <alert>Be sure to catch all of the water that overflows from the container!</alert> </p></li>
+	<li><p> The scale should now read a reduced mass, <m>m_s</m>, for the submerged object.  Record this value. </p></li>
+	<li><p> You now have three ways of calculating the buoyant force:  (Pay attention to which is the most precise and why.)
+    <ol>
+	<li xml:id="i-deltam"><p> The water (via the buoyant force) supports the difference in weights between not submerged and totally submerged.  Calculate the buoyant force, with uncertainty, as the difference in these <em>weights</em>.  Does it agree with your prediction? </p></li>
+	<li xml:id="i-V-f"><p> Measure the volume of the overflow water.  This is equal to the volume of the object submerged, <m>V_f = V_o</m>.  Calculate (with uncertainty) the buoyant force from this volume, <m>F_B = \rho_f g V_o</m>.  Does this agree with your prediction? </p></li>
+	<li xml:id="i-m-f"><p> Note that <m>\rho_f V_f = m_f</m>, so instead of measuring <m>V_f</m>, we can measure the mass of the overflow water.  The buoyant force can also be found from:  <m>F_B = m_f g</m>, the weight of the fluid.  Does this agree with your prediction? </p></li>
+</ol> </p></li>
+</ul>
+</p>
+
+<p>You should ensure that you understand these results <em>with uncertainty</em> before continuing.  If this doesn't make sense, then check your numbers, check your units, remeasure quantities that you thought you were sure of, and ask your instructor.</p>
+
+</subsection>
+<subsection><title>Consider How the Buoyant Force Changes as an Object is Submerged</title>
+
+<p>For this part, you are going to repeat the previous procedure, with three modifications.  First, you won't be able to measure the volume with a caliper.  Second, based on the previous procedure, we now know which measurement provides the best estimate (smallest uncertainty) for the buoyant force, so you should only need to do one of <xref ref="i-deltam" text="type-global" />, <xref ref="i-V-f" text="type-global" />, or <xref ref="i-m-f" text="type-global" /> from the previous section.  Finally, we will consider an object in air, partially submerged, and fully submerged.
+<ul>
+	<li><p> Select a fairly large object for which you cannot easily measure the volume using a caliper.  This must fit within the overflow container without touching the sides. </p></li>
+	<li><p> Refill the overflow container, as before, until is just starts to overflow. </p></li>
+	<li><p> As thoroughly as possible, dry off your catch beaker.  If you cannot dry it off, you will have to measure its mass with whatever water is in it and you will not be able to use the previous section technique <xref ref="i-V-f" text="type-global" /> because you cannot accurately measure the volume of new water. </p></li>
+	<li><p> Attach it to the string hanging from the balance and find the mass in air, <m>m_o</m>. </p></li>
+	<li><p> <alert>You will need to do the rest of this <em>very</em> carefully.  Go slowly and do not bump the table.</alert> </p></li>
+	<li><p> Raise the lab jack until the object is about half submerged.  Catch the overflow water. </p></li>
+	<li><p> Measure the apparent mass of the object and the mass or volume of the overflow water, as appropriate
+    <ul>
+	<li><p> Calculate the buoyant force with uncertainty. </p></li>
+	<li><p> Calculate the volume (with uncertainty) of the object that is submerged. </p></li>
+</ul> </p></li>
+	<li><p> Without removing any of the water from the catch beaker, continue to submerge the object and catch the overflow water until the object is completely submerged. </p></li>
+	<li><p> Measure the new apparent mass of the object and the mass or volume of the overflow water, as appropriate.
+    <ul>
+	<li><p> Calculate the buoyant force with uncertainty. </p></li>
+	<li><p> Calculate the volume (with uncertainty) of the object that is submerged. </p></li>
+	<li><p> Calculate the density (with uncertainty) of the object. </p></li>
+</ul> </p></li>
+</ul>
+</p>
+
+</subsection>
+<subsection><title>Fill the Cargo-Hold</title>
+
+<p>You have been provided with a beaker and some pennies.  Use the information in the previous sections to predict the maximum number of pennies that can be gently placed into the beaker without allowing it to sink.  You should measure the mass of the beaker and the dimensions of the beaker.  The volume of a cylinder is <m>V=\pi r^2 h</m>.  You should also measure about 30 pennies (all at once) to find an average mass for the pennies.</p>
+
+<p>After you have calculated your prediction with uncertainty, prepare the overflow canister with water and dry the catch beaker.  Invite the instructor to your table and allow the instructor to test your prediction.</p>
+
+</subsection>
+
+</section>
+<exercises><title>Questions</title>
+	<exercise><statement><p> Why does an object weigh a different amount when in air and when submerged in water? </p></statement></exercise>
+	<exercise><statement><p> If the string was cut on your first object (while submerged), what would be the acceleration of the object? </p></statement></exercise>
+	<exercise><statement><p> Why is it important to make certain that no air bubbles adhere to the object during the submerged weighing procedures? </p></statement></exercise>
+	<exercise><statement><p> What would the buoyant force be for an object that was immersed in a fluid with the same density as the object? </p></statement></exercise>
+	<exercise><statement><p> A floating barge filled with coal is in a lock along the Ohio River.   If the barge accidentally dumps its load into the water, will the water level in the lock rise or fall? </p></statement></exercise>
+	<exercise><statement><p> Does the mass of displaced water depend on the mass of the totally submerged object or on the volume of the submerged object? </p></statement></exercise>
+	<exercise><statement><p> There are two identical cargo ships.  One has a cargo of 5 tons of steel and the other has a cargo of 5 tons of styrofoam.  Which ship floats lower in the water? </p></statement></exercise>
+</exercises>
+
+<conclusion><p>Last revised: Nov. 23, 2008 </p>
+    <p>A PDF version might be found at <url href="http://physics.thomasmore.edu/labs/122/Archimedes.pdf">Archimedes.pdf (123 kB)</url></p>
+    <p>Copyright and license information can be found <url href="http://physics.thomasmore.edu/labs/122/general-spring-colophon.html">here</url>.</p>
+</conclusion>
+
+</chapter>
+
+
+<!-- ********************************************************************************************** -->
+<!-- ********************************************************************************************** -->
+
+
+<chapter xml:id="c-standingwaves"><title>Standing Waves on a String</title>
+
+<objectives>
+<introduction><p>In this experiment, the conditions required for the production of standing waves in a string will be investigated in order to</p></introduction>
+<ul>
+	<li><p> empirically verify the relationship between the frequency <m>(f)</m>, wavelength <m>(\lambda)</m>, and speed of a standing wave <m>(v)</m>, for a series of normal modes of oscillation, and </p></li>
+	<li><p> use the two relationships of the speed of the wave
+ <mdn>
+<mrow xml:id="eq-velten">  v \amp = \sqrt{\frac{F_T}{m/L}}   </mrow>
+<mrow xml:id="eq-velwave">  v \amp = \lambda f  </mrow>
+ </mdn>
+ to empirically relate the string tension <m>(F_T)</m> and the wave velocity <m>(v)</m>, for one mode of oscillation, specifically the fundamental mode. </p></li>
+</ul>
+</objectives>
+
+<introduction>
+
+<p>A wave is the propagation of a disturbance in a medium.  In a transverse wave, the disturbance of the medium is perpendicular to the direction of the propagation of the wave.  In this experiment, transverse waves will be propagated along a taut flexible string.  The frequency of the waves is determined by the source, the wave generator, which is driving one end of the string.   The speed of the waves, <m>v</m>, is determined by the medium itself; namely the linear mass density of the string, <m>(m/L)</m>, and the tension in the string which is determined by the static force of a mass suspended from the other end of the string, <m>F_T</m>.  This is expressed by <xref ref="eq-velten" text="type-global">Equation</xref> above.</p>
+
+<p>Upon hitting at the fixed end of the string, the transverse waves will reflect back along the string.  If the end of the string is rigidly held then the reflected waves will be inverted <m>180^\circ</m>.  The initial propagated waves and the reflected waves will interfere constructively and destructively.  At particular string tensions and/or wave frequencies, this wave superposition will give rise to waves called standing waves or stationary waves.  There are many different standing waves patterns (normal modes) possible which have different wavelengths.  The different modes are characterized by the number of nodes or antinodes in the wave.  At one of the normal modes of oscillation, the amplitude of oscillation can become rather large, much larger than the amplitude of the original propagated wave.  This phenomenon is called resonance.  In this experiment, each end of the string will be close to a node position.  The fundamental frequency (mode n=1) exhibits a wave pattern with one antinode.  The second harmonic (mode n=2) exhibits a wave pattern with two antinodes, and so forth.</p>
+
+</introduction>
+
+<section><title>Pre-Lab Work</title>
+<p><ul>
+	<li><p> Define the following terms:   <term>standing wave</term>, <term>node</term>, and <term>antinode</term>. </p></li>
+	<li><p> Draw a set of pictures of a standing wave on a string with two fixed ends showing the fundamental frequency <m>(n=1)</m>, and the harmonics <m>n=2, 3, 4</m>, and <m>5</m>.  Label a wavelength, the nodes, and the antinodes on each picture. </p></li>
+	<li><p> Given <xref ref="eq-velten" text="type-global">Equation</xref>, predict what will happen to the velocity of the wave as the static hanging mass (providing the tension) increases, decreases, or stays the same. </p></li>
+	<li><p> Given <xref ref="eq-velwave" text="type-global">Equation</xref>, how can measurements of <m>\lambda</m> and <m>f</m> be plotted to determine the wave velocity from the graph? (There is more than one way to do this; one way in particular produces a line.)  How should the axes of the graph be labeled?  Explain your reasoning.
+<!-- </p></li>
+	<li><p> Given Eqs. <xref ref="eq-velten" text="type-global" /> and <xref ref="eq-velwave" text="type-global" />, create an equation that relates the tension, <m>F_T</m> to the frequency, <m>f</m>.  How would you graph this to get a line and how would you interpret the slope and intercept? --> </p></li>
+</ul>
+</p>
+</section>
+
+<section><title>Fixed Tension</title>
+
+<introduction>
+<p>In order to verify <xref ref="eq-velwave" text="type-global">Equation</xref>, you can fix <m>F_T</m> and compare multiple <m>f</m> to the corresponding <m>\lambda</m>.</p>
+</introduction>
+
+<subsection><title>Procedure</title>
+
+<p><ul>
+	<li><p> If you have not already done so, measure the mass and length of the string in order to calculate the linear mass density <m>(m/L)</m>.  You might note <xref ref="q-stretching" text="global">Question</xref>. </p></li>
+	<li><p> A mechanical vibrator, driven with a (variable frequency) function generator, will be the wave source.  Use a string slightly greater than the length of the table.  Connect one end of the string to a post such that the vibrator can wiggle the string near that end.  Hang the other end over a pulley.  Keeping the string horizontal by adjusting the height of the pulley and the location of connection at the other end.  The height of the vibrator will determine the height you need the ends to be. </p></li>
+	<li><p> Set up the system with some particular string tension (like 450 grams).  This tension will be kept constant for this entire part. </p></li>
+	<li><p> Produce 5 different normal modes by changing the frequency of the vibrator.  Adjust the standing wave amplitude until it is at its maximum.  Record the corresponding frequency for each normal mode. </p></li>
+	<li><p> Measure the corresponding wavelengths for each normal mode, directly from the string with a meter stick.  The vibrator end of the string is not a true node because the string is vibrating a small amount.  Take this into account when measuring the wavelengths. </p></li>
+	<li><p> Try touching the string at a node and at an antinode.  What happens to the wave in each case? </p></li>
+	<li><p> Optional:  Try measuring the frequency of the vibrator with a strobe lamp. </p></li>
+</ul>
+</p>
+
+</subsection>
+<subsection><title>Analysis</title>
+
+<p><ul>
+	<li><p> Determine the mathematical relation between the wavelength of the standing wave and the frequency of the vibrator that will produce a straight line <m>(y=mx+b)</m> when graphed. </p></li>
+	<li><p> Comment on the significance (and units) of the slope and intercept of this graph.  Determine both the precision and the accuracy of the slope and of the intercept; are they consistent with what you expect?  (Your expectation should be based on the <q>other</q> equation which we are not testing here.) </p></li>
+	<li><p> Use one or both of these (slope and intercept) to determine the velocity (with uncertainty) of the standing wave.  Relate this (<percent />-error) to the expected value based on the tension you chose for your specific string. </p></li>
+</ul>
+</p>
+</subsection>
+
+</section>
+
+<section><title>Fixed Wavelength</title>
+
+<introduction>
+<p>In order to verify <xref ref="eq-velten" text="type-global">Equation</xref>, you can fix <m>\lambda</m> and compare multiple <m>F_T</m> to the corresponding <m>v</m>.</p>
+</introduction>
+
+<subsection><title>Procedure</title>
+
+<p><ul>
+	<li><p> If you have not already done so, measure the mass and length of the string in order to calculate the linear mass density <m>(m/L)</m>.  You might note <xref ref="q-stretching" text="global">Question</xref>.</p></li>
+	<li><p> A mechanical vibrator, driven with a (variable frequency) function generator, will be the wave source.  Use a string slightly greater than the length of the table.  Connect one end of the string to a post such that the vibrator can wiggle the string near that end.  Hang the other end over a pulley.  Keeping the string horizontal by adjusting the height of the pulley and the location of connection at the other end.  The height of the vibrator will determine the height you need the ends to be. </p></li>
+	<li><p> Place 150 grams (including the hanger) on the end of the string.  (If you start with too little mass, the string stretches different amounts <mdash /> changing the string's effective density <mdash /> during the experiment, causing unaccounted for curving in the graph.) </p></li>
+	<li><p> Adjust the frequency of the generator until the <m>n=2</m> mode is observed and is at its maximum amplitude.  Record the frequency and corresponding wave velocity. </p></li>
+	<li><p> Repeat the previous step for 6 hanging masses up to about 1200 grams. </p></li>
+</ul>
+</p>
+
+</subsection>
+<subsection><title>Analysis</title>
+
+<p><ul>
+	<li><p> Determine the mathematical relation between the hanging mass <m>(F_T)</m> and the wave velocity <m>(v)</m> that will produce a straight line <m>(y=mx+b)</m> when graphed. </p></li>
+	<li><p> Determine which variables the slope and intercept of this graph should be related to.  Determine both the precision and the accuracy of the slope and of the intercept; are they consistent with what you expect?  (The equation we are testing should imply what to expect.) </p></li>
+</ul>
+</p>
+</subsection>
+
+</section>
+
+<exercises><title>Questions</title>
+	<exercise><statement><p> What are the necessary and sufficient conditions for the production of standing waves? </p></statement></exercise>
+	<exercise><statement><p> Is it valid to consider the tightening of the string to be the same as a change of medium?  (Does tightening the string change the way waves move or the way standing waves are produced on the string?) Why or why not? </p></statement></exercise>
+	<exercise xml:id="q-stretching"><statement><p> When you measure the length of string, remember that the string will be under tension (pulled on) and may have some <q>give</q> to it.  It may be possible for it to stretch by nearly 10<percent />. If you don't account for this (if you measure the unstretched length) will your value of density be incorrect too large or incorrect too small?  Can you account for this either in the value of the length or in the uncertainty of the length.  Will this affect comparison to either of your graphs? </p></statement></exercise>
+	<exercise><statement><p> Consider the Fixed Tension graph.  We noted that the vibrator end of the string should not be considered to be a node.  This means that the node might be a little in front of the post or a little behind the post and therefore your wavelength values might be a little wrong, but your error bars should already include the amount the values could be off.  Based on the error bars on your Fixed Tension graph, would shifting the wavelength data a little larger or a little smaller have made a difference to the values of slope or intercept that you calculated?  If so, would it have increased the value or decreased the value?  If not, why not? </p></statement></exercise>
+	<exercise><statement><p> If the tension and the linear density of the string remain constant, but the pulley is shifted further from the post (so that the region which is vibrating lengthens), how is the resonant wavelength affected?  How is the velocity of the wave affected? </p></statement></exercise>
+	<exercise><statement><p> What was the experimental velocity (and uncertainty) of the waves in part I of the experiment? </p></statement></exercise>
+	<exercise><statement><p> What will happen to the velocity of the wave if the tension is fixed but the frequency is changed. </p></statement></exercise>
+</exercises>
+
+<conclusion><p>Last revised: (Jan, 2013) </p>
+    <p>A PDF version might be found at <url href="http://physics.thomasmore.edu/labs/122/standingwaves.pdf">standingwaves.pdf (103 kB)</url></p>
+    <p>Copyright and license information can be found <url href="http://physics.thomasmore.edu/labs/122/general-spring-colophon.html">here</url>.</p>
+</conclusion>
+<!-- <p>Previous revisions: ((Jan, 2013)) Revised <q>connect to the vibrator</q>. </p>  -->
+<!-- <p>Previous revisions: ((Jan, 2012)) Fixed Wavelength plots F vs v^2 to get m/L as slope.  Added comments about stretching affecting density. </p>  -->
+<!-- <p>Previous revisions: ((Aug, 2011)) Rearranged equations for clarity. </p>  -->
+<!-- <p>Previous revisions: ((Jan, 2008)) Created </p>  -->
+
+</chapter>
+
+<!-- ********************************************************************************************** -->
+<!-- ********************************************************************************************** -->
+
+<chapter xml:id="c-sound-cardboard-tube"><title>Speed of Sound in a Cardboard Tube</title>
+
+<objectives>
+<ul><li><p>The purpose of this experiment is to determine the speed of sound in an air column, both from an open and a closed tube.  Data should be taken at a number of different resonant frequencies.</p></li></ul>
+</objectives>
+
+<introduction>
+
+<p>Longitudinal sound waves can be produced by any vibrating source.  The frequency of these waves is determined solely by this vibrating source.  There must also be a medium (solid, liquid, or gas) in order for the sound wave to be propagated.  These waves do not travel through the medium instantaneously.  There is a finite wave speed which is determined by the characteristics of the medium.   The wave speed is not dependent on the source.  If the medium is changed, then the speed of sound also changes.  For example, the pressure of a gas, the temperature of a gas, and the gas composition are all factors which affect the speed of sound in the gas.</p>
+
+<p>Sound waves can experience interference just like waves on a string, especially when the waves are inside a tube, like an organ pipe.   Traveling waves can reach the end of the tube, then they can be reflected back in the direction in which they came.  There are now two sets of waves which can interfere, that is the two sets of amplitudes are added together.   At certain frequencies this interference gives rise to a special wave called a standing wave.  This is a resonance effect.  Standing waves can occur in tubes which have only one end open, or in tubes that have both ends open.   The derivation of the equation for these special resonant frequencies will be slightly different for these open or closed tubes.  See your text book for the needed pictures and equations.</p>
+
+</introduction>
+
+
+<section><title>Pre-Lab Work</title>
+
+<p>Show a set of pictures and equations for the first five harmonics, for both an open and for a closed tube.  Show and explain what nodes and antinodes are.   Show and explain what a standing wave is.</p>
+	
+</section>
+
+
+<section><title>Experimental Procedure</title>
+
+<p>Initial set-up:
+<ul>	
+	<li><p> The source of the waves will be a stereo type speaker, powered by a frequency oscillator.   The waves will move through the normal room air inside of a cardboard tube.  The speaker will be placed at one end of the pipe. </p></li>
+	<li><p> A microphone (Pasco) will be placed to receive the waves at the same end of the pipe. </p></li>
+	<li><p> The Pasco Interface and the software Data Studio in the oscilloscope mode will be used to determine which frequencies give the maximum sound intensity for resonance. </p></li>
+	<li><p> Measure the length of the tube. </p></li>
+	<li><p> Calculate the resonant frequency for the n=3 harmonic, using an approximate value for the speed of sound. </p></li>
+	<li><p> Set the generator frequency near this calculated value. </p></li>
+</ul>
+<!--  -->
+Doing the experiment:
+<!--  -->
+<ul>
+	<li><p> Adjust the sound intensity amplitude on the generator (not too loud). </p></li>
+	<li><p> Adjust the frequency (on the generator) until the amplitude (on the scope) is actually at the maximum.  This is called the resonance condition. Record the small range of frequencies which keep the amplitude at a maximum. </p></li>
+	<li><p> Repeat this procedure to determine 4 additional resonance frequency points. </p></li>
+	<li><p> Repeat this for both an open tube and for the closed end tube. (Five points for each type of tube.) </p></li>
+	<li><p> Make a graph of the resonant frequency versus the harmonic number, for each tube type. </p></li>
+	<li><p> Determine the speed of sound from each graph. </p></li>
+	<li><p> Calculate a speed of sound value at <m>20^\circ</m>C. </p></li>
+	<li><p> Determine the precision and accuracy for this experiment. </p></li>
+</ul>
+</p>
+
+</section>
+
+
+<exercises><title>Questions</title>
+	<exercise><statement><p> Does the speed of the wave depend on the frequency of the oscillator? </p></statement></exercise>
+	<exercise><statement><p> How does the speed of sound in air vary with the air temperature?   By how much would the results of your experiment change if you conducted the experiment outside today? </p></statement></exercise>
+	<exercise><statement><p> What is meant by resonant condition? </p></statement></exercise>
+	<exercise><statement><p> In interference, at least 2 sets of waves are added together.  What 2 sets of waves are added together in this experiment? </p></statement></exercise>
+	<exercise><statement><p> Why does the closed tube only show resonance for the odd harmonics? </p></statement></exercise>
+	<exercise><statement><p> Demonstrate how sound waves can be reflected by the open end of a tube. </p></statement></exercise>
+	<exercise><statement><p> What random errors might be in this experiment?  And show any evidence of them. </p></statement></exercise>
+	<exercise><statement><p> What systematic errors might be in this experiment?  And show any evidence of them. </p></statement></exercise>
+</exercises>
+
+<conclusion><p>Last revised: (Jan, 2007) </p>
+    <p>A PDF version might be found at <url href="http://physics.thomasmore.edu/labs/122/sound-cardboard-tube.pdf">sound-cardboard-tube.pdf (66 kB)</url></p>
+    <p>Copyright and license information can be found <url href="http://physics.thomasmore.edu/labs/122/general-spring-colophon.html">here</url>.</p>
+</conclusion>
+
+
+</chapter>
+
+<!-- ********************************************************************************************** -->
+<!-- ********************************************************************************************** -->
+
+<chapter xml:id="c-spheat"><title>Specific and Latent Heats of Solids</title>
+
+<objectives>
+<ul>
+<li><p>By measuring properties such as the final temperature of an isolated system that consists of hot and cool materials, you can compute the specific heat of an unknown material and, if this is verifiable, then you will have proven the equations related to the specific heat.</p></li>
+<li><p>By measuring properties of an isolated system such as the mass of ice that melts in the presence of other  materials, you can compute the latent heat of water and, if this is verifiable, then you will have proven the equations related to the latent heat.</p></li>
+</ul>
+</objectives>
+
+<introduction>
+
+<p>When multiple substances at different temperatures are placed in thermal contact,
+the hotter substances lose energy (heat) while the colder ones gain energy (heat)
+until thermal equilibrium is reached.  It is assumed that the sum of the heat lost
+by the warmer objects is equal to the sum of the heat gained by the others:
+<!--  -->
+<men xml:id="eq-spheat">
+ -Q_\text{lost} = Q_{\rm gained}
+</men>
+</p>
+
+<p>Notice that <xref ref="eq-qmct" text="type-global">Equation</xref> says that when you heat the shot,
+it not only <q>gets warmer</q> (increases temperature), but it
+<em>also</em> <q>heats up</q> (gains energy).  These are
+<em>not the same</em>, but they are very closely related.
+The relation between the heat
+content (or internal energy) and the change of temperature is
+<!--  -->
+<men xml:id="eq-qmct">
+ Q = m\, c \, \Delta T
+</men>
+<!--  -->
+where <m>m</m> is the mass of the substance, <m>\Delta T</m> is the change in the
+temperature, and <m>c</m> is the specific heat.  (The product <m>mc</m> is also known
+as the <q>water equivalent.</q>) The specific heat of a substance is
+a measure of the molecular activity within the material.  Measurements of
+specific heats have played an important role in helping us to understand the
+nature of matter.</p>
+
+<p>Furthermore, the relation between the heat content and a change of phase is
+<men xml:id="eq-laheat">
+Q = mL
+</men>
+<!--  -->
+where <m>L</m> is called the latent heat.  There is a latent heat associated with each phase change.
+<ul>	
+	<li><p> <term>Latent heat of fusion, <m>L_f</m></term>, refers to the heat associated with the liquid/solid phase change. </p></li>
+	<li><p> <term>Latent heat of vaporization, <m>L_v</m></term>, refers to the heat associated with the vapor/liquid phase change. </p></li>
+</ul>
+</p>
+
+<p>For example, given one ice cube <m>(5\unit{g})</m> at <m>-10^\circ\,\text{C}</m>, which is to
+be warmed to <m>30^\circ\,\text{C}</m>, we must <alert>warm</alert> the ice to the melting point,
+<alert>melt</alert> it, and then <alert>warm</alert> the <em>melted ice</em> some more.  (There are three separate terms.)  The heat required to do so is
+<md>
+<mrow> Q \amp = m c_\text{ice} \, \Delta T + m L_f + m c_{\rm water} \, \Delta T </mrow>
+<mrow> Q \amp = (5\,\text{g})(c_{\rm ice})[(0^\circ\,{\rm C}) - (-10^\circ\,{\rm C})] + (5\,\text{g})L_f </mrow>
+<mrow>    \amp + (5\,\text{g})(c_{\rm water})[(30^\circ\,{\rm C}) - (0^\circ\,{\rm C})] </mrow>
+</md>
+<!--  -->
+This expression gives the amount of heat required <m>(Q_\text{gained})</m> regardless of how the ice is
+warmed.  It does address the heat lost <m>(Q_\text{lost})</m> by whatever warmed the ice.</p>
+
+</introduction>
+
+<section xml:id="s-SHprelab"><title>Specific Heat Pre-Lab Exercise</title>
+
+<introduction>
+
+<p>A few days before doing this lab, you should download the pre-lab worksheet and do the math to remind yourself how the propagation of uncertainty works.  If you did not learn this last semester, then this is your opportunity!
+    <!-- This must be its own line -->
+    A PDF version of the pre-lab worksheet alone can be downloaded from <url href="http://physics.thomasmore.edu/labs/122/SHprelab.pdf">SHprelab.pdf (29 kB)</url>.
+    <!-- This must be its own line -->
+    A PDF version of the pre-lab with room for <em>your data</em> can be downloaded from <url href="http://physics.thomasmore.edu/labs/122/SHprelab-data.pdf">SHprelab-data.pdf (37 kB)</url>.
+</p>
+
+<p>The point of this worksheet is to walk you through the measurements and calculations for the Specific Heat lab in order to help you decide how to analyze the data and develop a thoughtful report.
+<!--  -->
+When you calculate the specific heat based on measurements from the lab, you will use <xref ref="eq-spheat" text="type-global">Equation</xref>:
+<!--  -->
+<md>
+<mrow> - Q_\text{brass} \amp = Q_{\rm Al cup} + Q_{\rm water} </mrow>
+<mrow> -m_b c_b \Delta T_b \amp = m_a c_a \Delta T_a + m_w c_w \Delta T_w </mrow>
+</md>
+<!--  -->
+solving this for <m>c_b</m>, we get:
+<!--  -->
+<me> c_b = \frac{m_a c_a \left(T_f - T_{ia}\right) + m_w c_w \left(T_f - T_{iw}\right)}{-m_b \left(T_f - T_{ib}\right)} </me>
+<!--  -->
+</p>
+
+<assemblage>
+<p>The <q>error analysis</q> for this lab is somewhat more involved than most of the previous labs.
+In order to ensure your familiarity with the process, there is a Pre-Lab worksheet appended to the end of the lab manual.  It is the last page so that you can tear it off without ruining the rest of the manual.  Please use the formula above and the worksheet as a guide to calculate the specific heat, <m>c</m> of brass based on the measurements provided on the worksheet. </p>
+
+<p>After you have completed the calculations, you should answer the pre-lab questions below in your lab notebook.  These are written specifically to point out the comparisons that you will need to make when you write up your analysis of the data.</p>
+</assemblage>
+
+</introduction>
+
+
+<exercises><title>Pre-Lab Questions</title>
+	<exercise><statement><p> When calculating <m>Q_w</m>, does one of the terms, <m>\Delta T_w</m>, <m>m_w</m>, or <m>c_w</m>, have a significantly larger relative uncertainty?  If so, what is it about that measurement that made that uncertainty large while the others were small?  Is this uncertainty improvable? </p></statement></exercise>
+	<exercise><statement><p> When calculating <m>Q_a</m>, does one of the terms, <m>\Delta T_a</m>, <m>m_a</m>, or <m>c_a</m>, have a significantly larger relative uncertainty?  If so, what is it about that measurement that made that uncertainty large while the others were small?  Is this uncertainty improvable? </p></statement></exercise>
+	<exercise><statement><p> When calculating the numerator, does one of the terms, <m>Q_w</m> or <m>Q_a</m>, have a significantly larger uncertainty?  If so, which measurement caused that uncertainty to be large?  (See questions 1 and 2.) </p></statement></exercise>
+	<exercise><statement><p> When calculating the denominator, does one of the terms, <m>\Delta T_b</m> or <m>m_b</m>, have a significantly larger relative uncertainty?  If so, which measurement caused that uncertainty to be large?  Is this uncertainty improvable? </p></statement></exercise>
+	<exercise><statement><p> Which term, <m>(Q_w+Q_a)</m> or <m>m_b \Delta T_b</m>, had the largest relative uncertainty?  What is it about that measurement that made that uncertainty large while the others were small?  Is this uncertainty improvable? </p></statement></exercise>
+	<exercise><statement><p> Which measurement ultimately caused the size of <m>\delta c</m> to be as large as it was?  Is there a way to reduce the relative uncertainty by planning the experiment differently?  For example, should you use a different mass of water or of metal?  Should you start at a different temperature?  Should the final temperature be higher or lower?  How might one accomplish this? </p></statement></exercise>
+	<exercise><statement><p> When you do any experiment, a significant component of the analysis should be devoted to the question: For each measurement, if you measured the value to be higher than the true value, then how does this affect the final result?  To that end, for this case, answer the following:
+    <ol>
+	<li><p> If all masses are skewed high by the scale, then is <m>c</m> affected? </p></li>
+	<li><p> If all temperatures are skewed high by the thermometer, then is <m>c</m> affected? </p></li>
+	<li><p> If some heat escaped into the atmosphere, lost to the experiment, then how does this affect the final temperature of the mixture and how does this affect the final value of <m>c</m>? </p></li>
+</ol> </p></statement></exercise>
+</exercises>
+
+</section>
+
+
+<section><title>The Specific Heat Capacity of an Unknown Metal</title>
+
+<p>The following considerations should allow you to experimentally determine (with
+uncertainty) the specific heat of the metal and, from that, the composition of the metal.
+Use these questions to determine your procedure, with notes about where to be careful.
+Verify the procedure with the professor before beginning the experiment.
+<!--  -->
+<ol>
+	<li><p> We would like the metal to be at some warm, stable, and uniform temperature.  Can you imagine what convenient temperature we can warm the metal to which satisfies these three conditions?  Hint: In order for the cylinder to be at a uniform temperature, it must sit in this environment for some short time; since we don't know the temperature of a burner, we can't just place the metal on the burner itself. </p></li>
+	<li><p> We would like the water to be at some cool, stable, and uniform temperature.  Can you imagine what convenient temperature we can maintain for the water which satisfies these three conditions?  HINT: The container for the water must also be in thermal equilibrium with the water before the unknown metal is added.</p></li>
+</ol></p>
+<note><title>Assumption</title> <p>The aluminum cup is always at the same temperature as the water.</p></note>
+<p><ol>
+	<li><p> The specific heat is an inherent property of a material.  Since the cup is aluminum, you can easily find it's specific heat with a CRC, or a textbook, or it may also be stamped onto your equipment. </p></li>
+	<li><p> When the metal and water (with container) are placed in thermal contact, they must be isolated from the external environment.  With what equipment will this be done?  (See your lab table.) </p></li>
+	<li><p> If some hot metal is held in the air, it cools down.  What happens to the heat when hot metal is exposed to the air?  Can we easily measure the heat lost to the air?  How will this affect your experimental technique? </p></li>
+	<li><p> Think about <xref ref="eq-qmct" text="type-global">Equation</xref> and the likely values of <m>c</m> for the water and for the unknown metal.  If there are equal masses of water and metal, then where (roughly) do you expect the final temperature to be  (closer to <m>T_i</m> for water or <m>T_i</m> for metal)?  What if you have more water? </p></li>
+	<li><p> If the final temperature is far from room temperature and the calorimeter is not well insulated, then where will the actual final temperature be?  If the final temperature value is wrong in this way, then will your calculated <m>c</m> for the metal be wrong too high or wrong too low? </p></li>
+</ol>
+</p>
+
+</section>
+
+<section><title>The Latent Heat of Fusion for Water</title>
+
+<p>The following considerations should allow you to experimentally determine (with
+uncertainty) the latent heat of water.
+Use these questions to determine your procedure, with notes about where to be careful.
+Verify the procedure with the professor before beginning the experiment.
+<!--  -->
+<ol>
+	<li><p> We would like the water to be at some warm, stable, and uniform temperature.  Can you imagine what convenient temperature we can maintain for the water which satisfies these three conditions? </p></li>
+	<li><p> We would like the ice to be at some cool, stable, uniform, and known temperature.  Can you imagine what convenient temperature we can maintain for the ice which satisfies these three conditions?  HINT: Most freezers are colder than freezing. </p></li>
+</ol></p>
+<note><title>Assumption</title> <p>The aluminum cup is always at the same temperature as the water.</p></note>
+<p><ol>
+	<li><p> When the ice and water (with container) are placed in thermal contact, they must be isolated from the external environment.  With what equipment will this be done?  (See your lab table.) </p></li>
+	<li><p> You will need to know the mass of the ice added.  If you take the time to weigh it on a scale, it will melt.  How can we determine the mass of the ice added without explicitly placing it on the scale before adding to the water? </p></li>
+	<li><p> Based on the expected value of the latent heat of fusion for water, how much ice should you use compared to the amount of water that you have? </p></li>
+	<li><p> When you add the ice, the <m>mL</m> term should only include the mass of the ice that will melt in the water.  If you add water with your ice, then this value of <m>m</m> will not be accurate.  How does this fact affect your procedure for adding ice? </p></li>
+	<li><p> If the final temperature is far from room temperature and the calorimeter is not well insulated, then where will the actual final temperature be?  If the final temperature value is wrong in this way, then will your calculated <m>L</m> be wrong too high or wrong too low? </p></li>
+</ol>
+</p>
+
+</section>
+
+<conclusion><p>Last revised: Jan, 2010 </p>
+    <p>A PDF version might be found at <url href="http://physics.thomasmore.edu/labs/122/spheat.pdf">spheat.pdf (125 kB)</url></p>
+    <p>Copyright and license information can be found <url href="http://physics.thomasmore.edu/labs/122/general-spring-colophon.html">here</url>.</p>
+</conclusion>
+<!-- <p>Previous revisions: (Jan 7, 2010) Added the Pre-Lab and uncertainty worksheet, must re-print the prelab page with \ans redefined in order to see the answers. </p>  -->
+<!-- <p>Previous revisions: (Jan, 2009)  </p>  -->
+
+</chapter>
+
+<!-- ********************************************************************************************** -->
+<!-- ********************************************************************************************** -->
+
+<chapter xml:id="c-thermal"><title>Thermal Expansion</title>
+
+<objectives>
+<ul><li><p>In this lab, we will use the equation for thermal expansion to identify the composition of three different rods.</p></li></ul>
+</objectives>
+
+<introduction>
+<p>You may have noticed that most materials expand as they are heated.
+This can be seen in a wide variety of situations:  Your front door
+doesn't seal out the colder air, bridges have a gap of a few inches
+at each end, stuck jars are easier to open when hot water is run
+over them, etc.</p>
+</introduction>
+
+
+<section><title>Pre-Lab Questions</title>
+
+<p>
+Consider the following situations:
+<ol>	
+	<li xml:id="l-length"><p> If a single rod, <m>1\unit{m}</m> in length, expands by <m>1\unit{mm}</m> when heated a specified amount,
+how much does a <m>2\unit{m}</m> rod (made of the same material) expand when heated by the same amount as the <m>1\unit{m}</m> rod?</p></li>
+	<li xml:id="l-alpha"><p> If I have a glass jar with a metal lid and heat up both glass and lid by the same amount, do they expand the same amount?
+If not, which one expands more?
+<!-- </p></li>
+	<li><title></title><p> -->
+Why is it possible to open the heated jar? </p></li>
+	<li xml:id="l-temp"><p> If my single, <m>1\unit{m}</m> metal rod is heated some amount
+and expands <m>1\unit{mm}</m>, how much does that same rod expand when
+heated by twice the original amount? </p></li>
+</ol>
+</p>
+
+<p>The answers to these questions show that the expansion of a material depends on it's original size, it's material composition, and the amount that the temperature changes.
+The equation for linear thermal
+expansion is
+<!--  -->
+<men xml:id="eq-thermal">
+\bf \Delta L = L_0 \alpha \Delta T
+</men>
+<!--  -->
+and <m>\alpha</m> (lower-case Greek-symbol alpha) is the coefficient of linear expansion, which is different for each material.</p>
+
+<!-- In this lab, you will be measuring <m>\alpha</m> for three metal rods; you should be able to deduce what those materials are. -->
+
+<p>Please note,
+<!-- <ul>
+	<li><p> -->
+<!-- </p></li>
+	<li><p> -->
+<m>\Delta L</m> is the <term>absolute expansion</term>,
+<!-- </p></li>
+	<li><p> -->
+<m>\left(\frac{\Delta L}{L_0}\right)</m> is the <term>relative expansion</term>
+(the expansion relative to the original length), and
+<!-- </p></li>
+	<li><p> -->
+<m>\left(\frac{\Delta L}{L_0}\times 100\%\right)</m> is the <term>percent expansion</term>
+(the relative expansion written as a percentage).
+<!-- </p></li>
+</ul> -->
+</p>
+
+<!-- </subsection>
+<subsection><title>More Pre-Lab Questions</title> -->
+
+
+<p>In order to experimentally measure the value of <m>\alpha</m>, you must measure
+the relative expansion and the change in temperature.
+<!--  -->
+<ol>
+	<li><p> Based on <xref ref="eq-thermal" text="type-global">Equation</xref>, what are the units of <m>\alpha</m>? </p></li>
+	<li><p> For reliable temperature measurements, the entire rod should be at the same temperature.  This requires a stable temperature environment.  List three temperatures that can be conveniently maintained.
+<!-- </p></li>
+	<li><p> What would be a convenient initial temperature, given that you need to measure the length of the rod with a meter stick? --> </p></li>
+	<li xml:id="l-phase"><p> Ice can be colder than <m>0\unit{^\circ C}</m> and steam can be warmer than <m>100\unit{^\circ C}</m>.  How can we use either (specifically steam) to ensure a stable temperature environment? </p></li>
+	<li><p> If we immerse our meter stick into the steam bath with the rod to measure the expansion, then we <em>cannot</em> trust the reading of the meter stick to accurately determine the new length of the rod<ellipsis /> WHY NOT?  What does this require of our measuring device? </p></li>
+	<li><p>  We have an apparatus which will allow steam to enter at one end and water to drain at the other.  At what temperature do you expect the rod to be when it is immersed in this steam-water mixture? </p></li>
+	<li><p> With several groups creating steam in the same room, why should we worry about the value of <q>Room Temperature</q> when we make a second or third measurement? </p></li>
+</ol>
+</p>
+
+</section>
+
+<section><title>The Experiment</title>
+
+<p>Using room temperature and the water-steam temperature interface, experimentally determine
+the coefficient of linear expansion for three different types of metals.
+Based on the color, weight, and density, guess the metal composition.
+Carry out an error analysis and use your error-bars to verify the material of each rod.</p>
+
+<figure xml:id="f-thermal">
+<caption>Apparatus for measuring the coefficient of linear thermal expansion.</caption>
+<image xml:id="i-thermal">
+<latex-image>
+\setlength{\unitlength}{.5cm}
+\begin{picture}(25,15)
+\put(7,7){water and steam environment}
+\put(2,5){\line(1,0){20}}
+\put(2,10){\line(1,0){20}}
+\put(2,5){\line(0,1){5}}
+\put(22,5){\line(0,1){5}}
+\put(-.5,8){rod}
+\put(-2,6){(immobile)}
+\put(2,7.5){\oval(2,1)[l]}
+\put(22,7.5){\oval(2,1)[r]}
+\put(1.25,2){water $\downarrow$}
+\put(3,3){\line(0,1){2}}
+\put(3,3){\line(1,0){1}}
+\put(4,3){\line(0,1){2}}
+\put(18.25,13){steam $\downarrow$}
+\put(20,10){\line(0,1){2}}
+\put(20,12){\line(1,0){1}}
+\put(21,10){\line(0,1){2}}
+\put(23.05,8){\line(1,0){1}}
+\put(23.05,8){\line(0,-1){5.65}}
+\put(24.05,8){\line(0,-1){7.35}}
+\put(23.55,1.5){\circle{.25}}
+\put(23.05,2.35){\line(-1,0){9.15}}
+\put(24.05,0.65){\line(-1,0){10.15}}
+\put(13.05,1.5){\line(1,1){.85}}
+\put(13.05,1.5){\line(1,-1){.85}}
+\put(12.9,.5){\line(0,1){2}}
+\multiput(12.9,.5)(0,.2){11}{\line(-1,0){.25}}
+\multiput(12.9,.5)(0,1){3}{\line(-1,0){.5}}
+\end{picture}
+</latex-image>
+</image>
+</figure>
+
+</section>
+
+<conclusion><p>Last revised: Jan, 2012 </p>
+    <p>A PDF version might be found at <url href="http://physics.thomasmore.edu/labs/122/thermal.pdf">thermal.pdf (87 kB)</url></p>
+    <p>Copyright and license information can be found <url href="http://physics.thomasmore.edu/labs/122/general-spring-colophon.html">here</url>.</p>
+</conclusion>
+<!-- <p>Previous revisions: (Jan, 2012) Removed the Thought Experiment, which was confusing.  Added explaining how they can guess the material. </p>  -->
+<!-- <p>Previous revisions: (Feb. 9, 2009)  </p>  -->
+
+</chapter>
+
+
+<!-- ********************************************************************************************** -->
+<!-- ********************************************************************************************** -->
+
+
+<chapter xml:id="c-refraction"><title>Reflection and Refraction at a Plane Surface</title>
+
+<objectives>
+<ul>	
+	<li><p> Experimentally verify the law of reflection from a plane surface by tracing the paths of the incident and the reflected light rays. </p></li>
+	<li><p> Experimentally verify the law of refraction from a plane surface by tracing the paths of the incident and the refracted light rays to calculate <m>n</m> for the glass, </p></li>
+	<li><p> Experimentally verify the law of refraction from a plane surface by predicting the path a ray of light will emerge from a prism for a given incident angle, and </p></li>
+	<li><p> Experimentally determine the critical angle for a piece of glass. </p></li>
+</ul>
+</objectives>
+
+<introduction>
+
+<p>Sir Isaac Newton developed a particle theory of light (essentially photons) in order to use geometry to explain two commonly observed optical properties of light: reflection and refraction.  Those interested in optics in Newton's time had observed that whenever light is incident upon any surface, some of the light is reflected off from the surface and some of the light is transmitted through the surface.  When the incident light approaches along a line normal to the surface, it continues along its straight-line path.  However, when the incident light approaches at an angle as in <xref ref="f-refraction" text="type-global" />, then the light changes direction.  The transmitted light is said to refract.  The property that determines the amount of the refraction is called the <em>index of refraction</em> and is denoted by <m>n</m>.  By convention, the angles for the incident, the reflected, and the refracted light are all measured from the line normal to the surface.</p>
+
+<p>Since the reflected light never sees the material with a different index of refraction, the reflection follows the law of reflection, which states that the angle of the incident ray is equal to the angle of the reflected ray:
+<!--  -->
+<me> \theta_\text{incident} = \theta_{\rm reflected}</me>.
+<!--  -->
+The transmitted light, on the other hand, enters the material, which has a different index of refraction and follows the law of refraction or Snell's Law, named for Willebrord Snell (1591-1626).  This law is expressed in terms of the sine of the incident and refracted angles, <m>\theta_i</m> and <m>\theta_r</m>:
+<!--  -->
+<me> n_i \sin\theta_i = n_r \sin\theta_r </me>
+<!--  -->
+where <m>n_i</m> is the index of refraction for the incident medium, and <m>n_r</m> is the index of refraction for the refracted material.
+</p>
+
+<figure xml:id="f-refraction">
+<caption>Some of the incident light from the upper left reflects to the upper right and the rest refracts into the material to the lower right.
+<!-- The refracted light is no longer traveling along the same line of sight as it was originally. --></caption>
+<image xml:id="i-refraction">
+<latex-image>
+\setlength{\unitlength}{1cm}
+\begin{picture}(5,6)
+<!--  Glass -->
+\put(0,0){\line(0,1){3}}
+\put(5,3){\line(-1,0){5}}
+\put(5,3){\line(0,-1){3}}
+<!--  light rays -->
+\put(2,3){\line(-2,3){2}}
+\put(2,3){\color{blue}{\line(1,-4){.5}}}
+\put(2,3){\color{green}{\line(2,3){2}}}
+<!--  normal lines -->
+\multiput(2,1)(0,.6){8}{\line(0,1){.3}}
+<!--  label angles -->
+\put(1.9,0.8){\small$\theta_\text{refract}$}
+\put(1.2,4.3){\small$\theta_i$}
+\put(2.2,4.3){\small$\theta_\text{reflect}$}
+<!--  label indexes -->
+\put(4,1){$n_r$}
+\put(4,3.5){$n_i$}
+\end{picture}
+</latex-image>
+</image>
+</figure>
+<!--  -->
+
+<p>The index of refraction determines the amount of refraction because it is a measure of the speed that light travels through the medium: <m>n = c/v</m>, where <m>c=2.998\ten{8}\unitfrac{m}{s}</m> is the speed of light in a vacuum and <m>v</m> is the speed light travels through the medium.  The index of refraction for a vacuum is therefore identically 1.  It happens that the index of refraction for air is close enough to 1 that we will not be able to measure a difference at our level of precision.</p>
+
+</introduction>
+
+
+<section><title>Pre-Lab Work</title>
+
+<p>
+<ol>
+	<li><p> Since light travels faster in a vacuum than in any other material, <m>c>v</m>, determine if <m>n</m> has a maximum or a minimum value and what that might be. </p></li>
+	<li><p> Consider Snell's Law.
+    <ol>
+	<li><p> If it were possible to create two different materials with the same index of refraction, so that <m>n_i = n_r</m>, then comment on the relationship between the incident and refracted angles. </p></li>
+	<li><p> When light passes from a material with a small index of refraction to a material with a large index of refraction so that <m>n_i \lt n_r</m>, will <m>\theta_i</m> larger than or smaller than <m>\theta_r</m>?  Draw an approximate diagram indicating if the light bends <em>towards</em> the normal, as in <xref ref="f-refraction" text="type-global" /> above, or if it bends <em>away from</em> the normal. </p></li>
+</ol> </p></li>
+	<li><p> Critical Angle:  It is possible, for the case where light is bent away from the normal (becomes more parallel to the surface), that it can be bent all the way over to actually being parallel to the surface.  When this happens, the light is not transmitting into the new material and cannot be seen from the other side.
+    <ol>
+	<li><p> It is only possible to have a critical angle for either <m>n_i \gt n_r</m> or <m>n_i \lt n_r</m>.  For which of these cases is it possible? </p></li>
+	<li><p> Using Snell's Law above, derive an equation for the incident critical angle (the refracted angle is <m>90^\circ</m>), in terms of the two indices of refraction for the two media. </p></li>
+</ol> </p></li>
+</ol>
+</p>
+
+</section>
+
+<section><title>Procedure</title>
+
+<subsection><title>Refraction at a plane surface</title>
+
+<p>Place the square piece of glass on the cardboard that has been covered with a piece of paper.
+Orient the frosted sides of the glass towards the short sides of the paper.
+Draw the outline of the glass on the paper and be careful to not move the glass.
+(You may want to use a pair of pins at the corners to fix the glass in place.)</p>
+
+<p>Plug in and set up the PASCO light box to emit a single ray of light.  Place the light box so that its single ray of light shines through the glass.  Notice that the path the light follows through the glass is like the solid line in <xref ref="f-refract-square" text="type-global" /> following points 1, 2, 3, and 4.
+Notice that the path the light follows above the glass is like the dashed line in <xref ref="f-refract-square" text="type-global" /> following points 1, 2, <m>3'</m>, and <m>4'</m>.</p>
+
+<p>To mark the incident path of the light, stick a pin in the paper at location 1, closest to the light box.
+You should see the shadow of the pin in the light beam.  Place <term>pin 2</term> in the shadow of <term>pin 1</term>.
+You should also see the shadow of the pin in the exiting light beam.  Place <term>pin 3</term> and <term>pin 4</term> so that each lines up with shadows of the previous pins.</p>
+
+<!--  -->
+<figure xml:id="f-refract-square">
+<caption>Square Glass Ray Diagram.  The light travels from pin 1 past pin 2 through the glass to pins 3 and 4.  At the first boundary, air is the incident material and glass is the refracting material.  On the second, glass is the incident material and air is the refracting material.</caption>
+<image xml:id="i-refract-square">
+<latex-image>
+\setlength{\unitlength}{.6cm}
+\begin{picture}(9,10)
+<!--  Glass -->
+\put(3,3){\line(1,0){5}}
+\put(3,3){\line(0,1){5}}
+\put(8,8){\line(-1,0){5}}
+\put(8,8){\line(0,-1){5}}
+<!--  light rays -->
+\put(5,8){\line(-2,3){2}}
+\put(5,8){\line(1,-5){1}}
+\put(6,3){\line(2,-3){2}}
+<!--  normal lines -->
+\multiput(5,6)(0,.6){8}{\line(0,1){.3}}
+\multiput(6,1)(0,.6){8}{\line(0,1){.3}}
+<!--  Pins -->
+\put(4.5,8.75){\circle*{.2}}
+\put(3.5,10.25){\circle*{.2}}
+\put(6.5,2.25){\circle*{.2}}
+\put(7.5,0.75){\circle*{.2}}
+<!--  Apparent pins -->
+\multiput(5.5,3.75)(-1.125,1.6875){5}{\line(-2,3){.5}}
+\put(2.5,8.25){\circle{.2}}
+\put(1.5,9.75){\circle{.2}}
+<!--  label angles -->
+\put(6.4,1){\small$\theta_a$}
+\put(5.6,4.8){\small$\theta_g$}
+\put(4.9,5.8){\small$\theta_g$}
+\put(4.2,9.3){\small$\theta_a$}
+<!--  label indexes -->
+\put(7,6){$n_g$}
+\put(7,8.5){$n_a$}
+\put(3.5,2.2){$n_a$}
+<!--  label pins -->
+\put(4.4,8.2){\small $3$}
+\put(3.3,9.7){\small $4$}
+\put(6.7,2.2){\small $2$}
+\put(7.7,0.7){\small $1$}
+\put(2.2,7.6){\small $3'$}
+\put(1.1,9.1){\small $4'$}
+\end{picture}
+</latex-image>
+</image>
+</figure>
+<!--  -->
+
+<p>Once you and all of your partners are satisfied with the location of the pins, verify that the glass has its outline drawn on the paper and remove the glass from the paper.  You may also turn off the light box.  Use a straight-edge to draw a straight line through each pair of pins up to the edge of the lens.  Use a straight-edge to draw another line inside the glass connecting where the pin-lines meet the surface.  Use the protractor to measure all incident and refracted angles.  Look up the index of refraction of air and of glass and notice that they have a range of values.  Select a reasonable value for <m>n_\text{air}</m> and use Snell's law to determine the index of refraction for the glass.  This is your first verification of Snell's Law.</p>
+
+<p>Notice that the angle decreases <m>(\theta_a \gt \theta_g)</m> when the light
+passes from small <m>n</m> (air) to large <m>n</m> (glass).  This light is bent towards the normal.
+Similarly, when the light passes from large <m>n</m> (glass) to small <m>n</m> (air), the
+angle increases <m>(\theta_g \lt \theta_a)</m>.  This light is bent away from the normal.</p>
+
+
+</subsection>
+<subsection><title>Reflection at a single plane surface</title>
+
+<p>Carefully replace the square piece of glass onto your diagram and turn the light box back on.  Carefully re-align the light box to shine along the path that it previously followed.  Now you should also notice that a portion of the beam reflects off of each interface.  For the first boundary (after <term>pin 3</term>), place two pins along the beam that is reflected off of the glass.  When you are satisfied that it is aligned as well as possible, turn off the light box and remove the glass.  Measure the reflected angle and verify the law of reflection.</p>
+
+</subsection>
+<subsection><title>Predicting the Exiting Ray</title>
+
+<p>Use the thin triangular prism in this part.  Place the first two pins as indicated in
+<xref ref="f-refract-triangle" text="type-global" />, which starts the drawing that you will need to complete.
+I have drawn the incident ray, the dashed normal line, and the refracted ray.
+You will need to figure out where the light hits the second boundary, draw a line normal to the second surface, and then use Snell's law to determine the direction that the light beam exits from the prism.
+<dl>
+	<li><title>Step 1)</title><p> Decide on a value for the incident angle.  Assuming that the index of refraction of this glass is the same as what you calculated for the square glass, use Snell's law to determine the refracted angle. </p></li>
+	<li><title>Step 2)</title><p> Notice that the light ray inside the prism forms a triangle with the apex of the prism.  Since the angles of any triangle add to <m>180^\circ</m>, you can use the first refracted angle to determine the second incident angle.  (Recall that a normal line makes a <m>90^\circ</m> with the surface.) </p></li>
+	<li><title>Step 3)</title><p> Use Snell's Law to determine the exit angle. </p></li>
+</dl>
+</p>
+
+<p>Show your prediction to the instructor.  Set up the triangular prism and the light box to verify your prediction.  Your actual result will probably be noticeably different than your prediction.  When you make your measurements your angles
+will not exactly match those you used in your prediction and the glass may have a different index of refraction.  Use your measurements to determine the index of refraction for this piece of glass and verify that it is a reasonable value as your second verification of Snell's Law.</p>
+
+<figure xml:id="f-refract-triangle">
+<caption>Triangular Glass Ray Diagram</caption>
+<image xml:id="i-refract-triangle">
+<latex-image>
+\setlength{\unitlength}{.7cm}
+\begin{picture}(10,8)(0,0)
+<!--  Glass -->
+\put(3,0){\line(0,1){5}}
+\put(8,2.5){\line(-2, 1){5}}
+\put(8,2.5){\line(-2,-1){5}}
+<!--  light rays -->
+\put(6,3.5){\line(-2,3){3}}
+\put(6,3.5){\line(1,-5){.25}}
+<!--  normal lines -->
+\multiput(5,1.5)(.75,1.5){5}{\line(1,2){.4}}
+<!--  Pins -->
+\put(5.5,4.25){\circle*{.2}}
+\put(4.5,5.75){\circle*{.2}}
+<!--  label angles -->
+\put(5.9,4.65){\small$\theta_a$}
+\put(5.6,2.3){\small$\theta_g$}
+<!--  label indexes -->
+\put(3.4,4){$n_g$}
+\put(7,3.5){$n_a$}
+\put(7,1){$n_a$}
+<!--  label pins -->
+\put(5,4.2){\small $1$}
+\put(4,5.7){\small $2$}
+\end{picture}
+</latex-image>
+</image>
+</figure>
+<!--  -->
+
+</subsection>
+<subsection><title>The Critical Angle</title>
+
+<p>Again consider the prism.  Snell's Law makes an interesting prediction for large angle incident rays.  This is the effect that allows optical fibers to carry signals without loss (unlike electrical cables which have resistance that degrades a signal).  It is possible for light in a material with a high index of refraction that is incident upon a material with a low index of refraction to have total internal reflection <mdash /> In our case, this means that the light does not refract out of the glass!  To do this calculation you can repeat the steps of your previous calculation in the reverse order.
+<dl>
+	<li><title>Step 3)</title><p> Set your exit angle (the second refraction angle) to be <m>90^\circ</m>.  Use Snell's Law to determine the second incident angle (inside the glass).  This is the <em>critical angle</em>.  Now we need to figure out how to set the equipment to produce this angle. </p></li>
+	<li><title>Step 2)</title><p> Notice that the light ray inside the prism will again form a triangle with the apex of the prism.  Since the angles of any triangle add to <m>180^\circ</m>, you can use the second incident angle to determine the first refracted angle.  (Recall that a normal line makes a <m>90^\circ</m> with the surface.) </p></li>
+	<li><title>Step 1)</title><p> Since you know the index of refraction of this glass, use Snell's Law and the first refracted angle to determine the first incident angle. </p></li>
+</dl>
+</p>
+
+<p>Set the light box off of the cardboard and paper so that you can rotate the cardboard to easily change the incident angle.  Set the incident ray to be incident on one side at about <m>\!\!\txtfrac{1}{4}</m> of the way from the apex.  If you set it right, then when you turn on the light you should see the light refracted off of the first surface, but then not exit the glass at the second surface.  This may not actually be the case.  Either way, slowly rotate the paper (and the prism) until you can see an exiting beam and then slowly rotate it again until the refracted ray is refracted by <em>just</em> <m>90^\circ</m>, the smallest angle that makes the light not exit the prism.   The critical angle is now the incident angle at the second surface of the prism.  Experimentally determine the critical angle for this piece of glass.  Compare the predicted value of the critical angle to the measured value of the critical angle as your third and final verification of Snell's Law.</p>
+
+</subsection>
+</section>
+
+<exercises><title>Questions</title>
+
+	<exercise><statement><p> Explain why a plane mirror reverse left and right.   It will help to draw a ray diagram that replaces a the pins with a wider object that has a clear left side and right side. </p></statement></exercise>
+	<exercise><statement><p> What happens to the speed that light travels through a medium a greater index of refraction?
+<!-- </p></statement></exercise>
+	<exercise><statement><p> Under what conditions is the angle of refraction greater than the angle of incidence? -->
+<!-- </p></statement></exercise>
+	<exercise><statement><p> What can be concluded about the refracted ray and also the reflected ray when the angle of incidence is greater than the critical angle? --> </p></statement></exercise>
+
+</exercises>
+
+<conclusion><p>Last revised: Spring, 2012 </p>
+    <p>A PDF version might be found at <url href="http://physics.thomasmore.edu/labs/122/refraction.pdf">refraction.pdf (139 kB)</url></p>
+    <p>Copyright and license information can be found <url href="http://physics.thomasmore.edu/labs/122/general-spring-colophon.html">here</url>.</p>
+</conclusion>
+<!-- <p>Previous revisions: (2012) clarified, added some PASCO, revised the pins. </p>  -->
+<!-- <p>Previous revisions: (Apr, 2009)  </p>  -->
+
+</chapter>
+
+<!-- ********************************************************************************************** -->
+<!-- ********************************************************************************************** -->
+
+<chapter xml:id="c-simplens"><title>Simple Lenses</title>
+
+<objectives>
+<introduction><p>Through the various arrangements suggested below, you should be able to<ellipsis /></p></introduction>
+<ul>
+	<li><p> <ellipsis /> figure out the definition of the following terms based on the images you observe
+<ul>
+	<li><p> magnified versus minified </p></li>
+	<li><p> upright versus inverted </p></li>
+	<li><p> real versus virtual </p></li>
+</ul> </p></li>
+	<li><p> <ellipsis /> figure out the relationships between the measurable quantities:
+<ul>
+	<li><p> the magnification, defined in terms of the image height and the object height: <m>\displaystyle M = \frac{h_i}{h_o}</m> </p></li>
+	<li><p> the image distance (from the lens) <m>q</m> </p></li>
+	<li><p> the object distance (from the lens) <m>p</m> </p></li>
+	<li><p> the focal length, <m>f</m>. </p></li>
+</ul> </p></li>
+</ul>
+</objectives>
+
+<introduction>
+<p>Anybody who has looked through glasses, microscopes, telescopes,
+a magnifying glass, or even a window has experienced a lens.  We see
+images through lenses.</p>
+</introduction>
+
+
+<section><title>Procedure with Questions for the Analysis</title>
+
+<introduction>
+<warning>
+<p>The data you take in <xref ref="i-measure" text="type-global" /> will also be used in <xref ref="i-focal" text="type-global" />, so tabulate it in a coherent and clear format.</p>
+</warning>
+</introduction>
+
+<subsection><title>Defining Your Terms</title>
+
+<p>As a group, take one of the three lenses and your white screen into a dark room so that you can see a brighter room through a doorway.  Have one person in the group go stand in the bright room and move around while another person looks through the lens.  Then trade places until everybody has a chance to look through the lens.</p>
+
+<exercise>
+<statement><p>
+<ol>
+	<li><p> As a group, decide how to describe the image in the terms above:  <term>Magnified</term> or <term>minified</term>?  <term>upright</term> or <term>inverted</term>?  <term>real</term> or <term>virtual</term>? </p></li>
+	<li><p> While still in the darker room, notice that if you hold up your lens in front of a white screen (or a tee shirt) so that the lens is between the screen and the person in the other room, the image of the brighter room appears on the screen. (Have somebody dance and jump in the bright room while you watch the image on the screen.) </p></li>
+</ol>
+</p></statement>
+</exercise>
+<p>Take that same lens back into the room and have each person view this text through the lens.</p>
+<exercise>
+<statement><p>
+<ol>
+	<li><p> As a group, decide how to describe the image in the terms above:  <term>Magnified</term> or <term>minified</term>?  <term>upright</term> or <term>inverted</term>?  <term>real</term> or <term>virtual</term>? </p></li>
+	<li><p> Notice this time that the text appears to be on the same side of the lens as the actual text is.  There is no place that you can put your white screen to have the words from the page appear on the screen. </p></li>
+</ol>
+</p></statement>
+</exercise>
+<p>Compare and contrast the image of the room to the image of the text.</p>
+<exercise>
+<statement><p>
+<ol>
+	<li><p> If you had to choose between the names real and virtual, which image would you call real?  which would you call virtual? why? </p></li>
+	<li><p> Decide if either of the images change based on the location of the lens relative to the object being viewed. </p></li>
+</ol>
+</p></statement>
+</exercise>
+
+
+</subsection>
+
+<subsection xml:id="i-measure"><title>Quantify the Magnification</title>
+
+<p>In order to make precise measurements, attach the screen to one end of the optical bench and the light source to the other side.  The illuminated cross-hairs on the light source will be the object observed.
+Place a converging lens<fn>Converging lenses, also called convex lenses, bulge in the middle.  Diverging lenses, also called concave lenses, bulge at the edges.</fn> on the optical bench between the
+object and the screen.  Keep the screen and the light source fairly far apart (the convenient distance will depend on which lens you are using). Adjust the position of the lens until a clear image is formed on the screen.</p>
+<!--  -->
+<exercise>
+<statement><p>
+<ol>
+	<li><p> Describe the image formed in the terms defined above. </p></li>
+</ol>
+</p></statement>
+</exercise>
+<!--  -->
+<p>Measure the distances between the lens and the image (image distance, <m>q</m>), and between the lens and the object (object distance, <m>p</m>).
+Measure the height of the image on the screen <m>h_i</m> and the height of the object on the light source <m>h_o</m>.
+(If the image is inverted, then <m>h_i</m> is a negative value.)
+Calculate the magnification factor of the image, <m>\displaystyle M = \frac{h_i}{h_o}</m>.  </p>
+
+<p>For this same lens, without changing the position of the screen or the light source, find a second image that has a different description using the defined terms above.  Again, measure <m>p</m>, <m>q</m>, <m>h_i</m>, and <m>h_o</m> and calculate <m>M</m>.</p>
+<!--  -->
+<exercise>
+<statement><p>
+<ol>
+	<li><p> Describe this second image in the terms defined above. </p></li>
+</ol>
+</p></statement>
+</exercise>
+
+<p>Repeat this for each of the other two lenses.</p>
+<exercise>
+<statement><p>
+<ol>
+	<li><p> Determine the relationship between <m>M</m>, <m>q</m>, and/or <m>p</m>.  Verify that your relationship works (to about two significant figures) for all six data sets separately. </p></li>
+</ol>
+</p></statement>
+</exercise>
+
+<!--  View some text through a lens.  Describe the image. -->
+<!--  Measure the object distance and compare it to the focal length. -->
+<!--  Determine the magnification by replacing the text with a ruler. -->
+<!--  Compare the image of the hash marks on the ruler with the actual object hash marks on the ruler. -->
+<!--  Use this comparison to directly measure the magnification. -->
+<!--  Compare magnification/minification, real/virtual, upright/inversion between this situation and that of the far away object. -->
+
+
+</subsection>
+
+
+<subsection xml:id="i-focal"><title>Quantify the Focal Length</title>
+
+<p>The lens equation,
+<m>\displaystyle \frac{1}{p} + \frac{1}{q} = \frac{1}{f}</m>,
+shows the relationship
+between the image distance, <m>q</m>, object distance, <m>p</m>, and the focal length of the
+lens, <m>f</m>.   Using your data from <xref ref="i-measure" text="type-global" />, determine
+the focal length of each lens.  Each lens should have two values for <m>f</m> (one for each image).</p>
+<exercise>
+<statement><p>
+<ol>
+	<li><p> For each lens separately, compare the average of these numbers to the accepted value. </p></li>
+</ol>
+</p></statement>
+</exercise>
+<!--  -->
+<p>The focal length of a lens may also be determined by forming the
+image of a very distant object on a screen.  In this case, the object
+distance, <m>p</m>, becomes very large and therefore <m>1/p</m> becomes very small.  When
+this is the case, the lens equation may be written as <m>1/q = 1/f</m>, or more conveniently, <m>q=f</m>.
+Using a distant object in an adjacent room, measure the image distance and thereby determine the focal length for each lens.</p>
+<exercise>
+<statement><p>
+<ol>
+	<li><p> Compare this with your results for <m>f</m> from the data in <xref ref="i-measure" text="type-global" />. </p></li>
+	<li><p> Describe the image formed by this distant object. </p></li>
+</ol>
+</p></statement>
+</exercise>
+<!--  -->
+<p>In principle, an object needs to be infinitely far away for this second method to be true.  In practice, the object only needs to be <q>far enough.</q> Determine, theoretically or experimentally, how far an object needs to be to get an accurate measurement of the focal length in this manner.
+If the day is sunny, <alert>under strict instructor supervision</alert> take a lens outside and, using the sun as <q>an infinitely far away object,</q> measure the focal length by forming an image of the sun on your lab notebook.  Take a minute or so to really visualize the sun on your paper.  Predict the results.</p>
+
+
+<!-- 
+	<li><p>  The focal length of a lens is related to the radius of curvature -->
+<!-- of each of its surfaces and the index of refraction of the glass by the -->
+<!-- lens makers equation: -->
+<!-- % -->
+<!-- <me>\frac{1}{f} = (n - 1) \left(\frac{1}{r_1} + \frac{1}{r_2}\right)</me> -->
+<!-- % -->
+<!-- Using the spherometer, determine the radius of curvature of the -->
+<!-- surfaces of a larger lens and compute the value of the index of refraction of -->
+<!-- the glass.  Note: for the spherometer, use the relationship that r=d<m>^2</m>/(2h) -->
+<!-- for the following diagram: -->
+
+<!-- </p></li> -->
+
+</subsection>
+</section>
+
+<conclusion><p>Last revised: Aug, 2011 </p>
+    <p>A PDF version might be found at <url href="http://physics.thomasmore.edu/labs/122/simplens.pdf">simplens.pdf (108 kB)</url></p>
+    <p>Copyright and license information can be found <url href="http://physics.thomasmore.edu/labs/122/general-spring-colophon.html">here</url>.</p>
+</conclusion>
+
+</chapter>
+
+<!-- ********************************************************************************************** -->
+<!-- ********************************************************************************************** -->
+
+<chapter xml:id="c-EField"><title>Electric Field Lines</title>
+
+<objectives><title>Experimental Objectives</title>
+<ul><li><p>In this experiment, you will map out the equipotential lines for a couple of given electric field configurations and determine the pattern of the electric lines of force for these configurations.  You will then give a physical explanation of the terms <q>electric field</q> and <q>electric potential</q> and their relationship.</p></li></ul>
+</objectives>
+
+<introduction>
+
+<p>The effects of electric charges (positive and negative) can be seen in many electronic devices, like the radio.  The effects of static electricity can be seen when clothing is pulled out of a dryer on a winter day.  There is a force exerted on one charge by another charge and this can be either attractive or repulsive.  This force is called the Coulomb force and is named after Charles Coulomb (1736-1806).</p>
+
+<p>Physics relies on abstractions (new quantities and new names), with pictures to help convey information and ideas.  The English scientist Michael Faraday (1791-1867) introduced the concept of lines of force, a force field, as an aid in visualizing the interactions of charges.  These lines of force are a mental abstraction, but they can be visualized with the use of iron filings placed near a charge or a group of charges.  These lines of force convey a picture of the interaction between one charge and another.  The iron filings will align themselves when in the presence of a single charge.  This conceptualizes the idea of the electric field strength E (electric force per unit charge) because it is convenient to know the electric force per unit charge at any point in space due to a nearby set of electric charges.   The electric field strength though can not be easily measured with a meter.</p>
+
+<p>It requires work to move a charge against an electric field.  The ratio of the work done to the charge strength is called the potential difference (voltage) and it is measured in units of joules/coulomb and is called a volt.   This potential difference is easily measured with a voltmeter.  If the charge is moved along a path perpendicular to the electric field lines then there is no work done, it takes zero energy.  This is because there is no force component in the direction of the path.  The potential (voltage) is then constant along paths which are perpendicular to the field lines.  Such paths are called equipotential lines.  These equipotential lines can be measured with a simple voltmeter, and then from these the electric field lines can be deduced.</p>
+
+</introduction>
+<section><title>Pre-Lab Work</title>
+
+<p><ul>
+	<li><p> Define Coulomb's law. </p></li>
+	<li><p> Give a definition of electric field, both mathematical and pictorial. </p></li>
+	<li><p> Show a picture of the electric field near:
+    <dl>
+	<li><title>a)</title><p> a point charge, </p></li>
+	<li><title>b)</title><p> two equal and opposite point charges, and </p></li>
+	<li><title>c)</title><p> two equal positive point charges. </p></li>
+</dl> </p></li>
+	<li><p> Show from the above three cases (pictures), places where the electric field is zero. </p></li>
+	<li><p> Show in a picture, the electric field inside and outside of  a positively charged conductor (show that electric field lines will start from the surface of the charged conductor). </p></li>
+	<li><p> Give an argument why two electric field lines can never cross. </p></li>
+	<li><p> Give an argument why an electric field line is perpendicular to the equipotential line. </p></li>
+</ul>
+</p>
+
+</section>
+
+
+<section><title>Procedure</title>
+
+<p><ul>
+	<li><p> A special conducting plate with metal terminals will serve as the charge configuration.  This plate should be fastened beneath the field-mapping board, without observing the specific charge configuration. </p></li>
+	<li><p> An electric field is produced when a power supply (battery) is connected between the two terminals (points X and Y).  Set the power supply at 10 volts. </p></li>
+	<li><p> Points of equal potential (voltage) are found using a movable U-shaped probe which is connected to a voltmeter.  Plot a series of points on your own graph paper which are at a constant potential (an equipotential line).  Then repeat this for different potentials in steps of one volt.   In this way the entire field is explored. </p></li>
+	<li><p> Obtain an equipotential map and the electric field lines map (on graph paper) for  three different charge configurations.   Be sure to indicate the direction of the electric field lines on your maps. </p></li>
+</ul>
+</p>
+
+</section>
+<section><title>Analysis</title>
+
+<p><ul>
+	<li><p> Discuss the relationships between the voltage measurements and the electric field lines, and between the electric field lines and the charge configuration.  Estimate the magnitude of the electric field at a few points on each map.   Please write the electric field intensities in units of volts/meter. </p></li>
+	<li><p> Discuss any irregularities in the field patterns which you have found. </p></li>
+	<li><p> Discuss the spacing and what it represents, for the equipotential lines, and for  the electric field lines. </p></li>
+	<li><p> Indicate on your maps the location of the positive and negative charge distributions and their approximate shapes. </p></li>
+</ul>
+</p>
+
+</section>
+
+<exercises><title>Questions</title>
+	<exercise><statement><p> Can equipotential lines cross?   Can electric field lines cross?   Explain. </p></statement></exercise>
+	<exercise><statement><p> Why are there direction arrows on electric field lines but not on equipotential lines? </p></statement></exercise>
+	<exercise><statement><p> Why are the lines of force always perpendicular to the equipotential lines? </p></statement></exercise>
+	<exercise><statement><p> How is the electric potential affected by an insulator, and  by a conductor, when they are placed in the electric field? </p></statement></exercise>
+	<exercise><statement><p> How is the electric field affected inside an insulator, and inside a conductor, when they are placed in the field? </p></statement></exercise>
+</exercises>
+
+<conclusion><p>Last revised: (March, 1997) </p>
+    <p>A PDF version might be found at <url href="http://physics.thomasmore.edu/labs/122/EField.pdf">EField.pdf (67 kB)</url></p>
+    <p>Copyright and license information can be found <url href="http://physics.thomasmore.edu/labs/122/general-spring-colophon.html">here</url>.</p>
+</conclusion>
+
+</chapter>
+
+
+<!-- ********************************************************************************************** -->
+<!-- ********************************************************************************************** -->
+
+
+
+<chapter xml:id="c-intr"><title>Internal Resistance of Batteries</title>
+
+<objectives><ul><li><p>In this experiment, we would like to consider the characteristics of a voltage source.</p></li></ul></objectives>
+
+<introduction>
+
+<p>A voltage source, <m>V</m>, is anything that has a potential difference across two terminals: A liquid battery (such as in a car), a dry cell battery, a power plant (accessible through the wall socket), etc.  An ideal voltage source, <m>{\cal E}</m>, will provide the same amount of voltage regardless of how much current is drawn from it.  Physical voltage sources will approximate this to various degrees.</p>
+
+<p>In order to determine how ideal a voltage source is, we will draw more and more current and measure how much voltage it is able to supply.  If we attach a large resistance to the voltage source, then it will resist the current and we will only draw off a small current.  If we attach a small resistance to the voltage source, then it will draw a large current.</p>
+
+<p>Next week, you will consider the details of that relationship.  Your resistors should already be ordered largest to smallest; don't worry about their actual values, but please try to keep them in order.  Each of the resistors has multiple color bands on it.  Please be diligent about recording the colors in order on each resistor.  When you are finished with the lab, you should be able to sort them largest to smallest.</p>
+
+</introduction>
+
+<section xml:id="s-equipment"><title>The Equipment</title>
+
+<p>In the diagrams,
+<m>\txtgalv{A}</m> is an ammeter, which measures the current in amps (A), milliamps (mA), or microamps (<m>\mu</m>A).  These measure the <em>current through</em> a wire and must be placed in series with the circuit element.  Two circuit elements are <q>in series</q> if all of the current which goes through one also goes through the other.  Current is the flow of charge (an amount of material); it does not diminish as it passes through the circuit elements.</p>
+
+<p>In the diagrams, <m>\txtgalv{V}</m> is a voltmeter, which measures the voltage in volts (V). These measure the <em>voltage across</em> (the potential difference from before to after) a circuit element and must be placed in parallel with the circuit element.  Two circuit elements are <q>in parallel</q> if the current gets split between one and the other.  Voltage is related to the energy of the charges; it does diminish (or increase) as it passes through the circuit elements.</p>
+
+<p><xref ref="f-measureIV" text="type-global" /> shows two configurations of ammeter and voltmeter.  The small circles are the connections for the wires.
+In this lab, we are trying to measure the current drawn from the battery and the voltage output by the battery.
+On the left, the voltmeter is in parallel with the battery, but the ammeter is not in series with the battery.
+(<m>V</m> is correct, but <m>I</m> is too small.)
+On the right, the ammeter is in series with the battery, but the voltmeter is not in parallel with the battery.
+(<m>I</m> is correct, but <m>V</m> is too small.)
+You will be making a mistake either way, but hopefully neither is <em>too wrong</em>.
+For only your largest and smallest resistors, measure this both ways and see how large the effect is.
+(It is incorrect to use the voltage from one circuit and the current from the other.)</p>
+
+
+<!--  -->
+<figure xml:id="f-measureIV">
+<caption>Measuring the voltage across <q>and</q> the current through a resistor.</caption>
+<image xml:id="i-measureIV">
+<latex-image>
+\setlength{\unitlength}{.5cm}
+\begin{picture}(18,6)
+<!--  -->
+\put(0,6){Either}
+<!--  -->
+\put(2,2.55){\circle{.4}}
+\put(2,3.25){\line(0,-1){.5}}
+\put(0.5,3.5){$V$}
+\put(1.75,3.25){\line(1,0){.5}}
+\put(1.5,3.5){\line(1,0){1}}
+\put(1.75,3.75){\line(1,0){.5}}
+\put(1.5,4){\line(1,0){1}}
+\put(2,4){\line(0,1){.5}}
+\put(2,4.7){\circle{.4}}
+<!--  -->
+\put(5.5,-.2){\circle{.4}}
+\put(5.5,.5){\line(0,-1){.5}}
+\put(6.1,1.5){$R$}
+\multiput(5,0.725)(0,.5){4}{\line(4,1){1}}
+\multiput(6,0.5)(0,.5){4}{\line(-4,1){1}}
+\put(5.5,2.475){\line(0,1){.5}}
+\put(5.5,3.175){\circle{.4}}
+<!--  -->
+\put(5.5,3.175){\circle{.4}}
+\put(5.5,3.375){\line(0,1){.5}}
+\put(5.5,4.375){\circle{1}}
+\put(5.2,4.175){A}
+\put(5.5,4.875){\line(0,1){.5}}
+\put(5.5,5.575){\circle{.4}}
+<!--  -->
+\put(2,-.2){\line(0,1){2.55}}
+\put(2,-.2){\line(1,0){3.3}}
+\put(2,5.575){\line(0,-1){.675}}
+\put(2,5.575){\line(1,0){3.3}}
+<!--  -->
+\put(7.5,-.2){\line(0,1){2.2}}
+\put(7.5,-.2){\line(-1,0){1.8}}
+\put(7.5,2.5){\circle{1}}
+\put(7.2,2.3){V}
+\put(7.5,5.575){\line(0,-1){2.575}}
+\put(7.5,5.575){\line(-1,0){1.8}}
+<!--  -->
+<!--  -->
+\put(9,6){Or}
+<!--  -->
+\put(11,2.55){\circle{.4}}
+\put(11,3.25){\line(0,-1){.5}}
+\put(9.5,3.5){$V$}
+\put(10.75,3.25){\line(1,0){.5}}
+\put(10.5,3.5){\line(1,0){1}}
+\put(10.75,3.75){\line(1,0){.5}}
+\put(10.5,4){\line(1,0){1}}
+\put(11,4){\line(0,1){.5}}
+\put(11,4.7){\circle{.4}}
+<!--  -->
+\put(14.5,-.2){\circle{.4}}
+\put(14.5,.5){\line(0,-1){.5}}
+\put(15.1,1.5){$R$}
+\multiput(14,0.725)(0,.5){4}{\line(4,1){1}}
+\multiput(15,0.5)(0,.5){4}{\line(-4,1){1}}
+\put(14.5,2.475){\line(0,1){.5}}
+\put(14.5,3.175){\circle{.4}}
+<!--  -->
+\put(14.5,3.175){\circle{.4}}
+\put(14.5,3.375){\line(0,1){.5}}
+\put(14.5,4.375){\circle{1}}
+\put(14.2,4.175){A}
+\put(14.5,4.875){\line(0,1){.5}}
+\put(14.5,5.575){\circle{.4}}
+<!--  -->
+\put(11,-.2){\line(0,1){2.55}}
+\put(11,-.2){\line(1,0){3.3}}
+\put(11,5.575){\line(0,-1){.675}}
+\put(11,5.575){\line(1,0){3.3}}
+<!--  -->
+\put(16.5,-.2){\line(0,1){1.7}}
+\put(16.5,-.2){\line(-1,0){1.8}}
+\put(16.5,2.0){\circle{1}}
+\put(16.2,1.8){V}
+\put(16.5,3.175){\line(0,-1){0.675}}
+\put(16.5,3.175){\line(-1,0){1.8}}
+<!--  -->
+\end{picture}
+</latex-image>
+</image>
+</figure>
+<!-- ] -->
+
+
+</section>
+<section><title>The Experiment</title>
+
+<p>You should consider (one at a time, of course) three voltage sources: a <q>good</q> dry-cell battery, a <q>bad</q> dry-cell battery, and a dc-power supply.  To determine the characteristics of each battery, you will need to build the circuit in <xref ref="f-R1" text="type-global" /> using some resistor, and then replace the resistor with 10 different resistance values, in order to vary the amount of current drawn.  Measure the current (from the ammeter <m>\txtgalv{A}</m>) and the terminal voltage (from the voltmeter <m>\txtgalv{V}</m>) for each of these resistors.  Figure out how the terminal voltage is related to the current drawn by graphing the voltage <m>V</m> versus the current <m>I</m> and considering the equation of the best trendline.</p>
+
+
+</section>
+<section><title>The Analysis</title>
+
+<p>Comment on the following in your lab notebook, and use this information to enhance your analysis of the data.
+<!--  -->
+<ol>
+	<li><p> Does the good battery provide a constant voltage?  If so, tell the instructor to find smaller resistors for you. If not, try to figure out what is happening. </p></li>
+	<li><p> Discuss the units and the interpretation of the slope and intercept for each graph. </p></li>
+	<li><p> Compare the values of slope and intercept from the three graphs.  It may be that they should not have the same value; but correlate the values to the voltage sources.  If they have comparable voltages, then graph them on the same chart. </p></li>
+</ol>
+<!--  -->
+</p>
+
+<p>On your graph, extrapolate the trendline to determine what would happen if you had zero resistance.  (<alert>Do not</alert> actually use zero resistance; that would use up the battery <q>juice</q> <alert>very</alert> quickly.)
+<!--  -->
+<ol>
+	<li><p> Which portion of the graph is large <m>R</m> and small <m>R</m>?  How do you know? </p></li>
+	<li><p> In principle, if there were absolutely no resistance to the flow of current, how much current would flow? </p></li>
+	<li><p> Based on your graph, if you were to allow the resistance to be zero in the circuit, what would happen to the current?  (This is called the <q>short-circuit current.</q>) </p></li>
+	<li><p> Can you draw any conclusion about the resistance that is internal to the battery?  (Be as quantitative as possible.) </p></li>
+	<li><p> Based on your graph, what characteristic distinguishes a <q>good</q> battery from a <q>bad</q> battery? </p></li>
+</ol>
+<!--  -->
+</p>
+
+</section>
+
+<conclusion><p>Last revised: Jan. 8, 2009 </p>
+    <p>A PDF version might be found at <url href="http://physics.thomasmore.edu/labs/122/intr.pdf">intr.pdf (81 kB)</url></p>
+    <p>Copyright and license information can be found <url href="http://physics.thomasmore.edu/labs/122/general-spring-colophon.html">here</url>.</p>
+</conclusion>
+
+</chapter>
+
+
+
+<!-- ********************************************************************************************** -->
+<!-- ********************************************************************************************** -->
+
+
+<chapter xml:id="c-Req"><title>Using Ohm's Law to Determine Equivalent Resistance</title>
+
+<objectives><ul><li><p>In this lab, after empirically verifying Ohm's Law, you would like to empirically determine the equivalent resistance of two resistors in series and of those two resistors in parallel.</p></li></ul></objectives>
+
+<introduction>
+
+<p>When current moves through a wire due to an electrical potential difference (a voltage),
+it is literally electric charges falling through the wire due to an electrical field.
+This is completely analogous to gravitational charges (masses) falling through the air due to a gravitational field.  Different types and sizes (gauges) of wire resist this current by different amounts.  Ohm's Law describes (for some materials) just how this resistance affects a current for a specified voltage, i.e., it relates the current to the voltage.  Using the equipment in the lab, you too will be able to discover Ohm's law!  Hooray!
+Furthermore, we can investigate the effect of <em>multiple</em> resistors on a current in some voltage.</p>
+
+<p>For each of the cases outlined below, we will measure at least eight voltage values (from a dc-power supply) and the corresponding current for a specific resistor or combination of resistors.</p>
+
+</introduction>
+
+<section><title>Pre-Lab</title>
+
+<p>Answer the following questions before you come into lab.
+<!--  -->
+<ol>
+	<li><p> Look up Ohm's Law.  If you plot <m>V</m> versus <m>I</m>, what do you expect the graph to look like? </p></li>
+	<li><p> What units should the slope and intercept have? </p></li>
+	<li><p> What values do you expect the slope and intercept to have? </p></li>
+	<li><p> Draw one circuit diagram each for resistors in series and for resistors in parallel. </p></li>
+	<li><p> Look up the resistor color code in your textbook. </p></li>
+</ol>
+</p>
+
+</section>
+
+<section xml:id="s-equipment2"><title>The Equipment</title>
+
+<p>In the diagrams,
+<m>\txtgalv{A}</m> is an ammeter, which measures the current in amps (A), milliamps (mA), or microamps (<m>\mu</m>A).  These measure the <em>current through</em> a wire and must be placed in series with the circuit element.  Two circuit elements are <q>in series</q> if all of the current which goes through one also goes through the other.  Current is the flow of charge (an amount of material); it does not diminish as it passes through the circuit elements.</p>
+
+<p>In the diagrams, <m>\txtgalv{V}</m> is a voltmeter, which measures the voltage in volts (V). These measure the <em>voltage across</em> (the potential difference from before to after) a circuit element and must be placed in parallel with the circuit element.  Two circuit elements are <q>in parallel</q> if the current gets split between one and the other.  Voltage is related to the energy of the charges; it does diminish (or increase) as it passes through the circuit elements.</p>
+
+<p><xref ref="f-R1" text="type-global" />
+shows two configurations of ammeter and voltmeter.  The small circles are the connections for the wires.
+In this lab, we are trying to measure the current through the resistor and the voltage across the resistor.
+On the left, the ammeter is in series with the resistor, but the voltmeter is not in parallel with the resistor.
+(<m>I</m> is correct, but <m>V</m> is too large.)
+On the right, the voltmeter is in parallel with the resistor, but the ammeter is not in series with the resistor.
+(<m>V</m> is correct, but <m>I</m> is too large.)
+You will be making a mistake either way, but hopefully neither is <em>too wrong</em>.
+For only one of your resistors, measure the data both ways and see how large the effect is.
+(It is incorrect to use the voltage from one circuit and the current from the other.)</p>
+
+<!--  -->
+<figure xml:id="f-R1">
+<caption>Determining Ohm's Law with a single resistor.</caption>
+<image xml:id="i-R1">
+<latex-image>
+\setlength{\unitlength}{.5cm}
+\begin{picture}(18,6)
+<!--  -->
+\put(0,6){Either}
+<!--  -->
+\put(2,2.55){\circle{.4}}
+\put(2,3.25){\line(0,-1){.5}}
+\put(0.5,3.5){$V$}
+\put(1.75,3.25){\line(1,0){.5}}
+\put(1.5,3.5){\line(1,0){1}}
+\put(1.75,3.75){\line(1,0){.5}}
+\put(1.5,4){\line(1,0){1}}
+\put(2,4){\line(0,1){.5}}
+\put(2,4.7){\circle{.4}}
+<!--  -->
+\put(5.5,-.2){\circle{.4}}
+\put(5.5,.5){\line(0,-1){.5}}
+\put(6.1,1.5){$R$}
+\multiput(5,0.725)(0,.5){4}{\line(4,1){1}}
+\multiput(6,0.5)(0,.5){4}{\line(-4,1){1}}
+\put(5.5,2.475){\line(0,1){.5}}
+\put(5.5,3.175){\circle{.4}}
+<!--  -->
+\put(5.5,3.175){\circle{.4}}
+\put(5.5,3.375){\line(0,1){.5}}
+\put(5.5,4.375){\circle{1}}
+\put(5.2,4.175){A}
+\put(5.5,4.875){\line(0,1){.5}}
+\put(5.5,5.575){\circle{.4}}
+<!--  -->
+\put(2,-.2){\line(0,1){2.55}}
+\put(2,-.2){\line(1,0){3.3}}
+\put(2,5.575){\line(0,-1){.675}}
+\put(2,5.575){\line(1,0){3.3}}
+<!--  -->
+\put(7.5,-.2){\line(0,1){2.2}}
+\put(7.5,-.2){\line(-1,0){1.8}}
+\put(7.5,2.5){\circle{1}}
+\put(7.2,2.3){V}
+\put(7.5,5.575){\line(0,-1){2.575}}
+\put(7.5,5.575){\line(-1,0){1.8}}
+<!--  -->
+<!--  -->
+\put(9,6){Or}
+<!--  -->
+\put(11,2.55){\circle{.4}}
+\put(11,3.25){\line(0,-1){.5}}
+\put(9.5,3.5){$V$}
+\put(10.75,3.25){\line(1,0){.5}}
+\put(10.5,3.5){\line(1,0){1}}
+\put(10.75,3.75){\line(1,0){.5}}
+\put(10.5,4){\line(1,0){1}}
+\put(11,4){\line(0,1){.5}}
+\put(11,4.7){\circle{.4}}
+<!--  -->
+\put(14.5,-.2){\circle{.4}}
+\put(14.5,.5){\line(0,-1){.5}}
+\put(15.1,1.5){$R$}
+\multiput(14,0.725)(0,.5){4}{\line(4,1){1}}
+\multiput(15,0.5)(0,.5){4}{\line(-4,1){1}}
+\put(14.5,2.475){\line(0,1){.5}}
+\put(14.5,3.175){\circle{.4}}
+<!--  -->
+\put(14.5,3.175){\circle{.4}}
+\put(14.5,3.375){\line(0,1){.5}}
+\put(14.5,4.375){\circle{1}}
+\put(14.2,4.175){A}
+\put(14.5,4.875){\line(0,1){.5}}
+\put(14.5,5.575){\circle{.4}}
+<!--  -->
+\put(11,-.2){\line(0,1){2.55}}
+\put(11,-.2){\line(1,0){3.3}}
+\put(11,5.575){\line(0,-1){.675}}
+\put(11,5.575){\line(1,0){3.3}}
+<!--  -->
+\put(16.5,-.2){\line(0,1){1.7}}
+\put(16.5,-.2){\line(-1,0){1.8}}
+\put(16.5,2.0){\circle{1}}
+\put(16.2,1.8){V}
+\put(16.5,3.175){\line(0,-1){0.675}}
+\put(16.5,3.175){\line(-1,0){1.8}}
+<!--  -->
+\end{picture}
+</latex-image>
+</image>
+</figure>
+<!-- ] -->
+
+
+</section>
+<section><title>The Experiment</title>
+
+<p>Please note <xref ref="s-equipment2" text="type-global" /> regarding the equipment as arranged in <xref ref="f-R1" text="type-global" />.
+<!--  -->
+For one of your resistors arranged according to one of the circuits in <xref ref="f-R1" text="type-global" />, measure the current (from the ammeter <m>\txtgalv{A}</m>) for several arbitrary and somewhat-evenly-spaced voltage values (as measured from <m>\txtgalv{V}</m>).  Verify Ohm's Law by graphing the voltage <m>V</m> versus the current <m>I</m> and considering the equation of the best trendline.  Repeat this for the second resistor.  For at least one of your resistors, repeat this for the other configuration in <xref ref="f-R1" text="type-global" />.  Answer the first set of questions in <xref ref="s-ohm-questions" text="type-global" />.</p>
+
+<!--  Edited -->
+
+<p>Build the circuit in <xref ref="f-series" text="type-global" /> using your two resistors.  Measure <m>I</m> from <m>\txtgalv{A}</m> for several <m>V</m>.  Graph the voltages <m>V_1</m>, <m>V_2</m>, and <m>V_t</m> on the same graph, all  versus the current <m>I</m> through the resistor. Consider the equations of the best trendlines.
+Answer <xref ref="q-series-eq" text="global">Question</xref>, <xref ref="q-series-bigsmall" text="global">Question</xref>, and <xref ref="q-series-relation" text="global">Question</xref> about this data and graph.</p>
+
+<p>Build the circuit in <xref ref="f-parallel" text="type-global" /> using your two resistors.
+Measure <m>I</m> from each <m>\txtgalv{A}</m> (<m>I_1</m>, <m>I_2</m>, and <m>I_t</m>) for several <m>V</m>.
+All on the same graph, plot the voltage <m>V</m> versus each current.
+Consider the equations of the best trendlines.
+Answer <xref ref="q-parallel-eq" text="global">Question</xref>, <xref ref="q-parallel-bigsmall" text="global">Question</xref>, and <xref ref="q-parallel-relation" text="global">Question</xref> about this data and graph.</p>
+
+<sidebyside>
+<!--  -->
+<figure xml:id="f-series">
+<caption>Using Ohm's Law with multiple resistors in series to find an equivalent resistance.</caption>
+<image xml:id="i-series">
+<latex-image>
+\setlength{\unitlength}{.5cm}
+\begin{picture}(12,8)
+<!--  -->
+\put(2,2.55){\circle{.4}}
+\put(2,3.25){\line(0,-1){.5}}
+\put(0.5,3.5){$V$}
+\put(1.75,3.25){\line(1,0){.5}}
+\put(1.5,3.5){\line(1,0){1}}
+\put(1.75,3.75){\line(1,0){.5}}
+\put(1.5,4){\line(1,0){1}}
+\put(2,4){\line(0,1){.5}}
+\put(2,4.7){\circle{.4}}
+<!--  -->
+\put(5.5,3.175){\circle{.4}}
+\put(5.5,3.875){\line(0,-1){.5}}
+\put(6.1,4.875){$R_1$}
+\multiput(5,4.1)(0,.5){4}{\line(4,1){1}}
+\multiput(6,3.875)(0,.5){4}{\line(-4,1){1}}
+\put(5.5,5.85){\line(0,1){.5}}
+\put(5.5,6.55){\circle{.4}}
+<!--  -->
+\put(5.5,-.2){\circle{.4}}
+\put(5.5,.5){\line(0,-1){.5}}
+\put(6.1,1.5){$R_2$}
+\multiput(5,0.725)(0,.5){4}{\line(4,1){1}}
+\multiput(6,0.5)(0,.5){4}{\line(-4,1){1}}
+\put(5.5,2.475){\line(0,1){.5}}
+\put(5.5,3.175){\circle{.4}}
+<!--  -->
+<!--  redo this horizontal -->
+\put(3.1,6.55){\circle{.4}}
+\put(3.8,6.55){\line(-1,0){.5}}
+\put(4.3,6.55){\circle{1}}
+\put(4.0,6.35){$A$}
+\put(5.3,6.55){\line(-1,0){.5}}
+\put(5.5,6.55){\circle{.4}}
+<!--  -->
+\put(2,-.2){\line(0,1){2.55}}
+\put(2,-.2){\line(1,0){3.3}}
+\put(2,6.55){\line(0,-1){1.65}}
+\put(2,6.55){\line(1,0){.9}}
+<!--  -->
+\put(10.5,-.3){\line(0,1){2.3}}
+\put(10.5,-.3){\line(-1,0){4.8}}
+\put(10.5,2.5){\circle{1}}
+\put(10.2,2.3){$V_t$}
+\put(10.5,6.65){\line(0,-1){3.65}}
+\put(10.5,6.65){\line(-1,0){4.8}}
+<!--  -->
+\put(8.0,3.275){\line(0,1){1.6}}
+\put(8.0,3.275){\line(-1,0){2.3}}
+\put(8.0,5.375){\circle{1}}
+\put(7.7,5.175){$V_1$}
+\put(8.0,6.45){\line(0,-1){0.675}}
+\put(8.0,6.45){\line(-1,0){2.3}}
+<!--  -->
+\put(8.0,-.1){\line(0,1){1.6}}
+\put(8.0,-.1){\line(-1,0){2.3}}
+\put(8.0,2.0){\circle{1}}
+\put(7.7,1.8){$V_2$}
+\put(8.0,3.075){\line(0,-1){0.575}}
+\put(8.0,3.075){\line(-1,0){2.3}}
+<!--  -->
+\end{picture}
+</latex-image>
+</image>
+</figure>
+<figure xml:id="f-parallel">
+<caption>Using Ohm's Law with multiple resistors in parallel to find an equivalent resistance.</caption>
+<image xml:id="i-parallel">
+<latex-image>
+\setlength{\unitlength}{.5cm}
+\begin{picture}(18,8)
+<!--  -->
+\put(2,2.55){\circle{.4}}
+\put(2,3.25){\line(0,-1){.5}}
+\put(0.5,3.5){$V$}
+\put(1.75,3.25){\line(1,0){.5}}
+\put(1.5,3.5){\line(1,0){1}}
+\put(1.75,3.75){\line(1,0){.5}}
+\put(1.5,4){\line(1,0){1}}
+\put(2,4){\line(0,1){.5}}
+
+\put(2,4.7){\circle{.4}}
+<!--  -->
+\put(7.5,-.2){\circle{.4}}
+\put(7.5,.5){\line(0,-1){.5}}
+\put(8.1,1.5){$R_1$}
+\multiput(7,0.725)(0,.5){4}{\line(4,1){1}}
+\multiput(8,0.5)(0,.5){4}{\line(-4,1){1}}
+\put(7.5,2.475){\line(0,1){.5}}
+\put(7.5,3.175){\circle{.4}}
+<!--  -->
+\put(7.5,3.175){\circle{.4}}
+\put(7.5,3.375){\line(0,1){.5}}
+\put(7.5,4.375){\circle{1}}
+\put(7.1,4.175){$A_1$}
+\put(7.5,4.875){\line(0,1){.5}}
+\put(7.5,5.575){\circle{.4}}
+<!--  redo this horizontal -->
+\put(5.1,5.575){\circle{.4}}
+\put(5.8,5.575){\line(-1,0){.5}}
+\put(6.3,5.575){\circle{1}}
+\put(5.9,5.375){$A_t$}
+\put(7.3,5.575){\line(-1,0){.5}}
+\put(7.5,5.575){\circle{.4}}
+<!--  -->
+\put(10.5,-.2){\circle{.4}}
+\put(10.5,.5){\line(0,-1){.5}}
+\put(11.1,1.5){$R_2$}
+\multiput(10,0.725)(0,.5){4}{\line(4,1){1}}
+\multiput(11,0.5)(0,.5){4}{\line(-4,1){1}}
+\put(10.5,2.475){\line(0,1){.5}}
+\put(10.5,3.175){\circle{.4}}
+<!--  -->
+\put(10.5,3.175){\circle{.4}}
+\put(10.5,3.375){\line(0,1){.5}}
+\put(10.5,4.375){\circle{1}}
+\put(10.1,4.175){$A_2$}
+\put(10.5,4.875){\line(0,1){.5}}
+\put(10.5,5.575){\circle{.4}}
+<!--  -->
+\put(2,-.2){\line(0,1){2.55}}
+\put(2,-.2){\line(1,0){5.3}}
+\put(2,5.575){\line(0,-1){.675}}
+\put(2,5.575){\line(1,0){2.85}}
+\put(7.7,-.2){\line(1,0){2.55}}
+\put(7.7,5.575){\line(1,0){2.55}}
+<!--  -->
+\put(12.5,-.2){\line(0,1){2.2}}
+\put(12.5,-.2){\line(-1,0){1.8}}
+\put(12.5,2.5){\circle{1}}
+\put(12.2,2.3){V}
+\put(12.5,5.575){\line(0,-1){2.575}}
+\put(12.5,5.575){\line(-1,0){1.8}}
+<!--  -->
+<!--  -->
+\end{picture}
+</latex-image>
+</image>
+</figure>
+</sidebyside>
+
+</section>
+
+<exercises xml:id="s-ohm-questions"><title>Questions</title>
+
+<introduction><p>All of the following questions should be considered in your lab notebook and used to enhance the analysis of your report.</p></introduction>
+
+<exercisegroup>
+<introduction><p>Regarding the individual resistors, answer the following questions:</p></introduction>
+<!--  -->
+	<exercise><statement><p> Based on the color codes, do your resistor values agree with your graphs? </p></statement></exercise>
+	<exercise><statement><p> At the end of lab, the instructor will show you how to use the multimeter as an ohm-meter.  Measure the resistance of your resistors and compare this value to the graphs. </p></statement></exercise>
+	<exercise><statement><p> Did the two configurations in <xref ref="f-R1" text="type-global" /> give different values? </p></statement></exercise>
+</exercisegroup>
+
+<exercisegroup>
+<introduction><p>Regarding the series resistors, answer the following questions:</p></introduction>
+<!--  -->
+	<exercise><statement><p> The series graph should have a plot of the individual resistors as well as the series combination.  Do the individual series resistors on this graph agree with the individual values that you found on the plot in the first part?  Are they too large or too small? </p></statement></exercise>
+	<exercise xml:id="q-series-eq"><statement><p> Use Ohm's Law to decide on the single equivalent resistor which could replace your two resistors without changing the current-voltage relationship. </p></statement></exercise>
+	<exercise xml:id="q-series-bigsmall"><statement><p> Is the equivalent resistor larger than or smaller than the individual resistances? </p></statement></exercise>
+	<exercise xml:id="q-series-relation"><statement><p> Determine a relationship between your resistors, <m>R_1</m> and <m>R_2</m>, and the equivalent resistance, <m>R_\text{eq}</m>. </p></statement></exercise>
+</exercisegroup>
+
+<exercisegroup>
+<introduction><p>Regarding the parallel resistors, answer the following questions:</p></introduction>
+<!--  -->
+	<exercise><statement><p> The parallel graph should have a plot of the individual resistors as well as the parallel combination.  Do the individual series resistors on this graph agree with the individual values that you found on the plot in the first part?  Are they too large or too small? </p></statement></exercise>
+	<exercise xml:id="q-parallel-eq"><statement><p> Use Ohm's Law to decide on the single equivalent resistor which could replace your two resistors without changing the current-voltage relationship. </p></statement></exercise>
+	<exercise xml:id="q-parallel-bigsmall"><statement><p> Is the equivalent resistor larger than or smaller than the individual resistances? </p></statement></exercise>
+	<exercise xml:id="q-parallel-relation"><statement><p> Determine a relationship between your resistors, <m>R_1</m> and <m>R_2</m>, and the equivalent resistance, <m>R_\text{eq}</m>.  (Hint: It may help to consider reciprocals of certain values; it may also help to look it up in your textbook.) </p></statement></exercise>
+</exercisegroup>
+</exercises>
+
+<conclusion><p>Last revised: Jan, 2006 </p>
+    <p>A PDF version might be found at <url href="http://physics.thomasmore.edu/labs/122/Req.pdf">Req.pdf (104 kB)</url></p>
+    <p>Copyright and license information can be found <url href="http://physics.thomasmore.edu/labs/122/general-spring-colophon.html">here</url>.</p>
+</conclusion>
+
+</chapter>
+
+<!-- ********************************************************************************************** -->
+<!-- ********************************************************************************************** -->
+
+<chapter xml:id="c-Magneticdemo"><title>Magnetic Field Demonstrations - An Exercise</title>
+
+<introduction>
+<p>The lab room has been set up with five lab stations; each involves a short experiment designed to demonstrate the characteristics of the magnetic field for various objects.  Your group will move from table to table and carry out each of these experiments, making observations and collecting data as necessary.  Listed below are questions which you should attempt to answer at each station.  Instead of a lab report, you will need to write a half-page summary on each station.  It should be thorough enough to explain the phenomenon to a colleague who missed today's lab.</p>
+
+<p>You should form into four groups so that there is always an empty station.  Take notes in your lab notebook, but then write up and turn in a formal document that discusses the relevant ideas for each station.</p>
+
+<warning> 
+<p>In all experiments, note that electronic equipment such as power supplies and computers produce magnetic fields that might impact your experiment.  You should not measure your magnetic fields near other electronic devices.  You should also be aware that strong magnetic fields can erase credit cards and other magnetic storage devices.</p>
+</warning>
+
+</introduction>
+
+<section xml:id="s-fieldsensor"><title>Data Studio's Magnetic Field Sensor (for reference, not an experiment)</title>
+
+<introduction>
+<p>To use the magnetic field sensor, turn on Data Studio, plug in the sensor, and activate the sensor in the usual manner.  At the tip of the arm on the sensor are two white dots, one on the end of the tip and one on the side of the tip.  Notice also the control buttons on the handle of the sensor.  The first button has two settings: marked <m>^\rightarrow_\rightarrow</m> and <m>\uparrow\uparrow</m> and these are labeled [Radial/Axial].  The Radial setting measures magnetic field pointing into the side of the arm of the sensor, at the location of the white dot.  The Axial setting measures magnetic field pointing into the end of the sensor, at the location of the white dot.  Negative means that the magnetic field is out of the sensor instead of into the sensor.</p>
+
+<p>When changing between Axial and Radial, the sensor must be tared.  If you tare it while it is pointing in the direction of some magnetic field, then it cannot<fn>This is exactly analogous to tarring a scale with a cup on it; the scale only reads the mass of the material added to the cup after the tarring, not the mass of the cup itself.</fn> measure that magnetic field.</p>
+
+</introduction>
+
+<subsection><title>Measuring the <m>B</m> of a Permanent Magnet</title>
+
+<p>Determine the expected direction of the magnetic field.  Set the sensor to either Radial or Axial, according to how you expect to hold it, and tare it.  Verify that the scale is set to [<m>1\times</m>] and plot in Gauss or Tesla, as appropriate.  Place the tip of the sensor such that the white dot on the side (or top as necessary) is near the magnet pointing in the direction of the expected magnetic field.</p>
+
+</subsection>
+<subsection><title>Measuring the <m>B</m> of a Wire Loop</title>
+
+<p>Use the right-hand rule to determine the expected direction of the magnetic field.  Set the sensor to Axial and tare it.  Verify that the scale is set to [<m>1\times</m>] and plot in Gauss or Tesla, as appropriate.  Place the tip of the sensor such that the white dot on the end is as close to the center of the wire loop as possible and points as perpendicular as possible to the plane of the coil.</p>
+
+<p>If there is a cross-field (a field perpendicular to the field of the coil), then you might also try to measure that by removing the sensor from the vicinity of the coil, setting it to Radial, re-taring it, and then replacing the sensor into the center of the coil with the white dot on the side pointing in the direction of the cross field.</p>
+
+</subsection>
+<subsection><title>Measuring the <m>B</m> of a Solenoid</title>
+
+<p>Use the right-hand rule to determine the expected direction of the magnetic field.  Set the sensor to Axial and tare it.  Verify that the scale is set to [<m>1\times</m>] and plot in Gauss or Tesla, as appropriate.  Place the tip of the sensor such that the white dot on the end is as close to the center of the solenoid as possible and points as close as possible along the axis of the solenoid.</p>
+
+<p>You might also try to measure the radial component to the field by removing the sensor from the vicinity of the coil, setting it to Radial, re-taring it, and then replacing the sensor into the center of the solenoid with the white dot on the side pointing outwards towards the coil.</p>
+
+</subsection>
+<subsection><title>Measuring the <m>B</m> of a Long Straight Wire</title>
+
+<p>Use the right-hand rule to determine the expected direction of the magnetic field.  Set the sensor to Radial and tare it.  Verify that the scale is set to [<m>1\times</m>] and plot in Gauss or Tesla, as appropriate.  Place the tip of the sensor such that the white dot on the side is in the vicinity of the wire pointing in the direction of the expected magnetic field.</p>
+
+<p>If there is a cross-field (a field perpendicular to the field of the wire), then you might also try to measure that by removing the sensor from the vicinity of the wire, setting it to Radial, re-taring it, and then replacing the sensor into the center of the coil with the white dot on the side pointing in the direction of the cross field.</p>
+
+</subsection>
+</section>
+
+<section><title>Magnetic Field of a Permanent Magnet - Iron Filings</title>
+
+<introduction>
+<p>You should have two cylindrical magnets, a coffee filter, a stiff plastic plate, some paper clips and nails, and a salt shaker of iron filings available at this station.  Each magnet is labeled with either <q>N</q> or <q>S</q> to indicate the north or south pole of the magnet, respectively.</p>
+</introduction>
+
+<subsection><title>Magnets and Paper Clips</title>
+
+<p>Consider how magnets and paper clips interact.  In each of the following, you may replace the paper clips with nails if you like.</p>
+<exercise>
+<statement><p>
+<ol>
+	<li><p> Describe any interaction you experience when you touch any pair of the paper clips together in the various possible orientations. </p></li>
+	<li><p> Describe any interaction you experience when you touch the magnets together in the various possible orientations.
+    <ol>
+	<li><p> Describe how you can pick one magnet up with the other. </p></li>
+	<li><p> Describe how you can knock one magnet over with the other (without making contact). </p></li>
+</ol> </p></li>
+	<li><p> Describe any interaction you experience when you touch one of the magnets together with any one of the paper clips in the various possible orientations.
+    <ol>
+	<li><p> Pick up one paper clip <em>with the narrow end</em> of one of the magnets so that the clip hangs straight out from the magnet.  Then, while these are still in contact, touch a second paper clip with the end of the first clip.  Now, while carefully holding the first clip near the magnet, carefully remove the magnet from the first clip.  <em>After showing the result to your instructor</em>, describe and explain the result on the two paper clips. </p></li>
+	<li><p> Predict what will happen if you brought either end of the magnet slowly towards the lower end of the dangling paper clip.  Verify your predictions and provide an explanation for how and why your predictions were correct or incorrect.  (Be sure to include comments about the orientation of the poles of the magnets as well as the poles of the paper clips.) </p></li>
+</ol> </p></li>
+	<li><p> Explain why it is possible to stick either end of a paper clip to either end of a magnet, but you cannot stick one end of a magnet to either end of another magnet.
+<!-- </p></li>
+	<li><p> Explain how it can be that in some cases (you should note which) the orientation matters and in other cases (you should note which) the orientation does not matter.  Part of this answer should discuss whether or not all objects have a north and south pole. --> </p></li>
+</ol>
+</p></statement>
+</exercise>
+
+</subsection>
+<subsection><title>Magnets and Iron Filings</title>
+
+<p>Iron filings act similarly to the paper clips.  The iron filings are small enough that they allow us to <q>map</q> the magnetic field of an object.  Each individual filing will align itself with the magnetic field.</p>
+
+<p>Place the coffee filter on top of the clear, plastic plate.  Sprinkle some iron filings on the coffee filter.  Note:  We are using a coffee filter because its shape allows us to minimize spilling the filings on the table, or worse, the floor.  <alert>Be <em>very</em> careful not to spill the filings.</alert>  Have one person hold the plate up with both hands high enough for another person to move one of the cylindrical magnets beneath it while you all watch what happens to the iron filings.  Meanwhile, somebody else should place one of the cylindrical magnets underneath the sheet of paper so that everybody can observe the patterned displayed by the filings.</p>
+<exercise>
+<statement><p>
+<ol>
+	<li><p> Determine if you can make any interesting patterns in the filings by placing or moving the magnet under the filings.  When you think you have a good sense of the patterns, try to draw or describe some of what you found. </p></li>
+	<li><p> Without the magnet, try to smooth out the filings.  (If you can't smooth them out well, then carefully hold the salt-shaker over the coffee filter and unscrew the cap, pour the filings back in, replace the cap, and re-sprinkle more filings onto the filter.)  Predict what you should see if you had two magnets under the filings each with the North pole facing the other magnet.  What if both South poles were facing each other?  What if one North and one South pole faced the other? </p></li>
+	<li><p> While one person holds the plate with the filter and filings, have two people each hold a magnet under the filings as described in the previous question.  Verify your predictions and provide an explanation for how and why your predictions were correct or incorrect. </p></li>
+</ol>
+</p></statement>
+</exercise>
+
+</subsection>
+</section>
+<section><title>Magnetic Field of a Permanent Magnet - Field Sensor</title>
+
+<p>You should have a small, four-post, wooden stand with a hole in the top and a wooden cylinder taped to a ruler on a lab-jack.  The wooden equipment was hand-made and is delicate; <alert>please be careful when handling the apparatus</alert>.</p>
+
+<exercise>
+<statement><p>
+<ol>
+	<li><p> Use the field sensor (as described in <xref ref="s-fieldsensor" text="type-global" />) set to Axial to measure (and record) the strength of the magnetic field <em>due to the permanent magnet</em> at various positions from the magnet.  It will be useful to set the sensor <m>10.0\unit{cm}</m> from the magnet and make a measurement at each <m>1.0\unit{cm}</m> interval as you move towards the magnet. </p></li>
+	<li><p> Repeat this for the Radial setting. </p></li>
+	<li><p> Tabulate your results (you may also graph it <em>if you like</em>) and discuss the manner in which the field depends on distance.  Is it linear?  Polynomial?  something else? </p></li>
+</ol>
+</p></statement>
+</exercise>
+
+
+</section>
+<section><title>Magnetic Field of the Earth - Tangent Galvanometer</title>
+
+<p>This station has a loop of wire connected to a power supply.  There is also a compass needle balancing on a needle point located at the center of the loop.  Verify that the power supply is connected to the wire.  Without turning on the power supply, predict which way current will flow based on the connection.  With the power supply off (not merely turned down), carefully and gently align the loop so that it rests along the line that the compass wants to rest.  <alert>Before you turn on the power supply</alert>, turn the voltage dial down to zero and the current dial up to some medium value.  The HI-LO setting on the current dial should be set to LO.
+When current begins to flow through the coil, a magnetic field is generated whose direction can be found from the right-hand rule and whose magnitude can be calculated from
+<!--  -->
+<men>
+<!-- xml:id="eq-Bloop" INSERT THIS ABOVE -->
+B_c = \frac{\mu_0 I N}{2 R}
+</men>
+<!--  -->
+where <m>B_c</m> is the coil's magnetic field strength, <m>I</m> is the
+current (in amps), <m>\mu_0 = 4\pi\ten{-7}\unitfrac{N}{A^2}</m>, <m>N</m> is the
+number of turns of the wire in the coil, and <m>R</m> is the radius of the coil (which you will have to measure).</p>
+
+<exercise>
+<statement><p>
+<ol>
+	<li><p> Using components, resultants, magnitudes and directions, devise a technique to combine the controllable magnetic field due to the coil with the uncontrollable, but fixed, magnetic field of the earth in such a way as to calculate the magnitude of the Earth's magnetic field.  Several hints are given below.
+    <ol>
+	<li><p> If the field due to the loop were the only field present, which way would the compass needle point after you turned on the current?  What would happen if you changed the direction of the current? </p></li>
+	<li><p> If there were two magnetic fields present, along which (if either) would a compass point? </p></li>
+	<li><p> Can you control the direction of any magnetic field present?  Why might you want the wire to line up with the direction that the compass points before turning on the current?  How are the directions of the components of a vector <q>aligned</q>? </p></li>
+	<li><p> Can you control (and know the value of) the magnitude of any magnetic field present?  What would the compass needle do as you slowly turn this up from zero to some very large value? </p></li>
+	<li><p> Can you relate components to resultants and vice versa? </p></li>
+</ol> </p></li>
+	<li><p> Turn on the power and very slowly turn up the voltage while watching the ammeter; the ammeter should not go above <m>4</m> or <m>5\unit{mA}</m>.  Describe the effect this has on the compass needle.  Predict and explain what <em>would</em> happen if you swap the direction, but not the magnitude of the current.  <alert>Do not actually swap the direction of the current at this point.</alert> </p></li>
+	<li><p> Let the compass needle settle into whatever orientation it likes while the power continues to be supplied to the circuit.  While you wait, record the value of the current and use the field sensor (as described in <xref ref="s-fieldsensor" text="type-global" />) to measure (and record) the strength of the magnetic field <em>due to the loop</em> at the center of the compass.  After the compass needle settles in, place a protractor on the top of the wire loop and measure (and record) the angle of the deflection.  Without turning off the power supply, unplug the cables that provide current to the circuit <em>from the power supply, not from the wire loop, which should not be bumped</em>.  Plug the cables in the other way to flip the current. Describe what happens to the compass.  Remeasure (and record) the current, the magnetic field, and the angle of deflection for this direction.  Calculate the magnetic field of the Earth based on the average measured B and the average deflected angle.  Despite the large uncertainty, compare it to the known value. </p></li>
+</ol>
+</p></statement>
+</exercise>
+
+
+</section>
+<section><title>Magnetic Field of a Solenoid</title>
+
+<introduction>
+<p>Before you turn on the power supply, set the current all the way down and the voltage up at some intermediate point.  The HI-LO setting on the current dial should be set to LO.</p>
+</introduction>
+
+<subsection><title>The Small Solenoid</title>
+
+<exercise>
+<statement><p>
+<ol>
+	<li><p> Without turning on the power supply, connect the positive and negative terminals of the power supply to the terminals of the smaller solenoid.  Note the direction of current flow and predict the direction of the magnetic field. </p></li>
+	<li xml:id="q-Solenoid"><p> Use the field sensor (as described in <xref ref="s-fieldsensor" text="type-global" />) set to Axial to measure (and record) the strength of the magnetic field <em>due to the solenoid</em>.  Insert the sensor as far along the axis of the solenoid as possible and try to keep your hand as steady as possible. Turn on the power supply and slowly turn up the current to some intermediate value.  Move the sensor around a little inside the solenoid and discuss the results. </p></li>
+	<li><p> Repeat the previous step with the sensor set to Radial.  What variables does the magnetic field due to a solenoid depend on?  Does it follow the predicted equation for a solenoid? </p></li>
+</ol>
+</p></statement>
+</exercise>
+<!--  -->
+<p>Turn the power supply off.  Disconnect the wire from the solenoid.</p>
+
+</subsection>
+<subsection><title>Measurements with the Large Solenoid</title>
+
+<p>Before connecting the large solenoid, measure the number of turns per length, <m>\displaystyle n = \frac{N}{L}</m>.  Do not measure the full number of loops nor the full length.  Find some portion of the coil and measure the number of coils and the length in that small sample size.  When you calculate <m>n</m>, notice that the solenoid is wrapped four coils deep, so multiply your <m>N</m> by <m>4</m>.
+In this problem, you can measure <m>B</m> and <m>I</m> in order to find <m>\mu_0</m> to verify the equation of a solenoid.</p>
+
+<exercise>
+<statement><p>
+<ol>
+	<li><p> Connect the power supply in series with an ammeter and then the solenoid before completing the circuit back to the power supply.  Be sure that the ammeter reads several amps.  Insert the field sensor set to the appropriate settings as close as possible to the axis of the solenoid.  Predict what you will measure for the Radial and Axial measurements above. </p></li>
+	<li><p> Measure the current from the ammeter, the magnetic field from the sensor and calculate a value for <m>\mu_0</m> based on the equation for a solenoid.   Compare this to the accepted value in your book.  Draw a conclusion about the equation of a solenoid. </p></li>
+</ol>
+</p></statement>
+</exercise>
+
+</subsection>
+</section>
+<section><title>Magnetic Field of a Wire</title>
+
+<p>Before you turn on the power supply, set the current all the way down and the voltage up at some intermediate point.  The HI-LO setting on the current dial should be set to HI.  (You will be using a current of about <m>8\unit{A}</m>.)</p>
+
+<p>Notice that the wire connects are exposed.  Be careful not to touch the connections when the current is on.</p>
+
+<exercise>
+<statement><p>
+<ol>
+	<li><p> Without turning on the power supply, connect the positive and negative terminals of the power supply to opposite ends of one of the three wires inside the <term>Romex</term><trademark /> cable.  Be sure, based on color, to connect them to <em>the same</em> wire.  Straighten a long section of the wire as well as possible.  Note the direction of current flow and predict the direction of the magnetic field. </p></li>
+	<li xml:id="q-BoverRa"><p> Use the field sensor (as described in <xref ref="s-fieldsensor" text="type-global" />) set to Radial to measure (and record) the strength of the magnetic field <em>due to the long straight wire</em>.  The sensor should lie along the direction of the wire and must be touching the wire to make any measurement.  Turn on the power supply and turn up the current to about <m>8\unit{A}</m>.  (You may change the current in order to see the effect of current on the size of the magnetic field.) Move the sensor to different radii and discuss the results.  Place the sensor close to the wire and slowly vary the strength of the current using the knob on the power supply.  Discuss the results. </p></li>
+	<li xml:id="q-BoverRb"><p>  Repeat the previous step with the sensor set to Axial. </p></li>
+	<li><p> Turn the power supply off.  Disconnect the wire from the power supply.  Connect the red terminal to one side of the white wire and the black terminal to the black wire so that both connections are at the same end.  On the far end, connect the black and white wires (this is where the lamp goes and you should not actually do this at home where there is <em>significantly</em> more current able to flow!  <em>Really</em>!).  Predict what you will measure for the Radial and Axial measurements above. </p></li>
+	<li><p> Repeat Questions <xref ref="q-BoverRa" text="global">Question</xref> and <xref ref="q-BoverRb" text="global">Question</xref> for the two wire case.  Verify your predictions and provide an explanation for how and why your predictions were correct or incorrect. </p></li>
+</ol>
+</p></statement>
+</exercise>
+
+</section>
+
+<conclusion><p>Last revised: Apr 6, 2009 </p>
+    <p>A PDF version might be found at <url href="http://physics.thomasmore.edu/labs/122/Magneticdemo.pdf">Magneticdemo.pdf (173 kB)</url></p>
+    <p>Copyright and license information can be found <url href="http://physics.thomasmore.edu/labs/122/general-spring-colophon.html">here</url>.</p>
+</conclusion>
+
+
+</chapter>
+
+<!-- ********************************************************************************************** -->
+<!-- ********************************************************************************************** -->
+
+
+<!-- ********************************************************************************************** -->
+<!--
+    <xi:include href="../src/backmatter122.ptx" />
+-->
+    <!-- Notation-list, Solutions, List of Features, Index colophon -->
+<backmatter>
+
+
+<appendix xml:id="app-uncertainty"><title>Uncertainty: A Measure of Precision</title>
+
+<introduction>
+<p>
+It should be realized that the <term>true value</term> of a physical quantity is
+almost never known.  If several determinations of a quantity are made using
+the same apparatus, the results differ for a number of reasons.  Sometimes
+the accuracy with which a given measurement can be made is determined by
+variations in the thing being measured.  For instance, a number of
+measurements
+of the diameter of a baseball would probably show that the ball is not a
+perfect sphere and consequently the measured values would be distributed over
+a range of values.</p>
+
+<p>Sometimes the accuracy with which a measurement can be made is determined by
+the accuracy with which the scale on the instrument can be read.  For example,
+it is hardly possible to read a meter stick more closely than <m>\pm</m> 0.5mm.
+The limits of accuracy may be set either by the precision of the scale of the
+instrument or by the ability and/or skill of the observer.  But limits always
+exist.</p>
+
+<p>It is also possible to have systematic error due to faulty instruments, for
+example, a meter stick which is not exactly one meter long.  Then all
+measurements made with the instrument are in error, usually by a constant
+factor.</p>
+
+<p>It must be noted that uncertainty is not due to the failure of the observer to
+read the instruments correctly.  If the observer records a 99.5 when the
+value should have been 89.5, this is not uncertainty, but is a <em>mistake</em>.</p>
+
+<p>It is always of interest and usually necessary to know just how dependable
+are the results of an experiment and it is usually not the absolute
+uncertainty
+that is important but the percent uncertainty between the measured value
+and the <term>true</term> value.  For example, a <m>1000\unit{km}</m> uncertainty in
+measuring the
+distance from Abilene to Moscow is much worse than a <m>1000\unit{km}</m> uncertainty in
+measuring the distance from Abilene to the Sun.</p>
+
+<p>When the true answer is known, the percent error is calculated from
+the difference divided by the true value:
+<!--  -->
+<me> \%\mbox{-error} = 100\% * \left| \frac{\left(\mbox{true value} - \mbox{measured value}\right)}{\mbox{true value}} \right| </me>
+<!--  -->
+The percent difference is calculated between two experimental values from the
+difference divided by the average (which is your best guess at the true
+value):
+<!--  -->
+<me>\%\mbox{-difference} = 100\% * \frac{\left(\mbox{measurement}_1 - \mbox{measurement}_2\right)}{\left[\frac{ \left(\mbox{measurement}_1\right) + \left( \mbox{measurement}_2\right) }{2} \right]} </me>
+</p>
+</introduction>
+
+<section><title>Propagation of Uncertainty</title>
+
+<p>
+Along with knowing the <term>percent difference</term> between two numbers, it is
+also
+necessary sometimes to know whether two numbers are <em>consistent</em>, i.e.,
+is it possible for the numbers to be equal to each other if the uncertainties
+on the
+numbers are taken into account.  For example, suppose the
+<term>true value</term> is
+20, but your experimental result is <m>17 \pm 3</m>.  At first glance we can say
+that 17 does not equal 20, but since the actual range of the result is from
+14 to 20 (i.e., 17 plus or minus 3), it very well could be equal to 20.  If
+this is the case, we say that the experimental result and the true value are
+consistent.  If the experimental result was 15 <m>\pm</m> 3, we say it is
+inconsistent with the true value.  Therefore, it is essential to know the
+uncertainty range (A.K.A. margin of error, or error-bars) on your experimental
+results.  This is how
+you tell whether your answer is <q>good enough</q> or not.</p>
+
+<p>The uncertainty range on an experimental result depends on the uncertainties of
+all the
+measurements that were made during the lab leading up to this result.  Taking
+these various measurement uncertainties and determining the uncertainty range
+on the final
+answer requires a process known as <term>Error Propagation</term>.  One result of
+error propagation is that the various experimental uncertainties always combine
+to
+increase the overall uncertainty.  For example:  suppose measurements of the
+length
+of two pieces of string are made, with the goal of knowing their combined
+length.  If the first piece is measured to be <m>10 \pm 1 \unit{cm}</m> and the second is
+measured to be <m>5\pm1\unit{cm}</m>, the total length is <m>15\unit{cm}</m>, but the overall
+uncertainty
+is <m>\pm</m> 2 cm.  The 1 cm uncertainty on each measurement added to give a
+combined
+uncertainty of 2 cm.</p>
+
+<p>Notice that the first string can be no shorter than 9cm and no longer than 11cm
+(10 <m>\pm</m> 1 cm).
+Similarly, the second string can be no shorter than 4cm and no longer than 6cm
+(5 <m>\pm</m> 1 cm).
+Therefore, the combination can be no shorter than 13cm and no longer than 17cm:
+ 15 <m>\pm</m> 2cm.</p>
+
+<p>The above simple example dealt with what will be called the uncertainty.
+Another way to express uncertainty is the <term>percent uncertainty</term>.  This is
+equal to the
+uncertainty divided by the measurement, times 100<percent />.  For example, the
+percent uncertainty from the above example would be <m>\left(\deq\frac{1\text{cm}}{10{\rm
+cm}}\times 100\% = 10\%\right)</m>
+and <m>\left(\deq\frac{1\text{cm}}{5{\rm cm}}\times 100\% = 20\%\right)</m>.  In some cases
+of error propagation the uncertainties are used and in other cases, the
+percent uncertainties are used.  The rules for determining which to use are
+given
+below:
+<ol>
+	<li xml:id="add"><p>  When two measurements with associated uncertainties are added
+or subtracted, the
+overall uncertainty is equal to the sum of their uncertainties. </p></li>
+	<li xml:id="mult"><p>  When two measurements with associated uncertainties are
+multiplied or divided, the
+overall percent uncertainty is equal to the sum of their percent uncertainty. </p></li>
+</ol>
+
+</p>
+</section>
+
+<!-- \newpage -->
+<section><title>Example:</title>
+
+<p>The area and perimeter of a rectangular table are to be calculated.
+The table is measured to be 176.7 cm <m>\pm</m> 0.2 cm along one side and
+148.3 cm <m>\pm</m> 0.3 cm along the other side.</p>
+
+<sidebyside widths="40% 55%">
+<p>
+Because the perimeter is found by adding the sides, rule <xref ref="add" text="type-global" /> is used:
+<!--  -->
+<md>
+<mrow> P \amp = (176.7 \text{cm}) + (148.3 \text{cm}) </mrow>
+<mrow> \amp + (176.7 \text{cm}) + (148.3 \text{cm}) </mrow>
+<mrow> P  \amp = 650.0 \text{cm} \\ </mrow>
+<mrow> \Delta P \amp = (0.2 \text{cm}) + (0.3 \text{cm}) </mrow>
+<mrow> \amp + (0.2 \text{cm}) + (0.3 \text{cm}) </mrow>
+<mrow> \Delta P \amp = 1.0 \text{cm} </mrow>
+</md>
+<!--  -->
+The perimeter is
+<me>P = 650\text{cm} \pm 1{\rm cm}</me>
+</p>
+<p>
+Because the area is found by multiplying the sides, rule <xref ref="mult" text="type-global" /> is used:
+The area of the table is calculated to be (significant digits are underlined)
+<!--  -->
+<md>
+<mrow> A \amp = (176.7 \text{cm}) \times (148.3 {\rm cm}) = \sig{2620}{4.61}{cm}^2 </mrow>
+<mrow />
+<mrow> \Delta A \amp = \left(\frac{.2\unit{cm}}{176.7 \unit{cm}} 100\%\right) + \left(\frac{0.3\unit{cm}}{148.3 \unit{cm}} 100\%\right) </mrow>
+<mrow> \Delta A \amp = (.11\%) + (.20\%) = (.31\%) </mrow>
+</md>
+<!--  -->
+Since <m>(.31\%)\times ({2620}4.61 \text{cm}^2) = 82.67 {\rm cm}^2</m>, we
+write the area in a variety of ways:
+<!--  -->
+<md>
+<mrow> A \amp = (2.620\!\times\!10^4 \text{cm}^2) \pm 0.3\% </mrow>
+<mrow>   \amp = (2.620\!\times\!10^4) \pm (0.008\!\times\!10^4) \text{cm}^2 </mrow>
+<mrow>   \amp = 2.620(8)\!\times\!10^4 \text{cm}^2 </mrow>
+</md>
+<!--  -->
+Please be aware that the reason some digits are called insignificant is that
+they are insignificant.  For example, when calculating the uncertainty above:
+<!--  -->
+<md>
+  <mrow>(.31548\%) \times (26204.61) = 82.67</mrow>
+  <mrow>(.31\%) \times (26204.61) = 81.23</mrow>
+  <mrow>(.31\%) \times (26200) = 81.22</mrow>
+  <mrow>(.3\%) \times (26204.61) = 78.61</mrow>
+  <mrow> (.3\%) \times (26200) = 78.60 </mrow>
+</md>
+<!--  -->
+But, for the uncertainty, we only need the first digit and
+all of these round to <m>80</m>cm<m>^2</m>, giving
+<me>A = (2.620\!\times\!10^4) \pm (0.008\!\times\!10^4) \text{cm}^2</me>
+</p>
+</sidebyside>
+
+</section>
+
+</appendix>
+
+
+<!-- ********************************************************************************************** -->
+</backmatter>
+<!-- ********************************************************************************************** -->
+
+
+</book>
+</mathbook>

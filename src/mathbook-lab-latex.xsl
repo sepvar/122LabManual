@@ -9,6 +9,7 @@
 <!-- Place this file in  mathbook/user  (mkdir if necessary)-->
 <xsl:import href="../xsl/mathbook-latex.xsl" />
 
+<xsl:param name="numbering.equations.level" select="'1'" />
 <xsl:param name="latex.preamble.late">
     <xsl:text>\setlength{\evensidemargin}{0in}</xsl:text>
     <xsl:text>\setlength{\oddsidemargin}{-.15in}</xsl:text>

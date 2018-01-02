@@ -68,7 +68,7 @@ s|\\\% of|<percent /> of|g
 s|\\ldots|<ellipsis />|g
 s|\\mbox{|\\text{|g
 s|\\protect{\(\\ref{.*}\)}|\1|g
-s|Eq\.~(\\ref{\([a-zA-Z0-9\-]*\)})|<xref ref="\1" text="type-global" />|g
+s|Eq\.~(\\ref{\([a-zA-Z0-9\-]*\)})|<xref ref="\1" text="type-global">Equation</xref>|g
 s|Lab~\\ref{\([a-zA-Z0-9\-]*\)}|<xref ref="\1" text="type-global" />|g
 s|Figure~\\ref{\([a-zA-Z0-9\-]*\)}|<xref ref="\1" text="type-global" />|g
 s|Fig\.~\\ref{\([a-zA-Z0-9\-]*\)}|<xref ref="\1" text="type-global" />|g
