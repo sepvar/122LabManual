@@ -234,7 +234,7 @@
 <!-- ********************************************************************************************** -->
 
 
-<chapter xml:id="c-skills"><title>Review the Skills of PHY 121 Lab</title>
+<chapter xml:id="c-122skills"><title>Review the Skills of PHY 121 Lab</title>
 
 <p>In this lab, you will be provided a worksheet of some straightforward exercises that require you to use the following skills that you should have learned in the first term (PHY 121).
 <ul>
@@ -1311,7 +1311,7 @@ Using a distant object in an adjacent room, measure the image distance and there
 If the day is sunny, <alert>under strict instructor supervision</alert> take a lens outside and, using the sun as <q>an infinitely far away object,</q> measure the focal length by forming an image of the sun on your lab notebook.  Take a minute or so to really visualize the sun on your paper.  Predict the results.</p>
 
 
-<!-- 
+<!--
 	<li><p>  The focal length of a lens is related to the radius of curvature -->
 <!-- of each of its surfaces and the index of refraction of the glass by the -->
 <!-- lens makers equation: -->
@@ -1949,7 +1949,7 @@ Answer <xref ref="q-parallel-eq" text="global">Question</xref>, <xref ref="q-par
 
 <p>You should form into four groups so that there is always an empty station.  Take notes in your lab notebook, but then write up and turn in a formal document that discusses the relevant ideas for each station.</p>
 
-<warning> 
+<warning>
 <p>In all experiments, note that electronic equipment such as power supplies and computers produce magnetic fields that might impact your experiment.  You should not measure your magnetic fields near other electronic devices.  You should also be aware that strong magnetic fields can erase credit cards and other magnetic storage devices.</p>
 </warning>
 
@@ -2165,190 +2165,473 @@ In this problem, you can measure <m>B</m> and <m>I</m> in order to find <m>\mu_0
     <!-- Notation-list, Solutions, List of Features, Index colophon -->
 <backmatter>
 
+<appendix xml:id="uncertainties"> <title>Managing Uncertainties</title>
 
-<appendix xml:id="app-uncertainty"><title>Uncertainty: A Measure of Precision</title>
+    <introduction>
+        <p>One of the fundamental aspects of science is knowing the reliability of results.
+        The mechanism for gaining this knowledge is first to gauge how well one knows any given measurement
+        and then to propagate this to an indication of the reliability of the results that depend on those
+        measurements.  The primary goal in attending to the propagation of the uncertainty is that it allows
+        scientists to determine which measurement is causing the most uncertainty in the result so that
+        future experimenters know which measurement to improve to get an improved result.</p>
 
-<introduction>
-<p>
-It should be realized that the <term>true value</term> of a physical quantity is
-almost never known.  If several determinations of a quantity are made using
-the same apparatus, the results differ for a number of reasons.  Sometimes
-the accuracy with which a given measurement can be made is determined by
-variations in the thing being measured.  For instance, a number of
-measurements
-of the diameter of a baseball would probably show that the ball is not a
-perfect sphere and consequently the measured values would be distributed over
-a range of values.</p>
+        <p>In this section we will learn the terminology, determine how to gauge the measurement uncertainty,
+        learn how to propogate this information through a calculation, and learn how to discuss this analysis
+        in your lab reports.</p>
+    </introduction>
 
-<p>Sometimes the accuracy with which a measurement can be made is determined by
-the accuracy with which the scale on the instrument can be read.  For example,
-it is hardly possible to read a meter stick more closely than <m>\pm</m> 0.5mm.
-The limits of accuracy may be set either by the precision of the scale of the
-instrument or by the ability and/or skill of the observer.  But limits always
-exist.</p>
+    <section xml:id="s-uncertainty">
+        <title>Experimental Uncertainties, Defining <q>Error</q></title>
 
-<p>It is also possible to have systematic error due to faulty instruments, for
-example, a meter stick which is not exactly one meter long.  Then all
-measurements made with the instrument are in error, usually by a constant
-factor.</p>
+            <p>Measurements are never exact.  For example, if one apple is divided among three people,
+            your calculator will tell you that each person has <m>0.3333333333</m> of an apple.
+            A measurement of each slice will tell you two pieces of information:
+            (1) how many 3s to keep and
+            (2) how well you know the final 3.
+            In this example, both <m>0.33 \pm 0.01</m> and <m>0.33 \pm 0.04</m> imply that the measurement is accurate to two decimal places,
+            but the first implies that you trust the second 3 more than if you report it as the second number.</p>
+            <aside>
+            <title>CAUTION:</title>
+            <p>Because physicists <q>know what we mean</q>, they are often sloppy with their language and use
+            the words <q>error</q> and <q>uncertainty</q> interchangeably.
+            </p>
+            </aside>
 
-<p>It must be noted that uncertainty is not due to the failure of the observer to
-read the instruments correctly.  If the observer records a 99.5 when the
-value should have been 89.5, this is not uncertainty, but is a <em>mistake</em>.</p>
+            <p>Some technical terms and their use in physics (which may differ from common use):
+<dl>
+            <li><title>accuracy</title>
+            <p>How close a number is to the true (but usually unknowable) result.
+            This is usually expressed by the (absolute or relative) error.
+            </p></li>
+            <li><title>precision</title>
+            <p> How well you trust the measurement.
+            This is vaguely expressed by the number of decimals, or clearly expressed by the size of the (absolute or relative) uncertainty.
+            </p></li>
+            <li><title>uncertainty</title>
+            <p> The <term>uncertainty in a number</term> expresses the precision of a measurement or of a computed result.
+            This can be expressed as the <term>absolute uncertainty</term> (explained in <xref ref="ss-precision" text="title" />), the <term>relative uncertainty</term>,
+            or the <term>percent uncertainty</term>.
+            <md>
+                <mrow> \mbox{relative uncertainty}
+                    &amp;= \left| \frac{\left(\mbox{absolute uncertainty}\right)}{\mbox{measured value}} \right| </mrow>
+                <mrow> \%\mbox{-uncertainty}
+                    &amp;= 100\% * \left| \frac{\left(\mbox{absolute uncetainty}\right)}{\mbox{measured value}} \right| </mrow>
+            </md>
+            </p></li>
+            <li xml:id="error"><title>error</title>
+            <p> The <term>error</term> is a number that expresses the accuracy by comparing the measurement to an accepted (<q>true</q>) value.
+            This can be expressed as the <term>absolute error</term>, the <term>relative error</term>, or the <term>percent error</term>.
+            <md>
+                <mrow> \mbox{absolute error}
+                    &amp;= \left|\mbox{true value} - \mbox{measured value}\right| </mrow>
+                <mrow> \mbox{relative error}
+                    &amp;= \left| \frac{\left(\mbox{true value} - \mbox{measured value}\right)}{\mbox{true value}} \right| </mrow>
+                <mrow> \%\mbox{-error}
+                    &amp;= 100\% * \left| \frac{\left(\mbox{true value} - \mbox{measured value}\right)}{\mbox{true value}} \right| </mrow>
+            </md>
+            </p></li>
+            <li xml:id="difference"><title>difference</title>
+            <p> The <term>difference</term> is a number that expresses the consistency of a multiple measurements by comparing one measurement to another.
+            This can be expressed as the <term>absolute difference</term>, the <term>relative difference</term>, or the <term>percent difference</term>.
+            You should notice that since we don't know <em>which</em> measurement to trust, we take the absolute difference relative
+            to the <em>average</em> of the measurements (rather than choosing one measurement as <q>true</q>).
+            <md>
+                <mrow> \mbox{absolute difference}
+                    &amp;= \left(\mbox{measurement}_1 - \mbox{measurement}_2\right) </mrow>
+                <mrow>\mbox{relative difference}
+                    &amp;= \frac{\left(\mbox{measurement}_1 - \mbox{measurement}_2\right)}{\left[\frac{ \left(\mbox{measurement}_1\right) + \left( \mbox{measurement}_2\right) }{2} \right]} </mrow>
+                <mrow>\%\mbox{-difference}
+                    &amp;= 100\% * \frac{\left(\mbox{measurement}_1 - \mbox{measurement}_2\right)}{\left[\frac{ \left(\mbox{measurement}_1\right) + \left( \mbox{measurement}_2\right) }{2} \right]} </mrow>
+            </md>
+            </p></li>
+            </dl></p>
 
-<p>It is always of interest and usually necessary to know just how dependable
-are the results of an experiment and it is usually not the absolute
-uncertainty
-that is important but the percent uncertainty between the measured value
-and the <term>true</term> value.  For example, a <m>1000\unit{km}</m> uncertainty in
-measuring the
-distance from Abilene to Moscow is much worse than a <m>1000\unit{km}</m> uncertainty in
-measuring the distance from Abilene to the Sun.</p>
+    <note xml:id="uncertainty-compare"><title>compare</title>
+        <p>Whenever you are asked to <q>compare</q> values, it is expected that you will not only compute a <percent />-error or <percent />-difference (as appropriate, according to the above considerations); but will also comment on if the uncertainty of the values overlap.  Recall that the uncertainty means that your measurement does not distinguish between values within that range, so if the uncertainties overlap, then the values are <q>the same to within your ability to measure them.</q></p>
+    </note>
 
-<p>When the true answer is known, the percent error is calculated from
-the difference divided by the true value:
-<!--  -->
-<me> \%\mbox{-error} = 100\% * \left| \frac{\left(\mbox{true value} - \mbox{measured value}\right)}{\mbox{true value}} \right| </me>
-<!--  -->
-The percent difference is calculated between two experimental values from the
-difference divided by the average (which is your best guess at the true
-value):
-<!--  -->
-<me>\%\mbox{-difference} = 100\% * \frac{\left(\mbox{measurement}_1 - \mbox{measurement}_2\right)}{\left[\frac{ \left(\mbox{measurement}_1\right) + \left( \mbox{measurement}_2\right) }{2} \right]} </me>
-</p>
-</introduction>
 
-<section><title>Propagation of Uncertainty</title>
+        </section>
+        <section xml:id="ss-error-analysis">
+            <title>Writing an Analysis of Error</title>
 
-<p>
-Along with knowing the <term>percent difference</term> between two numbers, it is
-also
-necessary sometimes to know whether two numbers are <em>consistent</em>, i.e.,
-is it possible for the numbers to be equal to each other if the uncertainties
-on the
-numbers are taken into account.  For example, suppose the
-<term>true value</term> is
-20, but your experimental result is <m>17 \pm 3</m>.  At first glance we can say
-that 17 does not equal 20, but since the actual range of the result is from
-14 to 20 (i.e., 17 plus or minus 3), it very well could be equal to 20.  If
-this is the case, we say that the experimental result and the true value are
-consistent.  If the experimental result was 15 <m>\pm</m> 3, we say it is
-inconsistent with the true value.  Therefore, it is essential to know the
-uncertainty range (A.K.A. margin of error, or error-bars) on your experimental
-results.  This is how
-you tell whether your answer is <q>good enough</q> or not.</p>
+            <introduction>
 
-<p>The uncertainty range on an experimental result depends on the uncertainties of
-all the
-measurements that were made during the lab leading up to this result.  Taking
-these various measurement uncertainties and determining the uncertainty range
-on the final
-answer requires a process known as <term>Error Propagation</term>.  One result of
-error propagation is that the various experimental uncertainties always combine
-to
-increase the overall uncertainty.  For example:  suppose measurements of the
-length
-of two pieces of string are made, with the goal of knowing their combined
-length.  If the first piece is measured to be <m>10 \pm 1 \unit{cm}</m> and the second is
-measured to be <m>5\pm1\unit{cm}</m>, the total length is <m>15\unit{cm}</m>, but the overall
-uncertainty
-is <m>\pm</m> 2 cm.  The 1 cm uncertainty on each measurement added to give a
-combined
-uncertainty of 2 cm.</p>
+            <p>The conclusion of your lab report should be based on an analysis of the error in the experiment.
+            The analysis of error is one of the most certain gauges available to the instructor by which the student's
+            scientific insight can be evaluated.  To be done well, this analysis calls for comments about the factors
+            that impacted the extent to which the experimental results agree with the theoretical value (what factors
+            impact the percent error), the limitations and restrictions of the instruments used (what factors impact the
+            uncertainty), and the legitimacy of the assumptions.</p>
 
-<p>Notice that the first string can be no shorter than 9cm and no longer than 11cm
-(10 <m>\pm</m> 1 cm).
-Similarly, the second string can be no shorter than 4cm and no longer than 6cm
-(5 <m>\pm</m> 1 cm).
-Therefore, the combination can be no shorter than 13cm and no longer than 17cm:
- 15 <m>\pm</m> 2cm.</p>
+            <p xml:id="p-source-of-error">Physicists usually use the phrase <q>sources of error</q> (or <q>sources of uncertainty</q>) to describe
+            how the limits of measurement propagate through a calculation (see <xref ref="ss-propagation" text="title" />)
+            to impact the <term>uncertainty</term> in the final result.  This type of <q>error analysis</q> gives insight into the
+            <term>accuracy</term> of the result.  <xref ref="sss-considerations" text="title" /> provides questions that can help you
+            describe which of several measurements can most effectively improve the <term>precision</term> of the result
+            so that you can gain insight into the <term>accuracy</term> of the result.  The accuracy allows one to gauge
+            the veracity (truth) of an underlying relationship, but precision allows you to gauge accuracy.  Said another
+            way, a small <term>percent difference</term> usually is used to imply a small <term>percent error</term>.
+            Said another way, imprecise measurements always <em>seem</em> accurate.</p>
 
-<p>The above simple example dealt with what will be called the uncertainty.
-Another way to express uncertainty is the <term>percent uncertainty</term>.  This is
-equal to the
-uncertainty divided by the measurement, times 100<percent />.  For example, the
-percent uncertainty from the above example would be <m>\left(\deq\frac{1\text{cm}}{10{\rm
-cm}}\times 100\% = 10\%\right)</m>
-and <m>\left(\deq\frac{1\text{cm}}{5{\rm cm}}\times 100\% = 20\%\right)</m>.  In some cases
-of error propagation the uncertainties are used and in other cases, the
-percent uncertainties are used.  The rules for determining which to use are
-given
-below:
-<ol>
-	<li xml:id="add"><p>  When two measurements with associated uncertainties are added
-or subtracted, the
-overall uncertainty is equal to the sum of their uncertainties. </p></li>
-	<li xml:id="mult"><p>  When two measurements with associated uncertainties are
-multiplied or divided, the
-overall percent uncertainty is equal to the sum of their percent uncertainty. </p></li>
-</ol>
+            </introduction>
 
-</p>
-</section>
+        <subsection xml:id="sss-mistakes">
+            <title>Technically, Errors are not Mistakes</title>
 
-<!-- \newpage -->
-<section><title>Example:</title>
+            <p>Your report should not list <q>human error</q> because most students misunderstand this term to mean
+            <q>places I might have made a mistake</q> rather than <q>the limiting factor when using the equipment correctly.</q>
+            <xref ref="ss-precision" text="title" /> discusses measurement uncertainties as defined above.</p>
 
-<p>The area and perimeter of a rectangular table are to be calculated.
-The table is measured to be 176.7 cm <m>\pm</m> 0.2 cm along one side and
-148.3 cm <m>\pm</m> 0.3 cm along the other side.</p>
+            <p>In the example of the apple above, the fact that one person has <m>0.33 \pm 0.04</m> of an apple does
+            <em>not</em> reflect a <q>mistake</q> in the cutting, but rather reflects that the cutter is limited in their precision.
+            What is important is to use the uncertainty to express how well one can repeated cut the apple into thirds.
+            The absolute uncertainty of <m>0.04</m> is generally interpreted to say that most instances
+            (roughly <m>68\%</m>, as explained in <xref ref="sss-multiple-precision" text="title" />) of the cutting of an apple in this way
+            will result in having between <m>0.29</m> to <m>0.37</m> of an apple for any given slice.</p>
 
-<sidebyside widths="40% 55%">
-<p>
-Because the perimeter is found by adding the sides, rule <xref ref="add" text="type-global" /> is used:
-<!--  -->
-<md>
-<mrow> P \amp = (176.7 \text{cm}) + (148.3 \text{cm}) </mrow>
-<mrow> \amp + (176.7 \text{cm}) + (148.3 \text{cm}) </mrow>
-<mrow> P  \amp = 650.0 \text{cm} \\ </mrow>
-<mrow> \Delta P \amp = (0.2 \text{cm}) + (0.3 \text{cm}) </mrow>
-<mrow> \amp + (0.2 \text{cm}) + (0.3 \text{cm}) </mrow>
-<mrow> \Delta P \amp = 1.0 \text{cm} </mrow>
-</md>
-<!--  -->
-The perimeter is
-<me>P = 650\text{cm} \pm 1{\rm cm}</me>
-</p>
-<p>
-Because the area is found by multiplying the sides, rule <xref ref="mult" text="type-global" /> is used:
-The area of the table is calculated to be (significant digits are underlined)
-<!--  -->
-<md>
-<mrow> A \amp = (176.7 \text{cm}) \times (148.3 {\rm cm}) = \sig{2620}{4.61}{cm}^2 </mrow>
-<mrow />
-<mrow> \Delta A \amp = \left(\frac{.2\unit{cm}}{176.7 \unit{cm}} 100\%\right) + \left(\frac{0.3\unit{cm}}{148.3 \unit{cm}} 100\%\right) </mrow>
-<mrow> \Delta A \amp = (.11\%) + (.20\%) = (.31\%) </mrow>
-</md>
-<!--  -->
-Since <m>(.31\%)\times ({2620}4.61 \text{cm}^2) = 82.67 {\rm cm}^2</m>, we
-write the area in a variety of ways:
-<!--  -->
-<md>
-<mrow> A \amp = (2.620\!\times\!10^4 \text{cm}^2) \pm 0.3\% </mrow>
-<mrow>   \amp = (2.620\!\times\!10^4) \pm (0.008\!\times\!10^4) \text{cm}^2 </mrow>
-<mrow>   \amp = 2.620(8)\!\times\!10^4 \text{cm}^2 </mrow>
-</md>
-<!--  -->
-Please be aware that the reason some digits are called insignificant is that
-they are insignificant.  For example, when calculating the uncertainty above:
-<!--  -->
-<md>
-  <mrow>(.31548\%) \times (26204.61) = 82.67</mrow>
-  <mrow>(.31\%) \times (26204.61) = 81.23</mrow>
-  <mrow>(.31\%) \times (26200) = 81.22</mrow>
-  <mrow>(.3\%) \times (26204.61) = 78.61</mrow>
-  <mrow> (.3\%) \times (26200) = 78.60 </mrow>
-</md>
-<!--  -->
-But, for the uncertainty, we only need the first digit and
-all of these round to <m>80</m>cm<m>^2</m>, giving
-<me>A = (2.620\!\times\!10^4) \pm (0.008\!\times\!10^4) \text{cm}^2</me>
-</p>
-</sidebyside>
+            <p xml:id="p-random-systematic">When describing the cause of an error (difference from the theoretical value) or of an uncertainty
+            (the extent you trust a number), you can usually categorize this source of error as a random error
+            (a cause that could skew the result too large <em>or</em> too small) or as a systematic error
+            (a cause that tends to skew the result in one particular direction).
+            <dl>
+            <li><title>Random Error</title>
+                <p> An environmental circumstances, generally uncontrollable, that sometimes makes the measured result too high and
+                sometimes make it too low in an unpredictable fashion.  Random errors may have a statistical origin -- that is, they
+                are due to chance.  For example, if one hundred pennies are dumped on a table, on average we expect that fifty would
+                land heads up.  But we should not be surprised if fifty-three or forty-seven actually landed heads-up.
+                This deviation is statistical in nature because the way in which a penny lands is due to chance.
+                Random errors can sometimes be reduced by either collecting more data and averaging the readings,
+                or by using instruments with greater precision.
+                </p></li>
+            <li xml:id="li-systematic-error"><title>Systematic Error</title>
+                <p> A systematic error can be ascribed to a factor which would tend to push the result in a certain direction away
+                from the theory value.  The error would make all of the results either systematically too high or systematically to low.
+                One key idea here is that systematic errors can be eliminated or reduced if the factor causing the error can be
+                eliminated or controlled.  This is sometimes a big <q>if</q>, because not all factors can be controlled.
+                Systematic errors can be caused by instruments which are not calibrated correctly, maybe a <term>zero-point error</term>
+                (an error with the zero reading of the instrument).  This type of error can usually be found and corrected.
+                Systematic errors also often arise because the experimental setup is somehow different from that assumed in the theory.
+                If the acceleration due to gravity was measured to be <m>9.52\unitfrac{m}{s^2}</m>
+                with an experimental uncertainty (precision) of <m>0.05\unitfrac{m}{s^2}</m>,
+                rather than the textbook value of <m>9.81\unitfrac{m}{s^2}</m>,
+                then we should be concerned with why the accuracy is
+                not as good as the precision.  This is most likely to mean that there is a significant systematic error in the experiment,
+                where one of the initial assumptions may not be valid.  The textbook value does not consider the effects of the air.
+                The effects of the air may or may not be controllable, and the difference between the theory and the data may be
+                (within appropriate limits or tests) considered a correction factor for the systematic error.
+                </p></li>
+            </dl></p>
+        </subsection>
 
-</section>
+        <subsection xml:id="sss-considerations">
+        <title>Considerations for the Error Analysis</title>
+
+        <p> In order to help you get started on your  discussion of error, the following list of questions is provided.
+        It is not an exhaustive list.  You need not answer all of these questions in a single report.
+        <ol>
+        <li><p> Is the error large or small? Is it random or systematic? <ellipsis /> statistical? <ellipsis /> cumulative?
+            <ol>
+            <li><p> What accuracy (precision) was expected? Why? What accuracy (precision) was attained? If different, why? </p></li>
+            <li><p> Was the experimental technique sensitive enough? Was the effect masked by noise? </p></li>
+            </ol> </p></li>
+        <li><p> Is it possible to determine which measurements are responsible for greater percent error by checking items
+        measured and reasoning from the physical principles, the nature of the measuring instrument, and using the rules
+        for propagation of error?
+            <ol>
+            <li><p> Is the error partly attributable to the fact that the experimental set-up did not approximate the ideal
+            that was required by the physical theory closely enough? How did it fail? </p></li>
+            <li><p> If a systematic error skews high (low), then is your result too high (low)?
+            Is this a reasonable explanation?  Is the size of the skew enough to explain the result? </p></li>
+            <li><p> What can be done to improve the equipment and eliminate error? How can the influence of environmental factors be diminished?
+            Why is this so? </p></li>
+            </ol> </p></li>
+        <li><p> Is the error (deviation) in the experiment reasonable? </p></li>
+        </ol></p>
+
+    <note xml:id="considerations-compare"><title>compare</title>
+        <p>Whenever you are asked to <q>compare</q> values, it is expected that you will not only compute a <percent />-error or <percent />-difference (<xref ref="s-uncertainty" text="title">as appropriate</xref>); but will also comment on if the uncertainty of the values overlap.  Recall that the uncertainty means that your measurement does not distinguish between values within that range, so if the uncertainties overlap, then the values are <q>the same to within your ability to measure them.</q></p>
+    </note>
+
+
+        </subsection>
+    </section>
+
+    <section xml:id="ss-precision">
+    <title>Finding the Precision of a Measurement</title>
+
+        <subsection xml:id="sss-single-precision">
+        <title>Uncertainty of a single measurement</title>
+
+        <p>All equipment has a finite precision.  For example, if you are stepping off the length of a room by placing one foot in front of the other and counting steps, then you are measuring in <q>shoe-lengths</q>.  You can likely estimate a half-show length or a third-of-a-shoe-length, but it might be difficult to accurately gauge smaller intervals of a shoe-length.  Conveniently for me, my size 11 shoe is <m>12 \unit{in}</m> long.  So, I can replace a shoe-length with a <q>foot</q>.  Furthermore, I could replace my measurement technique with a yard-stick (or better yet a meterstick).  Since a meter-stick has increments of millimeters on it, it is straightforward to measure the distance to the nearest millimeter.  In fact, you can probably guess the nearest half-millimeter.  The uncertainty in your shoe-measurement is about <m>4 \unit{in}</m> (or about <m>10\unit{cm} = 100 \unit{mm}</m>).  The uncertainty in the meter-stick measurement is about <m>0.5\unit{mm}</m>, significantly better than your shoe.</p>
+
+        <p>In addition, to how well the equipment can make a measurement, there is also how well you can gauge the measurement with that piece of equipment.  If you measure the length of the room using <m>12\unit{in}</m> rulers, then you will need quite a few of them.  It is possible that with so many individual rulers, you will either not measure in exactly a straight line or you might not be able to keep the rulers exactly parallel to each other.  Both of these (inappropriate but difficult to control) uses of the rulers will introduce error and, since you can't necessarily judge if you are doing this (especially since you are trying to not do so), you are introducing uncertainty.  You do not necessarily know what errors are actually happening when they are so small.  Nonetheless, you need to account for the possibility of such errors in your uncertainty.  (Recall the types of error in <xref ref="sss-mistakes" text="title" />.)  In each of the cases mentioned here, the error would necessarily increase the measurement value to a number larger than the actual value.  There are other instances (perhaps using a string to measure distance and mis-gauging the tautness of the string) where the value might be systematically small or perhaps randomly distributed.</p>
+
+        <p>To get a sense of how large the possible variations are due to this measurement uncertainty, it is advisable to always take more data.  Having more data is always better (statistically).  If you measure a quantity many times and you do not see any variation, then the precision of the instrument dominates the uncertainty; that is, your instrument is less precise than your technique.  If you measure a quantity many times and see some variation, then your measurement technique dominates the uncertainty; that is, your technique is less precise than your instrument.  Usually the actual uncertainty will be a combination of both.  For our purposes, we will consider 10-20 measurements to be <q>many</q>, and hope it is sufficient.  If you are asked to do a lab exercise on <q>Standard Deviation</q>, then you will explore what a <q>sufficient number of measurements</q> means.</p>
+
+        <p>In the next subsection (<xref ref="sss-multiple-precision" text="title" />), we will discuss how to do the statistics to account for multiple measurements.</p>
+
+        </subsection>
+
+        <subsection xml:id="sss-multiple-precision">
+        <title>Uncertainty of multiple, repeated measurements</title>
+
+        <p>Calculate or estimate the precision of a measurement by one or more of the following methods:
+        <ol>
+        <li><p> by the precision of the measuring instrument, and take into account any uncertainties that are intrinsic to the object itself; </p></li>
+        <li><p> by the range of values obtained, the minimum and/or maximum deviation <m>(d)</m>;
+            <me> d_i = \left| X_i - X_{\rm ave} \right| </me>  </p></li>
+        <li><p> by the standard deviation, which is the square root of the sum of the squares of the individual deviations <m>(d)</m>
+        divided by the number of readings <m>(N)</m> minus one;
+            <me> \sigma = \sqrt{\frac{1}{(N-1)} \sum d^2} = \sqrt{\frac{1}{(N-1)} \sum_i \left| X_i - X_{\rm ave} \right|^2} </me> </p></li>
+        <li><p> by the standard deviation of the mean, which is the standard deviation divided by the square root of the number of readings; </p></li>
+        <li><p> by the square root of the number of readings <m>(\sqrt{N})</m>, if <m>N</m> is considered large; </p></li>
+        </ol></p>
+
+        <p>If many data points were taken and plotted on a histogram, it would smooth out and approach the symmetrical graph typical
+        of the binomial distribution (Recall <url href="http://physics.thomasmore.edu/Labs/121/c-StDev.html#f-histogram">the histogram</url> in <url href="http://physics.thomasmore.edu/Labs/121/c-StDev.html">the Standard Deviation Lab of PHY121</url> <!-- see the Figure <xref ref="f-histogram" /> -->).
+        This distribution and many others in statistics may be approximated by the gaussian distribution. </p>
+
+        <p> The standard deviation, <m>\sigma</m>, can be estimated from the above graph.  It is a measure of the <q>width</q> of the distribution.
+        For the case shown, the standard deviation has the value of five.  The greater the standard deviation, the wider the distribution
+        and the less likely that an individual reading will be close to the average value.  About <m>68\%</m> of the individual readings fall
+        within one standard deviation (between 45 and 55 in this case).  About <m>96\%</m> of the readings fall within two standard deviations
+        (between 40 and 60 in this case). </p>
+
+        <p> As more and more readings are taken, the effect of the random error is gradually eliminated.
+        In the absence of systematic error, the average value of the readings should gradually approach the true value.
+        The smooth curve above was drawn assuming that there was no systematic error.
+        If there were, the graph would merely be displaced sideways.  The average value for the number would then be say 55. </p>
+
+        <p> The distribution of many average (mean) readings is also gaussian in shape.
+        Comparing this to the distribution for individual readings, it is much narrower.
+        We would expect this, since each reading on this graph is an average of individual readings and has much less random error.
+        By taking an average of readings, a considerable portion of the random error has been canceled.
+        The standard deviation for this distribution is called the standard deviation of the mean (<m>\sigma_m</m>).
+        For this distribution, <m>68\%</m> of the averages of the readings are within one standard deviation of the mean,
+        and <m>98\%</m> of the average readings fall within two standard deviations of the mean. </p>
+
+
+        <p> The standard deviation of the mean tells how close a particular <em>average</em> of several readings is likely to be
+        to an overall average when many readings are taken.  The standard deviation tells how close an <em>individual</em> reading
+        is likely to be to the average.</p>
+
+        <p>There is one case for which the standard deviation can be estimated from one reading.  In counting experiments
+        (radioactivity, for example), the distribution is a Poisson distribution.  For this distribution, the standard deviation
+        is just the square root of the average reading.  One reading can give an estimate of the average, and therefore, give an
+        estimate of-the standard deviation.</p>
+
+
+
+        </subsection>
+
+    </section>
+
+    <section xml:id="ss-propagation">
+    <title>Propagation of Uncertainties</title>
+
+    <p> The previous sections discussed the uncertainties of directly measured quantities.
+    Now we need to consider how these uncertainties affect the rest of the analysis.
+    In most experiments, the analysis or final results are obtained by adding, subtracting, multiplying, or dividing the primary data.
+    The uncertainty in the final result is therefore a combination of the errors in the primary data.
+    The way in which the error propagates from the primary data through the calculations to the final result may be summarized as follows:
+    <ol>
+    <li xml:id="add"><p> The error to be assigned to the sum or difference of two quantities is equal to the sum of their absolute errors. </p></li>
+    <li xml:id="mult"><p> Relative error is the ratio of the absolute error to the quantity itself.
+    The relative error to be assigned to the product or quotient of two quantities is the sum of their relative errors.</p></li>
+    <li><p> The relative error to be assigned to the power of a quantity is the power times the relative error of the quantity itself.</p></li>
+    </ol>
+    These rules are not arbitrary, but rather they follow directly from the nature of the mathematical operations.
+    These rules may be derived using calculus.  </p>
+
+    <exercise xml:id="ex-perimeter">
+        <title>Try Propagating the Uncertainty When Adding Numbers</title>
+        <statement>
+        <p>Compute the perimeter of a table that is measured to be
+            <m>176.7 \unit{cm} \pm 0.2 \unit{cm}</m>
+        along one side and
+            <m>148.3 \unit{cm} \pm 0.3 \unit{cm}</m>
+        along the other side.</p>
+        </statement>
+        <hint><p>To find the perimeter, add the four sides of the rectangle.  Use the values, but not the uncertainty.</p></hint>
+        <hint><p>To find the uncertainty, use <xref ref="add">Rule</xref>.</p></hint>
+        <answer><p>The perimeter is <m>P = 650\unit{cm} \pm 1\unit{cm}</m>.</p>
+        </answer>
+        <solution>
+        <p>The perimeter can be found as:
+            <md>
+            <mrow> P &amp;= (176.7 \unit{cm}) + (148.3 \unit{cm}) + (176.7 \unit{cm}) + (148.3 \unit{cm}) </mrow>
+            <mrow> P &amp;= 650.0 \unit{cm} </mrow>
+            <intertext>but we do not know the precision (appropriate number of decimals) until we compute the uncertainty, which is </intertext>
+            <mrow> \Delta P &amp;= (0.2 \unit{cm}) + (0.3 \unit{cm}) + (0.2 \unit{cm}) + (0.3 \unit{cm}) </mrow>
+            <mrow> \Delta P &amp;= 1.0 \unit{cm} </mrow>
+            </md>
+        The value of the uncertainty determines where you round the result.  Because the first digit of the uncertainty is in the
+        <q>one's place</q>, we round <em>both</em> the value and the uncertainty to that place.
+        </p>
+        <p>The perimeter is <m>P = 650\unit{cm} \pm 1\unit{cm}</m>.</p>
+        </solution>
+        </exercise>
+
+    <exercise xml:id="ex-area">
+        <title>Try Propagating the Uncertainty When Multiplying Numbers</title>
+        <statement>
+        <p>Compute the area of a table that is measured to be
+            <m>176.7 \unit{cm} \pm 0.2 \unit{cm}</m>
+        along one side and
+            <m>148.3 \unit{cm} \pm 0.3 \unit{cm}</m>
+        along the other side.</p>
+        </statement>
+        <hint><p>To find the area, multiple the length and width of the rectangle.  Use the values, but not the uncertainty.</p></hint>
+        <hint><p>Because the area of the table is calculated using multiplication, use <xref ref="mult">Rule</xref>to find the uncertainty.</p></hint>
+        <answer><p>The area is <m>A = (2.620\ten{4}) \pm (0.008\ten{4}) {\rm cm}^2</m>.</p>
+        </answer>
+        <solution>
+        <p>The area is found to be (significant digits are underlined)
+            <md>
+            <mrow> A &amp;= (176.7 {\rm cm}) \times (148.3 {\rm cm}) </mrow>
+            <mrow> A &amp;= \underline{2620}4.61 {\rm cm}^2 </mrow>
+            <intertext>The rules for <term>significant figures</term> gives a guide for the precision (appropriate number of decimals),
+            that is only an approximation.  To know with certainty, we need to compute the uncertainty, which is </intertext>
+            <mrow> \%\mbox{-uncertainty} &amp;= \left(\frac{.2{\rm cm}}{176.7 {\rm cm}} 100\%\right) +
+                                    \left(\frac{0.3{\rm cm}}{148.3 {\rm cm}} 100\%\right) </mrow>
+            <mrow> \%\mbox{-uncertainty} &amp;= (.11\%) + (.20\%) = (.31\%) </mrow>
+            </md>
+        </p>
+                <aside><title>Insignificant</title>
+                        <p>Please be aware that the reason some digits are called <term>insignificant</term> is that they are <em>insignificant</em>:
+                        <md>
+                            <mrow> (.31548\%) \times (26204.61) &amp;= 82.67 </mrow>
+                            <mrow> (.31\%) \times (26204.61) &amp;= 81.23 </mrow>
+                            <mrow> (.31\%) \times (26200) &amp;= 81.22 </mrow>
+                            <mrow> (.3\%) \times (26204.61) &amp;= 78.61 </mrow>
+                            <mrow> (.3\%) \times (26200) &amp;= 78.60 </mrow>
+                        </md>
+                        All of these round to an uncertainty of <m>80\unit{cm^2}</m>. </p>
+                </aside>
+        <p>
+        To find the uncertainty, we calculate
+            <me>(.31\%)\times (\underline{2620}4.61 {\rm cm}^2) = 81.23 {\rm cm}^2</me>
+        This tells us that we need to round at the <q>ten's place</q>.
+        We can write the area in a variety of ways:
+            <md>
+            <mrow> A &amp;= (2.620\ten{4} \unit{cm^2}) \pm 0.3\% </mrow>
+            <mrow>   &amp;= (2.620\ten{4}) \pm (0.008\ten{4}) \unit{cm^2} </mrow>
+            <mrow>   &amp;= 2.620(8)\ten{4} \unit{cm^2} </mrow>
+            </md>
+        </p>
+        </solution>
+        </exercise>
+
+    </section>
+
+    <section xml:id="ss-sigfig">
+    <title>Significant Figures only <em>approximates</em> Uncertainty</title>
+
+    <p> The precision/accuracy of any measurement or number is approximated by writing the number with a convention called using
+    <term>significant figures</term>.  Every measuring instrument can be read with only so much precision and no more.
+    For example, a meter stick can be used to measure the length of a small metal rod to one-tenth of a millimeter,
+    whereas a micrometer can be used to measure the length to one-thousandth of a millimeter.
+    When reporting these two measurements, the precision is indicated by the number of digits used to express the result.
+    You should always record your data and results using the convention of significant figures.
+    </p>
+
+    <p> To give a specific example, suppose that the rod mentioned above was <m>52.430\unit{mm}</m> long.
+    When making this measurement with the meter stick, you would count off the total number of millimeters in the
+    length of the rod and then add your best guess that the rod was four-tenths of a millimeter longer than that.
+    Using the micrometer, you would count off the hundredths of a millimeter and then add your best guess of the
+    number of thousandths of a millimeter, to complete the measurement.  How would you communicate the fact that
+    one measurement is more precise than the other?  If you wrote both quantities in the same way, you could not tell which was which.
+    </p>
+
+    <p> The rules for <term>significant figures</term>:
+    <!-- These need to be conventions, not asides -->
+    <ol>
+    <li><sidebyside><paragraphs><p>Significant figures include all certain digits plus the first of the doubtful digits.</p>
+
+    <convention><p>The reading obtained from the meter stick would be written as 52.4 mm;
+    all digits up to and including the first doubtful digit.  The reading from the micrometer would be written as 52.430 mm.
+    The first doubtful digit in the case of the meter stick is .4 mm.  The first doubtful digit in the case of the micrometer
+    is zero-thousandths of a millimeter.  Note that the number of significant figures is related to the precision of the
+    measuring instrument -- it is not an abstraction about the number.</p>
+
+    <p>Sometimes the character zero is confusing.  See <xref ref="sig-rule-zero">Rule</xref>.</p>
+    </convention>
+    </paragraphs></sidebyside>
+    </li>
+    <li xml:id="sig-rule-zero"><sidebyside><paragraphs><p>Zeros to the right of the number are significant; zeros on the left are not.</p>
+
+    <convention><p>In the example above, the reading of the micrometer was given as 52.430 mm.
+    The zero is a significant figure, it communicates the fact that the micrometer measurement is good to a thousandth of a millimeter.
+    Zeros used to the left of significant digits to position the decimal point are not significant.
+    They are not communicating the precision of the measurement.  For example, if the measurement from the meter stick were
+    written as 0.0524 meter, the zeros would not be significant digits.  Because of the units (meters instead of millimeters),
+    the decimal point had to be moved to the left.  This measurement still has only three significant figures.
+    </p></convention>
+
+    <example>
+    <statement><p>Suppose that you wished to give the meter stick measurement in terms of microns <m>(\mu)</m>
+    (1 micron = 1 millionth of a meter).   We determined that the meter stick reading has 3 sig. figs.,
+    one good way to write this  is to use scientific notation.  Write the number as <m>5.24\ten{4}\unit{microns}</m>.
+    The factor of <m>10^4</m> shows the order of magnitude, while the <m>5.24</m> retains the proper number of significant figures.
+    Study the following examples:</p>
+        <sidebyside width="75%">
+        <tabular>
+                <row><cell> <m>5.24 \unit{cm}</m> </cell><cell> 3 significant figures </cell></row>
+                <row><cell> <m>52.4 \unit{mm}</m> </cell><cell> 3 significant figures </cell></row>
+                <row><cell> <m>0.0524 \unit{m}</m> </cell><cell> 3 significant figures </cell></row>
+                <row><cell> <m>5.24\ten{4}\unit{\mu m}</m> </cell><cell> 3 significant figures </cell></row>
+                <row><cell> <m>52.430 \unit{mm}</m> </cell><cell> 5 significant figures </cell></row>
+                <row><cell> <m>0.052430 \unit{m}</m> </cell><cell> 5 significant figures </cell></row>
+                <row><cell> <m>5.2430\ten{4}\unit{\mu m}</m> </cell><cell> 5 significant figures </cell></row>
+                <row><cell> <m>52430 \unit{\mu m}</m>  </cell><cell> 4 significant figures </cell></row>
+                <row><cell> <m>52430.\unit{\mu m}</m>  </cell><cell> 5 significant figures </cell></row>
+        </tabular>
+        </sidebyside>
+    <p>Because all measurements are limited in their precision, then all results derived from these measurements are also
+    limited in their precision.  Many students get carried away with the number of digits produced by a calculator and
+    mislead the reader by reporting their results with more significant figures than their data permits.
+    Form the habit of rejecting all figures which will have no influence in the final result and report the result with only
+    the number of significant digits allowed by the data.  The following rules will help you do this successfully.
+    </p></statement></example>
+    </paragraphs></sidebyside>
+    </li>
+    <li><sidebyside><paragraphs><p>Round the number, increasing by one the last digit retained if the following digit is greater than five.</p>
+
+    <convention><p>Because the use of significant digits is meant to be an approximation to the more precise
+    use of measurement uncertainty, the convention for the rounding of the final digit is not critical and is treated a little
+    differently by different scientists.  Some round-up anything five-or-more.  Some round-down anything five-or-less.
+    Some round the five up or down based on whether the next digit is even or odd.  This third choice is intended to express that
+    we don't actually know which way to round it and letting the randomness of the next digit make the determination is like
+    flipping a coin. <alert>You should ask your instructor, which approach they prefer.</alert></p></convention>
+    </paragraphs></sidebyside></li>
+
+    <li><p>In addition and subtraction, carry the result only up to the first doubtful decimal place of any of the starting numbers.</p></li>
+
+    <li><p>In multiplication and division, retain as many significant figures in the answer as there are in the
+    starting number with the smallest number of significant figures.</p></li>
+    </ol>
+    </p>
+
+    <p>When determining or estimating the experimental uncertainty, the precision of the measuring instrument is important,
+    as shown in the above examples.  But you must also be aware of other experimental factors.  For example, a good stopwatch
+    may have a precision of 0.01 seconds.  Is this the total uncertainty of the measurement?  You must remember that our
+    physical reaction time maybe another 0.3 seconds.  This is more than 10 times larger than the precision of the timer.
+    This is very significant.   Another example is trying to measure the diameter of a fuzzy cotton ball with a micrometer.
+    Why is this not a very productive procedure?  There are major uncertainties here that are intrinsic to the object itself
+    and are unrelated to the measuring instrument.  One must use common sense when estimating these uncertainties.
+    </p>
+
+    <p>The <term>actual uncertainty</term> written in the units of the measurement, may not convey a sense of how good the precision is.
+    A better measure of the precision is given by the relative uncertainty.  This is defined as the actual uncertainty divided by
+    the measurement itself and multiplied by 100, the <term>relative uncertainty</term> does not carry any units, just a <m>\%</m>.
+    </p>
+
+    </section>
 
 </appendix>
+
+<!-- ********************************************************************************************** -->
 
 
 <!-- ********************************************************************************************** -->

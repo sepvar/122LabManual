@@ -72,7 +72,7 @@ spring-lab-manual.pdf: spring-lab-manual.tex
 
 122-p: spring-lab-manual.pdf 
 
-122: 122-h 122-l
+122: 122-h 122-p
 
 html: setup-h 122-h
 
@@ -180,6 +180,7 @@ allerr: ${MATHBOOK}/../jing-trang/build/jing.jar ${MATHBOOK}/schema/pretext.rng 
 		sort -k4  
 	@echo "*************************"
 	java -jar ${MATHBOOK}/../jing-trang/build/jing.jar ${MATHBOOK}/schema/pretext.rng src/122-Lab-Manual.ptx | \
+                grep -v `grep -n "known tag abuse 1" src/122-Lab-Manual.ptx | sed 's/:.*//g'` | \
 		sort -k4  
 
 all: setup-h 122-h setup-l 122-l images
