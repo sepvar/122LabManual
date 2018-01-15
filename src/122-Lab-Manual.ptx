@@ -227,7 +227,7 @@
     </preface>
 
     <preface xml:id="elements-spring-PDF"><title>Download the PDF here</title>
-    <p>A full PDF version of this document can be found at <url href="http://physics.thomasmore.edu/labs/122/spring-lab-manual.pdf">spring-lab-manual.pdf (691 kB)</url>.</p>
+    <p>A full PDF version of this document can be found at <url href="http://physics.thomasmore.edu/labs/122/spring-lab-manual.pdf">spring-lab-manual.pdf (719 kB)</url>.</p>
     </preface>
 
 </frontmatter>
@@ -264,7 +264,7 @@ The point of this to provide you with an opportunity to ask questions and develo
 <chapter xml:id="c-Archimedes"><title>Archimedes' Principle</title>
 
 <objectives>
-<ul><li><p>After verifying some properties of the buoyant force using Archimedes' principle, each group will predict the maximum amount of cargo (the number of pennies) that a ship (glass beaker) will hold without sinking.</p></li></ul>
+<ul><li><p>After verifying some properties of the buoyant force using Archimedes' principle, each group will predict the maximum amount of cargo (the number of pennies) that a ship (beaker) will hold without sinking.</p></li></ul>
 </objectives>
 
 <introduction>
@@ -272,7 +272,11 @@ The point of this to provide you with an opportunity to ask questions and develo
 <p>Archimedes was a Greek scientist who lived from 287-212 BCE.  As the story goes, the king thought that his crown was not pure gold and asked Archimedes to determine if this was true.   Archimedes had previously observed that a totally submerged object displaces a volume of fluid which is equal to the volume of the object, and deduced what is now called Archimedes' principle: that the buoyant force on the submerged object is equal to the weight of the displaced fluid.
 Knowing the weight and density of gold, Archimedes measured the weight of the crown and the weight and volume of the water displaced by the crown, enabling him to determine that the crown was not pure gold.</p>
 
-<p>As any swimmer who has had their head more than about 8 feet deep can tell you, the pressure exerted on the diver by the water increases as the diver swims deeper into the water.  We can express this as: the pressure within a fluid is dependent on the depth at which the object sits <m>(h)</m>, the gravitational acceleration of the earth <m>(g)</m>, and the density of the fluid <m>(\rho_f)</m>: <m>P=\rho_f gh</m>.  Because of this, the bottom surface of any object in a fluid will have more pressure on it than the top surface.  This <m>\Delta P</m> gives rise to a net upward force acting on the submerged object: the buoyant force <m>(F_B)</m>.  The magnitude of the upward force depends on the density of the fluid and the size of the object: <m>F_B=\rho_f g V_o</m>, where <m>V_o</m> is <em>the submerged portion</em> of the volume of the object.  A partially submerged object has a smaller buoyant force than a completely submerged object.  Interestingly, unless the fluid density depends on the depth of the fluid, the <m>F_B</m> is independent of the depth of the object.</p>
+<p>As any swimmer who has had their head more than about 8 feet deep can tell you, the pressure exerted on the diver by the water increases as the diver swims deeper into the water.  We can express this as: the pressure within a fluid is dependent on the depth at which the object sits <m>(h)</m>, the gravitational acceleration of the earth <m>(g)</m>, and the density of the fluid <m>(\rho_f)</m>:
+<men xml:id="eq-Prhogh">P=\rho_f gh</men>.
+Because of this, the bottom surface of any object in a fluid will have more pressure on it than the top surface.  This <m>\Delta P</m> gives rise to a net upward force acting on the submerged object: the buoyant force <m>(F_B)</m>.  The magnitude of the upward force depends on the density of the fluid and the size of the object:
+<men xml:id="eq-buoyant">F_B=\rho_f g V_o</men>,
+where <m>V_o</m> is <em>the submerged portion</em> of the volume of the object.  A partially submerged object has a smaller buoyant force than a completely submerged object.  Interestingly, unless the fluid density depends on the depth of the fluid, the <m>F_B</m> is independent of the depth of the object.</p>
 
 <p>Knowing the buoyant force will help you determine if an object will float or sink.  To determine whether an object will sink or float one should use Newton's second law to determine the direction of the net force.  Assuming the simplest case of a submerged object feeling only its weight <m>(F_g=m_og = \rho_o g V_o)</m> and the buoyant force <m>(F_B=\rho_f g V_o)</m>, if the weight of the object is greater than <m>F_B</m> then the net force on the object is down and it will sink.  If <m>F_B</m> is larger than the weight then the net force on the object is up and then it will accelerate up.  However, when an object is floating, it is in equilibrium and the object's weight is equal to <m>F_B</m>, which depends on the submerged volume.  While floating, not all of the object is submerged.</p>
 
@@ -280,110 +284,165 @@ Knowing the weight and density of gold, Archimedes measured the weight of the cr
 
 <section><title>Pre-Lab Work</title>
 
-<p><ul>
-	<li><p> Using the definitions of force as pressure times area, <m>F=PA</m>, and pressure, <m>P=\rho_f g h</m>, derive the equations for the buoyant force <m>F_B=\rho_fgV_o</m> (if totally submerged) and for the object's weight <m>F_g=\rho_o gV_o</m>, where <m>\rho_o</m>  is the object's density. </p></li>
-	<li><p> Show that although the pressure on an object does depend on depth within the fluid, the <m>\Delta P = P_\text{bottom}-P_{\rm top}</m> (and therefore <m>F_B</m>) is independent of the depth within the fluid. </p></li>
-	<li><p> Draw a force diagram for a completely submerged object:
-    <dl>
-	<li><title>case 1</title><p> object's density is greater than that of the fluid's, </p></li>
-	<li><title>case 2</title><p> object's density is less than that of the fluid's. </p></li>
-</dl> </p></li>
-	<li><p> Using Newton's Second Law show that the object in case 1 will sink, and  that the object in case 2  will accelerate up. </p></li>
-	<li><p> Draw a force diagram for a partially submerged object which is floating. </p></li>
-	<li><p> Using Newton's Second Law show that if an object has a density <m>\rho_o=.5\rho_f</m>  that only 0.5 of the object's volume is submerged. </p></li>
-	<li><p> Look up the density of water. </p></li>
-</ul>
-</p>
+<p>Please do the following exercises before coming to lab</p>
+<exercise xml:id="pre-derive-buoyant"><title>Derive <m>F_B</m></title>
+        <statement><p> Using the relationship between force and pressure and the relationship between pressure and depth, derive the equations for the buoyant force and for the object's weight. </p></statement>
+        <hint xml:id="h-FPA"><title>force and pressure</title><p><m>F=PA</m></p></hint>
+        <hint xml:id="h-Prhogh"><title>pressure and depth</title><p>Recall <xref ref="eq-Prhogh" text="type-global">Equation</xref>.</p></hint>
+        <hint xml:id="h-bouyant"><title>buoyant force</title><p>Recall <xref ref="eq-buoyant" text="type-global">Equation</xref>. Assume the object is completely submerged.</p></hint>
+        <hint xml:id="h-weight"><title>weight in terms of density</title><p>The weight, <m>F_g=m_og</m>, when written in terms of the density of the object and the volume of the object is <m>F_g=\rho_o gV_o</m>.</p></hint>
+        <solution xml:id="sol-buoyant"><title>buoyant force</title>
+                <p><md>
+                <mrow> F_B \amp = F_{bottom} - F_{top} </mrow>
+                <mrow> F_B \amp = (P_{bottom} A) - (P_{top} A)</mrow>
+                <mrow> F_B \amp = (\rho_f g h_{bottom} A) - (\rho_f g h_{top} A)</mrow>
+                <mrow> F_B \amp = \rho_f g (h_{bottom} - h_{top}) A</mrow>
+                <mrow> F_B \amp = \rho_f g (h_{object}) A</mrow>
+                <mrow> F_B \amp = \rho_f g V_{object}</mrow>
+                </md></p></solution>
+        <solution><title>weight</title>
+                <p>Since <m>\rho = m/V</m>,
+                <me> F_g = m_o g = (\rho_o V_o) g = \rho_o g V_o</me></p></solution>
+</exercise>
+
+<exercise xml:id="pre-depth"><title>Buoyant Force is depth-independent</title>
+	<statement><p>Show that although the pressure on an object does depend on depth within the fluid, the <m>\Delta P = P_\text{bottom}-P_{\rm top}</m> (and therefore <m>F_B</m>) is independent of the depth within the fluid. </p></statement>
+        <hint><p>The derivation of <m>F_B</m> in <xref ref="pre-derive-buoyant" text="type-global" /> will show this.</p></hint>
+        <solution><p>See <xref ref="sol-buoyant" text="type-global" />.</p></solution>
+</exercise>
+
+<p>Consider and compare the following three situations.</p>
+<exercise xml:id="pre-fully-more-dense"><title>Fully submerged, large density</title>
+        <statement><p>Consider a completely submerged object that has a density that is larger than the density of the fluid.<ol>
+                <li><p>Draw a free-body diagram.</p></li>
+                <li><p>Indicate which force is larger in any.</p></li>
+                <li><p>Which direction is the net force?</p></li>
+                <li><p>Does the object <q>want</q> to float or sink?</p></li></ol></p>
+        </statement>
+</exercise>
+<exercise xml:id="pre-fully-less-dense"><title>Fully submerged, small density</title>
+        <statement><p>Consider a completely submerged object that has a density that is smaller than the density of the fluid.<ol>
+                <li><p>Draw a free-body diagram.</p></li>
+                <li><p>Indicate which force is larger in any.</p></li>
+                <li><p>Which direction is the net force?</p></li>
+                <li><p>Does the object <q>want</q> to float or sink?</p></li></ol></p>
+        </statement>
+</exercise>
+<exercise xml:id="pre-partial-less-dense"><title>Partially submerged</title>
+        <statement><p>Consider an object that has a density that is smaller than the density of the fluid and is allowed to float.<ol>
+                <li><p>Draw a free-body diagram.</p></li>
+                <li><p>Indicate which force is larger in any.</p></li>
+                <li><p>Which direction is the net force?</p></li>
+                <li><p>Using Newton's Second Law show that if an object has a density <m>\rho_o=.5\rho_f</m> that only 0.5 of the object's volume is submerged.</p></li></ol></p>
+        </statement>
+</exercise>
+<p>Write a brief paragraph comparing the important differences between those three situations.</p>
+
+<exercise><title>density of water</title><statement><p> Look up the density of water. </p></statement></exercise>
 
 </section>
 
 <section><title>Procedure</title>
 
-<subsection><title>Develop Your Understanding</title>
+<activity xml:id="procedure-pressure-develop"><title>Develop Your Understanding</title>
+        <introduction>
+                <p>Do the following to prepare for the experiment.</p>
+        </introduction>
+        <task><statement><p>Select an object for which you can easily measure the volume using a caliper.</p></statement></task>
+        <task><statement><p>Measure the dimensions and calculate the volume.</p></statement>
+                <hint><p>Remember to account for the uncertainty.</p></hint>
+                <hint><p>You learned about the uncertainty of calipers in <url href="http://physics.thomasmore.edu/Labs/121/s-mm-pro.html" />, from PHY 121L.</p></hint>
+        </task>
+        <task><statement><p>Measure the mass using the scale-balance at your table.</p></statement>
+                <hint><p>Since you will be comparing this to a measurement of the apparent mass, which cannot be measured using the electronic scale, you should use the scale balance at your lab table rather than the electronic scale at the front of the room.</p></hint>
+                <hint><p>Using the same scale for both of these measurements will help to cancel out any intrinsic calibration errors.</p></hint>
+        </task>
+        <task><statement><p>Calculate the density of the object.  How does this compare to the density of water?</p></statement>
+                <hint><p>Remember to include the uncertainty!</p></hint>
+                <hint><p>Why is it relevant to compare the density of the object to the density of water?  (Recall <xref first="pre-fully-more-dense" last="pre-partial-less-dense" text="global">Exercises</xref>.)</p></hint>
+        </task>
+        <task xml:id="t-predictFB"><statement><p>Predict what buoyant force this object would have if it were completely submerged in water.  You will compare calculations based on measurements to this number in <xref ref="t-calcFB" text="type-global" />.</p></statement>
+                <hint><p>Remember to include the uncertainty!</p></hint>
+        </task>
+        <task xml:id="t-predictScale"><statement><p>Predict what a scale would read if this object were completely submerged in water.  (This is called the <q>apparent weight</q>.)  You will compare the actual measurement to this number in <xref ref="t-measureScale" text="type-global" />.</p></statement>
+                <hint><p>Remember to include the uncertainty!</p></hint>
+        </task>
+</activity>
+<activity xml:id="pressure-verify"><title>Verify Your Understanding</title>
+        <introduction>
+                <p>You should ensure that you understand these results <em>with uncertainty</em> before continuing.  If this doesn't make sense, then check your numbers, check your units, remeasure quantities that you thought you were sure of, and ask your instructor.</p>
+        </introduction>
+	<task><statement><p>Place a balance on top of a support rod so that the side with the string dangling can drop into a container of water. </p></statement></task>
+	<task><statement><p>Place an overflow container under the scale so that the string can dip into the container if the lab jack is raised or lowered. </p></statement></task>
+	<task><statement><p>Find the mass of your catch beaker.</p></statement>
+                <hint><p>The catch beaker should be a finely-marked graduated cylinder because you will be using it to measure both the volume and the mass of the fluid that overflows from the overflow container. </p></hint>
+        </task>
+	<task xml:id="t-fill"><statement><p>Place a catch beaker next to the overflow container and slowly fill the overflow container until it <em>just starts</em> dripping.  Gently tap the overflow container once.
+                <alert>Be very careful not to bump your table after this.</alert></p></statement>
+        </task>
+	<task><statement><p>As thoroughly as possible, drain and dry off your catch beaker and put it back in place.  If you cannot dry it off completely, you will not be able to accurately complete all of the necessary steps. </p></statement></task>
+	<task><statement><p>Attach your object to the string, measure the mass of the object, <m>m_o</m>, <em>in air</em> while the object dangles above the water. </p></statement></task>
+        <task xml:id="t-measureScale"><statement><p>Raise the lab jack until the object is completely submerged.  <alert>Be sure to catch all of the water that overflows from the container!</alert> The scale should now read a reduced mass, <m>m_s</m>, for the submerged object.  Record this value. Does it agree with your prediction in <xref ref="t-predictScale" text="type-global" />?</p></statement></task>
+	<task xml:id="t-calcFB"><statement><p>You now have three ways of calculating the buoyant force:  (Pay attention to which of these three is the most precise and why.)
+                        <ol>
+                               <li xml:id="i-deltam">The water (via the buoyant force) supports the difference in weights between not submerged and totally submerged.  Calculate the buoyant force, with uncertainty, as the difference in these <em>weights</em>.  Does it agree with your prediction in <xref ref="t-predictFB" text="type-global" />?</li>
+                               <li xml:id="i-V-f"><p> Measure the volume of the overflow water.  This is equal to the volume of the object submerged, <m>V_f = V_o</m>.  Calculate (with uncertainty) the buoyant force from this volume, <m>F_B = \rho_f g V_o</m>.  Does this agree with your prediction in <xref ref="t-predictFB" text="type-global" />? </p></li>
+                               <li xml:id="i-m-f"><p> Note that <m>\rho_f V_f = m_f</m>, so instead of measuring <m>V_f</m>, we can measure the mass of the overflow water.  The buoyant force can also be found from:  <m>F_B = m_f g</m>, the weight of the fluid.  Does this agree with your prediction in <xref ref="t-predictFB" text="type-global" />? </p></li>
+                        </ol> </p></statement>
+        </task>
+</activity>
 
-<p><ul>
-	<li><p> Select an object for which you can easily measure the volume using a caliper. </p></li>
-	<li><p> Measure the dimensions and calculate the volume. </p></li>
-	<li><p> Measure the mass using the triple beam balance at your table. </p></li>
-	<li><p> Calculate the density with uncertainty. </p></li>
-	<li><p> Predict (with uncertainty) what buoyant force this object would have if it were completely submerged. </p></li>
-	<li><p> Predict (with uncertainty) what a scale would read if this object were completely submerged. </p></li>
-</ul>
-</p>
+<activity><title>Consider How the Buoyant Force Changes as an Object is Submerged</title>
+        <introduction><p>For this part, you are going to repeat the previous procedure, with three modifications.  First, you won't be able to measure the volume with a caliper.  Second, based on <xref ref="t-calcFB" text="type-global" />, we now know which measurement provides the best estimate (smallest uncertainty) for the buoyant force, so you should only need to use that best technique for measuring the buoyant force.  Finally, we will consider an object in air, partially submerged, and fully submerged.</p></introduction>
+	<task><statement><p> Select a fairly large object for which you cannot easily measure the volume using a caliper.  This must fit within the overflow container without touching the sides. </p></statement></task>
+	<task><statement><p> Refill the overflow container, as <xref ref="t-fill" text="title">before</xref>, until is just starts to overflow. </p></statement></task>
+	<task><statement><p> As thoroughly as possible, dry off your catch beaker.  If you cannot dry it off, you will have to measure its mass with whatever water is in it and you will not be able to use the previous section technique <xref ref="i-V-f" text="type-global" /> because you cannot accurately measure the volume of new water. </p></statement></task>
+	<task><statement><p> Attach the object to the string hanging from the balance and find the mass in air, <m>m_o</m>. </p></statement></task>
+	<task><statement><p> <alert>You will need to do the rest of this <em>very</em> carefully.  Go slowly and do not bump the table.</alert>  Raise the lab jack until the object is about half submerged.  Catch the overflow water. </p></statement></task>
+	<task><statement><p> Measure the apparent mass of the object and the mass or volume of the overflow water, as appropriate for using the best method
+            <ul>
+        	<li><p> Calculate the buoyant force with uncertainty. </p></li>
+        	<li><p> Calculate the volume (with uncertainty) of the object that is submerged. </p></li>
+        </ul> </p></statement></task>
+	<task><statement><p> Without removing any of the water from the catch beaker, continue to submerge the object and catch the overflow water until the object is completely submerged. </p></statement></task>
+	<task><statement><p> Measure the new apparent mass of the object and the mass or volume of the overflow water, as appropriate for using the best method
+            <ul>
+        	<li><p> Calculate the buoyant force with uncertainty. </p></li>
+        	<li><p> Calculate the volume (with uncertainty) of the object that is submerged. </p></li>
+        	<li><p> Calculate the density (with uncertainty) of the object. </p></li>
+        </ul> </p></statement></task>
+</activity>
 
-</subsection>
-<subsection><title>Verify Your Understanding</title>
+<p> Once all of that has gone well and you are comfortable with your understanding of the buoyant force, you are now trained to run a <q>shipyard</q>.  Congratulations!</p>
 
-<p><ul>
-	<li><p> Place a balance on top of a support rod so that the side with the string dangling can drop into a container of water. </p></li>
-	<li><p> Find the mass of your catch beaker <mdash /> this should be a graduated cylinder because you will be using this beaker to measure both the volume and the mass of the fluid that overflows from the overflow container. </p></li>
-	<li><p> Place an overflow container under the scale so that the string can dip into the container if the lab jack is raised or lowered. </p></li>
-	<li><p> Place a catch beaker next to the overflow container and slowly fill the overflow container until it just starts dripping.  Gently tap the overflow container once.  Be very careful not to bump your table after this. </p></li>
-	<li><p> As thoroughly as possible, dry off your catch beaker and put it back in place.  If you cannot dry it off completely, you will not be able to accurately complete all of the necessary steps. </p></li>
-	<li><p> Attach your object to the string, measure the mass of the object, <m>m_o</m>, in air while the object dangles. </p></li>
-	<li><p> Raise the lab jack until the object is completely submerged.  <alert>Be sure to catch all of the water that overflows from the container!</alert> </p></li>
-	<li><p> The scale should now read a reduced mass, <m>m_s</m>, for the submerged object.  Record this value. </p></li>
-	<li><p> You now have three ways of calculating the buoyant force:  (Pay attention to which is the most precise and why.)
-    <ol>
-	<li xml:id="i-deltam"><p> The water (via the buoyant force) supports the difference in weights between not submerged and totally submerged.  Calculate the buoyant force, with uncertainty, as the difference in these <em>weights</em>.  Does it agree with your prediction? </p></li>
-	<li xml:id="i-V-f"><p> Measure the volume of the overflow water.  This is equal to the volume of the object submerged, <m>V_f = V_o</m>.  Calculate (with uncertainty) the buoyant force from this volume, <m>F_B = \rho_f g V_o</m>.  Does this agree with your prediction? </p></li>
-	<li xml:id="i-m-f"><p> Note that <m>\rho_f V_f = m_f</m>, so instead of measuring <m>V_f</m>, we can measure the mass of the overflow water.  The buoyant force can also be found from:  <m>F_B = m_f g</m>, the weight of the fluid.  Does this agree with your prediction? </p></li>
-</ol> </p></li>
-</ul>
-</p>
+<activity><title>Fill the Cargo-Hold</title>
+        <task><statement>
+                <p>You have been provided with a beaker and some pennies.  Use the information in the previous sections to predict the maximum number of pennies that can be gently placed into the beaker without allowing it to sink.  You should measure the mass of the beaker and the dimensions of the beaker.  The volume of a cylinder is <m>V=\pi r^2 h</m>.  You should also measure about 30 pennies (all at once) to find an average mass for the pennies.</p>
 
-<p>You should ensure that you understand these results <em>with uncertainty</em> before continuing.  If this doesn't make sense, then check your numbers, check your units, remeasure quantities that you thought you were sure of, and ask your instructor.</p>
-
-</subsection>
-<subsection><title>Consider How the Buoyant Force Changes as an Object is Submerged</title>
-
-<p>For this part, you are going to repeat the previous procedure, with three modifications.  First, you won't be able to measure the volume with a caliper.  Second, based on the previous procedure, we now know which measurement provides the best estimate (smallest uncertainty) for the buoyant force, so you should only need to do one of <xref ref="i-deltam" text="type-global" />, <xref ref="i-V-f" text="type-global" />, or <xref ref="i-m-f" text="type-global" /> from the previous section.  Finally, we will consider an object in air, partially submerged, and fully submerged.
-<ul>
-	<li><p> Select a fairly large object for which you cannot easily measure the volume using a caliper.  This must fit within the overflow container without touching the sides. </p></li>
-	<li><p> Refill the overflow container, as before, until is just starts to overflow. </p></li>
-	<li><p> As thoroughly as possible, dry off your catch beaker.  If you cannot dry it off, you will have to measure its mass with whatever water is in it and you will not be able to use the previous section technique <xref ref="i-V-f" text="type-global" /> because you cannot accurately measure the volume of new water. </p></li>
-	<li><p> Attach it to the string hanging from the balance and find the mass in air, <m>m_o</m>. </p></li>
-	<li><p> <alert>You will need to do the rest of this <em>very</em> carefully.  Go slowly and do not bump the table.</alert> </p></li>
-	<li><p> Raise the lab jack until the object is about half submerged.  Catch the overflow water. </p></li>
-	<li><p> Measure the apparent mass of the object and the mass or volume of the overflow water, as appropriate
-    <ul>
-	<li><p> Calculate the buoyant force with uncertainty. </p></li>
-	<li><p> Calculate the volume (with uncertainty) of the object that is submerged. </p></li>
-</ul> </p></li>
-	<li><p> Without removing any of the water from the catch beaker, continue to submerge the object and catch the overflow water until the object is completely submerged. </p></li>
-	<li><p> Measure the new apparent mass of the object and the mass or volume of the overflow water, as appropriate.
-    <ul>
-	<li><p> Calculate the buoyant force with uncertainty. </p></li>
-	<li><p> Calculate the volume (with uncertainty) of the object that is submerged. </p></li>
-	<li><p> Calculate the density (with uncertainty) of the object. </p></li>
-</ul> </p></li>
-</ul>
-</p>
-
-</subsection>
-<subsection><title>Fill the Cargo-Hold</title>
-
-<p>You have been provided with a beaker and some pennies.  Use the information in the previous sections to predict the maximum number of pennies that can be gently placed into the beaker without allowing it to sink.  You should measure the mass of the beaker and the dimensions of the beaker.  The volume of a cylinder is <m>V=\pi r^2 h</m>.  You should also measure about 30 pennies (all at once) to find an average mass for the pennies.</p>
-
-<p>After you have calculated your prediction with uncertainty, prepare the overflow canister with water and dry the catch beaker.  Invite the instructor to your table and allow the instructor to test your prediction.</p>
-
-</subsection>
+                <p>After you have calculated your prediction with uncertainty, prepare the overflow canister with water and dry the catch beaker.  Invite the instructor to your table and allow the instructor to test your prediction.</p>
+        </statement></task>
+</activity>
 
 </section>
 <exercises><title>Questions</title>
-	<exercise><statement><p> Why does an object weigh a different amount when in air and when submerged in water? </p></statement></exercise>
-	<exercise><statement><p> If the string was cut on your first object (while submerged), what would be the acceleration of the object? </p></statement></exercise>
-	<exercise><statement><p> Why is it important to make certain that no air bubbles adhere to the object during the submerged weighing procedures? </p></statement></exercise>
-	<exercise><statement><p> What would the buoyant force be for an object that was immersed in a fluid with the same density as the object? </p></statement></exercise>
-	<exercise><statement><p> A floating barge filled with coal is in a lock along the Ohio River.   If the barge accidentally dumps its load into the water, will the water level in the lock rise or fall? </p></statement></exercise>
-	<exercise><statement><p> Does the mass of displaced water depend on the mass of the totally submerged object or on the volume of the submerged object? </p></statement></exercise>
+	<exercise><statement><p> Why does an object weigh a different amount when in air and when submerged in water? </p></statement>
+                <hint><p>The answer to this question might be a useful sentence to include in your theory section.</p></hint></exercise>
+<!-- 	<exercise><statement><p> If the string was cut on your first object (while submerged), what would be the acceleration of the object? </p></statement></exercise> -->
+	<exercise><statement><p> Why is it important to make certain that no air bubbles adhere to the object during the submerged weighing procedures? </p></statement>
+                <hint><p>The answer to this question might be useful to include in your theory section.  Alternatively, if you mention this as a source of uncertainty (in the analysis), then you should also address (in the procedure) what you did to minimize the chance of this happening.</p></hint></exercise>
+	<exercise><statement><p> What would the buoyant force be for an object that was immersed in a fluid with the same density as the object? </p></statement>
+                <hint><p>The answer to this might make an interesting supplemental statement if you discuss <xref ref="pre-fully-more-dense" text="type-global" /> and <xref ref="pre-fully-less-dense" text="type-global" /> in your report.</p></hint></exercise>
+	<exercise><statement><p> A floating barge filled with coal is in a lock along the Ohio River.   If the barge accidentally dumps its load into the water, will the water level in the lock rise or fall? </p></statement>
+                <hint><p>Trying to figure out the answer to this question will help you think about the ideas relevant to this chapter in the text.  Some instructors might consider asking this question on a quiz or an exam.</p></hint></exercise>
+<!-- 	<exercise><statement><p> Does the mass of displaced water depend on the mass of the totally submerged object or on the volume of the submerged object? </p></statement></exercise>  -->
 	<exercise><statement><p> There are two identical cargo ships.  One has a cargo of 5 tons of steel and the other has a cargo of 5 tons of styrofoam.  Which ship floats lower in the water? </p></statement></exercise>
 </exercises>
 
-<conclusion><p>Last revised: Nov. 23, 2008 </p>
-    <p>A PDF version might be found at <url href="http://physics.thomasmore.edu/labs/122/Archimedes.pdf">Archimedes.pdf (123 kB)</url></p>
+<conclusion><p>Last revised: Jan 15, 2018 </p>  <!-- regrouped, clarified, minor revisions.  Added hints. -->
+    <p>A PDF version might be found at <url href="http://physics.thomasmore.edu/labs/122/Archimedes.pdf">Archimedes.pdf (141 kB)</url></p>
     <p>Copyright and license information can be found <url href="http://physics.thomasmore.edu/labs/122/general-spring-colophon.html">here</url>.</p>
 </conclusion>
+<!-- <p>Previous revisions: ((Nov 23, 2008)) Created? </p>  -->
 
 </chapter>
 
@@ -2147,7 +2206,7 @@ In this problem, you can measure <m>B</m> and <m>I</m> in order to find <m>\mu_0
 </section>
 
 <conclusion><p>Last revised: Apr 6, 2009 </p>
-    <p>A PDF version might be found at <url href="http://physics.thomasmore.edu/labs/122/Magneticdemo.pdf">Magneticdemo.pdf (173 kB)</url></p>
+    <p>A PDF version might be found at <url href="http://physics.thomasmore.edu/labs/122/Magneticdemo.pdf">Magneticdemo.pdf (172 kB)</url></p>
     <p>Copyright and license information can be found <url href="http://physics.thomasmore.edu/labs/122/general-spring-colophon.html">here</url>.</p>
 </conclusion>
 
